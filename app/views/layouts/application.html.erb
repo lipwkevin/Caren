@@ -9,6 +9,71 @@
   </head>
 
   <body>
+
+    <nav class="navbar navbar-inverse ">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button
+          type="button"
+          class="pull-left navbar-toggle collapsed"
+          data-toggle="collapse"
+          data-target="#gmptool-navbar">
+          <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+        </button>
+      </div>
+
+        <div class="navbar-collapse collapse" id="gmptool-navbar">
+          <ul class="nav navbar-nav">
+            <% if user_signed_in? %>
+              <li class='navbar-item'><%= link_to 'Home',root_path %></li>
+              <li class='navbar-item'><%= link_to 'Calendar','#' %></li>
+              <li class='navbar-item'><%= link_to 'Schedule', "#" %></li>
+              <li class='navbar-item'><%= link_to 'Account Info',"#" %></li>
+            <% end %>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li><p class="navbar-text">Hello <%= current_user.uid %></p></li>
+              <li class='navbar-item'>
+                <%= link_to 'Sign out',
+                  sessions_path,
+                  method: :delete
+                  %>
+                </li>
+            <% else %>
+              <li><%= link_to 'Sign In', new_session_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body container-fluid">
+    <% if notice || alert %>
+      <div
+        class="alert alert-<%= notice ? 'success' : 'danger'%> alert-dismissable"
+        role="alert">
+        <%= notice || alert %>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <% end %>
+
     <%= yield %>
+    <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
+  </div>
+
   </body>
+
+  <footer>
+    <div class="panel-footer footer navbar-fixed-bottom">
+    </div>
+  </footer>
+
 </html>
