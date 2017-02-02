@@ -19,6 +19,4 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: 'Goodbye'
   end
 
-  def home
-  end
 end

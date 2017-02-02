@@ -6,5 +6,5 @@ Rails.application.routes.draw do
     delete :destroy, on: :collection
   end
 
-  root 'sessions#home'
+  root 'welcome#home'
 end
