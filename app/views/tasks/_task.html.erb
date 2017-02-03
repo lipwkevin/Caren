@@ -1,0 +1,19 @@
+<tr class='task-<%= task.id %>'>
+  <td /> <%= task.name %>
+  <td /> Day <%= task.day %>
+  <td /> <%= task.time.strftime("%I:%M%p") %>
+  <td /> <%= task.remark %>
+  <td /> <%= task.category %>
+  <td>
+    <span class="glyphicon glyphicon-pencil"></span>
+  </td>
+  <td>
+    <%# link_to answer_path(ans),
+                method: :delete,
+                remote: true,
+                data: { confirm: 'are you sure?' },
+                class: "pull-right" do %>
+      <span class="glyphicon glyphicon-trash"></span>
+    <%# end %>
+  </td>
+</tr>

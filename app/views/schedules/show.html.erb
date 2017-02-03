@@ -1,0 +1,23 @@
+<h1> My Scheule </h1>
+
+<h3> Schedule Details </h3>
+<p />Delete
+<hr>
+<div class='row tasks'>
+  <table id='userList' class = 'table table-bordered table-hover'>
+    <tr>
+      <th /> Name
+      <th /> Day
+      <th /> Time
+      <th /> Remark
+      <th /> Category
+      <th /> Edit
+      <th /> Remove
+    </tr>
+    <% @schedule.tasks.each do |task| %>
+      <%= render('/tasks/task',{task:task}) %>
+    <% end %>
+  </table>
+  <hr>
+  <%= render('/tasks/form') %>
+</div>
