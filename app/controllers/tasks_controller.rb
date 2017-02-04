@@ -10,4 +10,10 @@ class TasksController < ApplicationController
       render 'schedules/show'
     end
   end
+
+  def destroy
+    task = Task.find params[:id]
+      task.destroy
+      redirect_to schedule_show_path, notice: 'task deleted!' ,status: 303
+  end
 end
