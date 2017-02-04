@@ -42,6 +42,9 @@ gem 'simple_form'
 gem 'rails_12factor', group: :production
 # gem 'bootstrap-datepicker-rails'
 
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
 gem 'faker'
 
 

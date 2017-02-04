@@ -16,4 +16,8 @@
 //= require chosen-jquery
 //= require bootstrap-sprockets
 //= require bootstrap
+//= require moment
+//= require fullcalendar
 //= require_tree .
+
+$('#calendar').fullCalendar({});
