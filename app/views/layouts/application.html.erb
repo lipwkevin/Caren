@@ -26,8 +26,8 @@
           <ul class="nav navbar-nav">
             <% if user_signed_in? %>
               <li class='navbar-item'><%= link_to 'Home',root_path %></li>
-              <li class='navbar-item'><%= link_to 'Calendar','#' %></li>
-              <li class='navbar-item'><%= link_to 'Schedule', "#" %></li>
+              <li class='navbar-item'><%= link_to 'Calendar',calendar_show_path %></li>
+              <li class='navbar-item'><%= link_to 'Schedule',schedule_show_path	 %></li>
               <li class='navbar-item'><%= link_to 'Account Info', user_show_path %></li>
             <% end %>
           </ul>
