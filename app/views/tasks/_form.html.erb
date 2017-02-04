@@ -4,7 +4,7 @@
       using the jquery_ujs library inlucded in the manifest file by
       default and it will prevent default submission for the form as well
       so it's going to use preventDefault() under the hood %>
-  <%= form_for [@schedule, @task], remote: true do |f| %>
+  <%= form_for [@schedule, @task] do |f| %>
     <div class="form-group">
       <%= f.label :name %>
       <%= f.text_field :name , class: "form-control" %>
