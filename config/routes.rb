@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create, :new,:destroy]
 
+  resources :events, only: [:create,:new,:destroy,:edit,:update]
   resources :sessions, only: [:create, :new] do
     delete :destroy, on: :collection
   end
@@ -13,4 +14,6 @@ Rails.application.routes.draw do
   root 'welcome#home'
   match 'users/' => 'users#show', :via => :get, as: :user_show
   match 'schedule/' => 'schedules#show', :via => :get, as: :schedule_show
+  match 'calendar/' => 'calendar#calendar', :via => :get, as: :calendar_show
+
 end

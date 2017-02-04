@@ -1,0 +1,30 @@
+<%= @event.errors.full_messages.join(', ') %>
+<div class="col-xs-12">
+  <%# adding the `remote: true` option makes the form submit with jQuery
+      using the jquery_ujs library inlucded in the manifest file by
+      default and it will prevent default submission for the form as well
+      so it's going to use preventDefault() under the hood %>
+  <%= form_for [@event], remote: true do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name , class: "form-control" %>
+      <%= f.label :date %>
+      <%= f.text_field :date, {class: "form-control",id:"datepicker","data-behaviour":"datepicker",value:date} %>
+      <%= f.label :time %>
+      <%= f.time_field :time, {class: "form-control",id:"timepicker","data-behaviour":"timepicker",value:"00:00"}  %>
+      <%= f.label :category %>
+      <%= f.collection_select(
+      :category, Category.all, :name, :name, {},
+      class: "form-control"
+    ) %>
+      <%= f.label :remarks %>
+      <%= f.text_area :remarks, class: "form-control" %>
+    </div>
+    <%= f.submit class: "btn btn-default" %>
+  <% end %>
+  <hr/>
+</div>
+
+<script>
+
+</script>

@@ -1,0 +1,22 @@
+<div class='calendar'>
+  <div class='date-info'>
+    <div class="input-group date" data-provide="datepicker">
+      <input type="text" class="form-control datepicker" value="<%= Date.today.strftime("%m/%d/%Y") %>">
+      <div class="input-group-addon">
+          <span class="glyphicon glyphicon-th"></span>
+      </div>
+    </div>
+    <br>
+    <button>Execute Schedule</button>
+    <button>Add</button>
+  </div>
+  <div class='schedule container'>
+    <!-- <div class='schedule-date'> -->
+      <!-- <span> Date: <p class='current-date'> <%= Date.today.strftime("%m/%d/%Y") %></p></span> -->
+    <!-- </div> -->
+    <div class='schedule-detail'>
+      <%= render 'schedule', {events:@events,date:Date.today.strftime("%m/%d/%Y")} %>
+    </div>
+  </div>
+
+</div>
