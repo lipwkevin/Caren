@@ -12,8 +12,8 @@ Rails.application.routes.draw do
     resources :tasks, only: [:create,:destroy,:edit]
   end
   root 'welcome#home'
-  match 'users/' => 'users#show', :via => :get, as: :user_show
-  match 'schedule/' => 'schedules#show', :via => :get, as: :schedule_show
-  match 'calendar/' => 'calendar#calendar', :via => :get, as: :calendar_show
+  get 'users/' => 'users#show', as: :user_show
+  get 'schedule/' => 'schedules#show', as: :schedule_show
+  get 'calendar/' => 'calendar#calendar', as: :calendar_show
 
 end

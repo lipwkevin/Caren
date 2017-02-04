@@ -8,11 +8,11 @@
     <span class="glyphicon glyphicon-pencil"></span>
   </td>
   <td>
-    <%# link_to answer_path(ans),
+    <%= link_to event_path(event),
                 method: :delete,
-                remote: true,
                 data: { confirm: 'are you sure?' },
                 class: "pull-right" do %>
       <span class="glyphicon glyphicon-trash remove-icon"></span>
+      <% end  %>
   </td>
 </tr>

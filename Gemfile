@@ -40,7 +40,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'friendly_id'
 gem 'simple_form'
 gem 'rails_12factor', group: :production
-gem 'bootstrap-datepicker-rails'
+# gem 'bootstrap-datepicker-rails'
 
 gem 'faker'
 
