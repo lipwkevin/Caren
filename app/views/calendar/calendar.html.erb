@@ -13,7 +13,7 @@
       <!-- <span> Date: <p class='current-date'> <%= Date.today.strftime("%m/%d/%Y") %></p></span> -->
     <!-- </div> -->
     <div class='schedule-detail'>
-      <%= render 'schedule', {events:@events,date:Date.today.strftime("%m/%d/%Y")} %>
+      <%= render 'schedule', {events:@events,date:@date} %>
     </div>
   </div>
 
