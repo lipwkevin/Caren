@@ -24,4 +24,13 @@ class EventsController < ApplicationController
       redirect_to root_path, alert: 'access denied'
     end
   end
+
+  def run_schedule
+    Event.create({
+      date:Date.today+1,
+      time:Time.now,
+      name:'testing',
+      category:'what'
+      })
+  end
 end
