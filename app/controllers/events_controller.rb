@@ -30,7 +30,9 @@ class EventsController < ApplicationController
       date:Date.today+1,
       time:Time.now,
       name:'testing',
-      category:'what'
+      category:'what',
+      user:current_user
       })
+    redirect_to calendar_show_path, notice: 'Schedule Added'
   end
 end

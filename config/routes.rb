@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   get 'users/' => 'users#show', as: :user_show
   get 'schedule/' => 'schedules#show', as: :schedule_show
   get 'calendar/' => 'calendar#calendar', as: :calendar_show
-  get 'calendar/run_schedule' => 'calendar#run_schedule', as: :run_schedule
+  get 'calendar/run_schedule' => 'events#run_schedule', as: :run_schedule
 end
