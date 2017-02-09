@@ -26,13 +26,10 @@ class EventsController < ApplicationController
   end
 
   def run_schedule
-    Event.create({
-      date:Date.today+1,
-      time:Time.now,
-      name:'testing',
-      category:'what',
-      user:current_user
-      })
+    events = current_user.schedules.first.tasks
+    events.each do |event|
+      Event.addEvent(event.day,event.time,event.name,event.category,event.remark,current_user)
+    end
     redirect_to calendar_show_path, notice: 'Schedule Added'
   end
 end
