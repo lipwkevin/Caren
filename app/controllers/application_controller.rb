@@ -14,4 +14,9 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def viewing_date
+    (@viewing_date ||= Date.today.to_s)
+  end
+  helper_method :viewing_date
+
 end

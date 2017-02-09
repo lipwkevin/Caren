@@ -1,7 +1,12 @@
 class CalendarController < ApplicationController
 
+  def enter_calendar
+    cookies[:date] = Date.today
+  end
+
   def calendar
-    @date = (params[:date].nil? ? Date.today.to_s : params[:date])
+    cookies[:date] = params[:date] unless params[:date].nil?
+    @date = cookies[:date]
     @events = current_user.events.where(date:@date.to_date)
     # User.getEvent(date)
   end
