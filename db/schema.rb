@@ -22,15 +22,15 @@ ActiveRecord::Schema.define(version: 20170209223959) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.boolean  "completed"
+    t.boolean  "completed",  default: false
     t.time     "time"
     t.date     "date"
     t.string   "name"
     t.string   "category"
     t.integer  "user_id"
     t.text     "remarks"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
