@@ -24,8 +24,6 @@ $('#calendar').fullCalendar({});
 
 $(function(){
   $(".calendar-menu").on('click',function(){
-    console.log("yay");
-    console.log(getTodayDate());
     document.cookie = "date="+getTodayDate();
   })
 })

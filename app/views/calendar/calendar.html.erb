@@ -2,6 +2,12 @@
   <div class='date-info'>
     <div  id='calendar'>
     </div>
+    <div class="input-group date" data-provide="datepicker">
+      <input type="text" class="form-control datepicker" value="<%= Date.today.strftime("%m/%d/%Y") %>">
+      <div class="input-group-addon">
+          <span class="glyphicon glyphicon-th"></span>
+      </div>
+    </div>
     <br>
     <div>
       <%=button_to 'Execute Schedule',run_schedule_path,class:"btn btn-default",method:"get"%>
