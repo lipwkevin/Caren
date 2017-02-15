@@ -1,8 +1,11 @@
 $(document).on("focus", ".datepicker",function(e){
+  // debugger
+  var date = $(this).val();
   $(this).datepicker({
-    format: "dd/mm/yyyy",
-    autoclose: true
-    })
+    dateFormat: "dd/mm/yy",
+    autoclose: true,
+    setDate: date
+  });
 });
 
 $(function(){
@@ -10,8 +13,10 @@ $(function(){
 
   // );
   $('.datepicker').on('change',function(){
-    debugger
     var date = $(this).val();
-
+    document.cookie = "date="+date;
+    // debugger
+    location.reload();
+    // window.location = location.href += "?date="+date;
   })
 });
