@@ -1,5 +1,10 @@
 Welcome User
 <hr>
-<h2> Today is <%= Date.today %> </h2>
-<hr>
-show todays schedule
+<div class='schedule container'>
+  <!-- <div class='schedule-date'> -->
+    <!-- <span> Date: <p class='current-date'> <%= Date.today.strftime("%m/%d/%Y") %></p></span> -->
+  <!-- </div> -->
+  <div class='schedule-detail'>
+    <%= render '/calendar/schedule', {events:@events,date:Date.today} %>
+  </div>
+</div>
