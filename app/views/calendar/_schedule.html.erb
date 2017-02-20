@@ -11,7 +11,7 @@
       <th /> Edit
       <th /> Remove
     </tr>
-    <% events.each do |event| %>
+    <% events.order(:time).each do |event| %>
       <%= render('event',{event:event}) %>
     <% end %>
   </table>
