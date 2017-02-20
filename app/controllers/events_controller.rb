@@ -15,6 +15,21 @@ class EventsController < ApplicationController
     end
   end
 
+  def edit
+    @event = Event.find params[:id]
+  end
+
+  def update
+    @event = Event.find params[:id]
+    if @event.update params.require(:event).permit([:name,:date,:time,:category,:remarks])
+      flash[:notice] = 'Question updated'
+      redirect_to calendar_show_path
+    else
+      flash.now[:alert] = 'Please see errors below!'
+      render :edit
+    end
+  end
+
   def destroy
     event = Event.find params[:id]
     if event.user==current_user

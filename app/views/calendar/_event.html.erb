@@ -5,7 +5,9 @@
   <td /> <%= event.category %>
   <td /> <input class='checkbox' type="checkbox" check-id="<%= event.id %>" checked="<%= event.completed %>">
   <td>
-    <span class="glyphicon glyphicon-pencil"></span>
+    <%= link_to edit_event_path(event.id) do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+    <% end %>
   </td>
   <td>
     <%= link_to event_path(event),
