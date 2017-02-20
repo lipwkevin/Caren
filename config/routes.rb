@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :tasks, only: [:create,:destroy,:edit]
   end
   root 'welcome#home'
+  get 'about' => 'welcome#about', as: :about
   get 'users/' => 'users#show', as: :user_show
   get 'schedule/' => 'schedules#show', as: :schedule_show
   # get 'calendar/' => 'calendar#calendar', as: :calendar_show

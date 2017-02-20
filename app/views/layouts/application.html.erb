@@ -24,12 +24,13 @@
 
         <div class="navbar-collapse collapse" id="gmptool-navbar">
           <ul class="nav navbar-nav">
+            <li class='navbar-item'><%= link_to 'Home',root_path %></li>
             <% if user_signed_in? %>
-              <li class='navbar-item'><%= link_to 'Home',root_path %></li>
               <li class='navbar-item calendar-menu'><%= link_to 'Calendar',calendar_show_path %></li>
               <li class='navbar-item'><%= link_to 'Schedule',schedule_show_path	 %></li>
               <li class='navbar-item'><%= link_to 'Account Info', user_show_path %></li>
             <% end %>
+            <li class='navbar-item'><%= link_to 'About',about_path %></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>

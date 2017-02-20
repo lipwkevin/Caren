@@ -4,4 +4,7 @@ class WelcomeController < ApplicationController
       @events = current_user.get_schedule(Date.today)
     end
   end
+
+  def about
+  end
 end
