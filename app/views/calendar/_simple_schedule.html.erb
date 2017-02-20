@@ -8,7 +8,7 @@
       <th /> Remark
       <th /> Completed
     </tr>
-    <% events.each do |event| %>
+    <% events.order(:time).each do |event| %>
       <%= render('/calendar/simple_event',{event:event}) %>
     <% end %>
   </table>

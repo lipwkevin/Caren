@@ -1,5 +1,5 @@
 <tr class='event-<%= event.id %>'>
-  <td /> <%= event.time.strftime("%I:%M%p") %>
+  <td class="med-<%= event.get_color %>" /> <%= event.time.strftime("%I:%M %p") %>
   <td /> <%= event.name %>
   <td /> <%= event.remarks %>
   <td /> <%= event.category %>
