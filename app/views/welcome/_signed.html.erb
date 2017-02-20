@@ -5,6 +5,12 @@ Welcome User
     <!-- <span> Date: <p class='current-date'> <%= Date.today.strftime("%m/%d/%Y") %></p></span> -->
   <!-- </div> -->
   <div class='schedule-detail'>
-    <%= render '/calendar/simple_schedule', {events:@events,date:"Today"} %>
+    <%= render '/calendar/simple_schedule', {events:current_user.get_schedule(Date.yesterday),date:"Yesterday"} %>
+  </div>
+  <div class='schedule-detail'>
+    <%= render '/calendar/simple_schedule', {events:current_user.get_schedule(Date.today),date:"Today"} %>
+  </div>
+  <div class='schedule-detail'>
+    <%= render '/calendar/simple_schedule', {events:current_user.get_schedule(Date.tomorrow),date:"Tomorrow"} %>
   </div>
 </div>
