@@ -7,4 +7,8 @@ class User < ApplicationRecord
   def name
     return "#{first_name} #{last_name}"
   end
+
+  def get_schedule(date)
+    return events.where(date:date.to_date)
+  end
 end
