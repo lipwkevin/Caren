@@ -5,6 +5,6 @@ Welcome User
     <!-- <span> Date: <p class='current-date'> <%= Date.today.strftime("%m/%d/%Y") %></p></span> -->
   <!-- </div> -->
   <div class='schedule-detail'>
-    <%= render '/calendar/schedule', {events:@events,date:Date.today} %>
+    <%= render '/calendar/simple_schedule', {events:@events,date:"Today"} %>
   </div>
 </div>

@@ -1,0 +1,16 @@
+<h3> Schedule for <%= date %> </h3>
+<hr>
+<div class='row events'>
+  <table class = 'table table-bordered table-hover'>
+    <tr>
+      <th /> Time
+      <th /> Name
+      <th /> Remark
+      <th /> Completed
+    </tr>
+    <% events.each do |event| %>
+      <%= render('simple_event',{event:event}) %>
+    <% end %>
+  </table>
+  <hr>
+</div>

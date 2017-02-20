@@ -1,0 +1,6 @@
+<tr class='event-<%= event.id %>'>
+  <td /> <%= event.time.strftime("%I:%M%p") %>
+  <td /> <%= event.name %>
+  <td /> <%= event.remarks %>
+  <td /> <input class='checkbox' type="checkbox" check-id="<%= event.id %>" checked="<%= event.completed %>">
+</tr>
