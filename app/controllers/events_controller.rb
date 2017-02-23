@@ -47,4 +47,10 @@ class EventsController < ApplicationController
     end
     redirect_to calendar_show_path, notice: 'Schedule Added'
   end
+
+  def check_event
+    event = Event.find params[:id]
+    event.toggle!(:completed)
+    render :json => {completed:event.completed,id:event.id} 
+  end
 end

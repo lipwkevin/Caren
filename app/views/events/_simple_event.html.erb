@@ -2,5 +2,5 @@
   <td class="med-<%= event.get_color %>"/> <%= event.time.strftime("%I:%M %p") %>
   <td /> <%= event.name %>
   <td /> <%= event.remarks %>
-  <td /> <input class='checkbox' type="checkbox" check-id="<%= event.id %>" <%= (event.completed)?"checked='true'":"" %>>
+  <td /> <input id='event-<%= event.id %>'class='checkbox' type="checkbox" check-id="<%= event.id %>" <%= (event.completed)?"checked='true'":"" %>>
 </tr>

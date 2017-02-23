@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create, :new,:destroy]
 
-  resources :events, only: [:create,:new,:destroy,:edit,:update]
+  resources :events, only: [:create,:new,:destroy,:edit,:update] do
+
+  end
+  get 'events/check/:id' => 'events#check_event', as: :check_event
   resources :sessions, only: [:create, :new] do
     delete :destroy, on: :collection
   end

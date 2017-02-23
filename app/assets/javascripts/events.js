@@ -13,3 +13,22 @@ $(document).on("focus", "[data-behaviour~='datepicker']",function(e){
 //     autoclose: true
 //     })
 // });
+
+$(function(){
+  setCheck();
+})
+function setCheck(){
+  $(".table").on("change",".checkbox",function(){
+    var id = $(this).attr("check-id");
+    $.ajax({
+        type: "GET",
+        url: `${$DOMAIN}/events/check/${id}`,
+        success: function(data){
+          $('#event-'+data.id).prop('checked',data.completed)
+        },
+        error: function(response){
+          console.log("WARNING")
+        }
+      })
+  })
+}
