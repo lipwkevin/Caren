@@ -16,6 +16,7 @@ $(document).on("focus", "[data-behaviour~='datepicker']",function(e){
 
 $(function(){
   setCheck();
+  console.log($DOMAIN);
 })
 function setCheck(){
   $(".table").on("change",".checkbox",function(){
