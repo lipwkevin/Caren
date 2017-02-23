@@ -22,7 +22,7 @@ function setCheck(){
     var id = $(this).attr("check-id");
     $.ajax({
         type: "GET",
-        url: `${$DOMAIN}/events/check/${id}`,
+        url: $DOMAIN+"/events/check/"+id,
         success: function(data){
           $('#event-'+data.id).prop('checked',data.completed)
         },
