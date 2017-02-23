@@ -3,7 +3,7 @@
   <td /> <%= event.name %>
   <td /> <%= event.remarks %>
   <td /> <%= event.category %>
-  <td /> <input class='checkbox' type="checkbox" check-id="<%= event.id %>" checked="<%= event.completed %>">
+  <td /> <input class='checkbox' type="checkbox" check-id="<%= event.id %>" <%= (event.completed)?"checked='true'":"" %>>
   <td>
     <%= link_to edit_event_path(event.id) do %>
       <span class="glyphicon glyphicon-pencil"></span>
