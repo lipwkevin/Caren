@@ -40,12 +40,15 @@ class UsersController < ApplicationController
   end
 
   def edit_password
-    @user = current_user
     render :file => '/users/password.js.erb'
   end
 
   def update_password
-    @user = current_user
-    byebug
+    if current_user.authenticate(params[:user][:password_old])
+      current_user.update(password:params[:user][:password_new],password_confirmation:params[:user][:password_new_confirmation])
+      redirect_to :user_show, notice: 'Password Changed'
+    else
+      redirect_to :user_show, alert:'Wrong Password'
+    end
   end
 end
