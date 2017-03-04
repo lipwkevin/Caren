@@ -25,9 +25,18 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
   end
 
   def update
+    user_params = params.require(:user).permit([:first_name,:last_name, :email])
+    @user = current_user
+    if @user.update user_params
+      redirect_to(:back)
+    else
+      flash.now[:alert] = 'Please see errors below!'
+      render :edit
+    end
   end
 
   def edit_password
