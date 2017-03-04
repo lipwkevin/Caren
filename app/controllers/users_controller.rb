@@ -40,9 +40,12 @@ class UsersController < ApplicationController
   end
 
   def edit_password
+    @user = current_user
     render :file => '/users/password.js.erb'
   end
 
   def update_password
+    @user = current_user
+    byebug
   end
 end

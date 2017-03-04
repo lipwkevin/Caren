@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :new]
   get 'user/' => 'users#show', as: :user_show
   get 'user/edit' => 'users#edit', as: :user_edit
-  post 'user/edit' => 'users#update', as: :user_update
-  get 'user/edit/password' => 'users#edit_password', as: :user_edit_password
-  post 'user/edit/password' => 'users#update_password', as: :user_update_password
+  post 'user/edit' => 'users#update'
+  get 'user/edit/password' => 'users#edit_password', as: :user_password
+  post 'user/edit/password' => 'users#update_password'
 
   resources :events, only: [:create,:new,:destroy,:edit,:update]
   get 'events/check/:id' => 'events#check_event', as: :check_event

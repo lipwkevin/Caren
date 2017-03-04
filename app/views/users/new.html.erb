@@ -7,8 +7,10 @@
       <%= f.input :first_name %>
       <%= f.input :last_name %>
       <%= f.input :email %>
+      <%= f.error :email, id: 'email_error' %>
       <%= f.input :password %>
       <%= f.input :password_confirmation %>
+      <%= f.full_error :token %>
       <%= f.submit "Sign Up" ,{class:'btn btn-md btn-success'}%>
       <%= link_to "Cancel", :back, {:class=>"btn btn-danger"} %>
     <% end %>
