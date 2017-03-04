@@ -42,8 +42,9 @@ class EventsController < ApplicationController
 
   def run_schedule
     events = current_user.schedules.first.tasks
+    date = cookies[:date].to_date
     events.each do |event|
-      Event.addEvent(event.day,event.time,event.name,event.category,event.remark,current_user)
+      Event.addEvent(date,event.day,event.time,event.name,event.category,event.remark,current_user)
     end
     redirect_to calendar_show_path, notice: 'Schedule Added'
   end
@@ -51,6 +52,6 @@ class EventsController < ApplicationController
   def check_event
     event = Event.find params[:id]
     event.toggle!(:completed)
-    render :json => {completed:event.completed,id:event.id} 
+    render :json => {completed:event.completed,id:event.id}
   end
 end
