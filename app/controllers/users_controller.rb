@@ -23,4 +23,17 @@ class UsersController < ApplicationController
 
   def destroy
   end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def edit_password
+    render :file => '/users/password.js.erb'
+  end
+
+  def update_password
+  end
 end

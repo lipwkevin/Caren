@@ -4,8 +4,8 @@
 <p />User ID: <%= @user.uid %>
 <p />User Email: <%= @user.email %>
 <hr>
-<p />Update Info
+<p /> <%= link_to 'Update Info', :user_edit %>
 <hr>
-<p>Change Password</p>
+<p /> <%= link_to 'Update Password', :user_edit_password, remote:true %>
 <hr>
 <p /> Delete account
