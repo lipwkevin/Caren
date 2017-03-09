@@ -1,7 +1,7 @@
 class TokensController < ApplicationController
 
   def show
-
+    render :file => '/tokens/reset_password_respond.js.erb'
   end
 
   def forget_password
@@ -10,6 +10,5 @@ class TokensController < ApplicationController
       target:params[:id],
       token:SecureRandom.hex(8)
     )
-    @link = "123"
   end
 end

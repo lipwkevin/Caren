@@ -39,10 +39,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit_password
-    render :file => '/users/password.js.erb'
-  end
-
   def update_password
     if current_user.authenticate(params[:user][:password_old])
       current_user.update(password:params[:user][:password_new],password_confirmation:params[:user][:password_new_confirmation])
