@@ -51,4 +51,9 @@ class UsersController < ApplicationController
       redirect_to :user_show, alert:'Wrong Password'
     end
   end
+
+  def reset_password
+    current_user.update(password:params[:user][:password_new],password_confirmation:params[:user][:password_new_confirmation])
+    redirect_to :root, notice: 'Password Reset'
+  end
 end

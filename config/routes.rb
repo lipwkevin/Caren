@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post 'user/edit' => 'users#update'
   get 'user/edit/password' => 'users#edit_password', as: :user_password
   post 'user/edit/password' => 'users#update_password'
+  post 'user/reset/' => 'users#reset_password', as: :reset_password
 
   resources :events, only: [:create,:new,:destroy,:edit,:update]
   get 'events/check/:id' => 'events#check_event', as: :check_event
@@ -14,6 +15,10 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :new] do
     delete :destroy, on: :collection
   end
+
+  get 'token' => 'tokens#show', as: :token
+  get 'token/forget_password' => 'tokens#forget_password', as: :forget_psasword
+
 
   resources :schedules,except:[:show], shallow:true do
     resources :tasks, only: [:create,:destroy,:edit]
@@ -24,4 +29,6 @@ Rails.application.routes.draw do
   # get 'calendar/' => 'calendar#calendar', as: :calendar_show
   get 'calendar/' => 'calendar#calendar', as: :calendar_show
   get 'calendar/run_schedule' => 'events#run_schedule', as: :run_schedule
+
+
 end
