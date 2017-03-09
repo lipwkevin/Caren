@@ -90,10 +90,14 @@ body{
     top: 5px;
 }
 
-.remove-icon{
+.remove-icon,.close-btn{
   color: red;
 }
 
 .top-layer{
   z-index: 99
+}
+
+.close{
+  margin-bottom: 0px;
 }
