@@ -11,7 +11,9 @@
     <br>
     <div>
       <%=button_to 'Execute Schedule',run_schedule_path,class:"btn btn-default",method:"get"%>
-      <%=button_to 'Add',new_event_path,class:"btn btn-default",method:"get"%>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#my-Modal">
+      Add
+      </button>
     </div>
   </div>
   <div class='schedule container'>
@@ -22,5 +24,6 @@
       <%= render 'schedule', {events:@events,date:@date} %>
     </div>
   </div>
-
 </div>
+
+<%= render "/events/form",{date:cookies[:date]}%>

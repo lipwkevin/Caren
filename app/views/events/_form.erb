@@ -1,31 +1,38 @@
-<%= @event.errors.full_messages.join(', ') %>
-<div class="col-xs-12">
-  <%# adding the `remote: true` option makes the form submit with jQuery
-      using the jquery_ujs library inlucded in the manifest file by
-      default and it will prevent default submission for the form as well
-      so it's going to use preventDefault() under the hood %>
-  <%= form_for [@event] do |f| %>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name , class: "form-control" %>
-      <%= f.label :date %>
-      <%= f.text_field :date, {class: "form-control",id:"datepicker","data-behaviour":"datepicker",value:(date)} %>
-      <%= f.label :time %>
-      <%= f.time_field :time, {class: "form-control",id:"timepicker","data-behaviour":"timepicker",value:"00:00"}  %>
-      <%= f.label :category %>
-      <%= f.collection_select(
-      :category, Category.all, :name, :name, {},
-      class: "form-control"
-    ) %>
-      <%= f.label :remarks %>
-      <%= f.text_area :remarks, class: "form-control" %>
+<!-- Modal -->
+<div class="modal fade" id="my-Modal" tabindex="-1" role="dialog" aria-labelledby="my-Model-Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title" id="my-Modal-Label">New Task</span>
+        <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <%= @event.errors.full_messages.join(', ') %>
+        <%= form_for [@event] do |f| %>
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name , class: "form-control" %>
+            <%= f.label :date %>
+            <%= f.text_field :date, {class: "form-control",id:"datepicker","data-behaviour":"datepicker",value:(date)} %>
+            <%= f.label :time %>
+            <%= f.time_field :time, {class: "form-control",id:"timepicker","data-behaviour":"timepicker",value:"00:00"}  %>
+            <%= f.label :category %>
+            <%= f.collection_select(
+            :category, Category.all, :name, :name, {},
+            class: "form-control"
+          ) %>
+            <%= f.label :remarks %>
+            <%= f.text_area :remarks, class: "form-control" %>
+          </div>
+        </div>
+      <div class="modal-footer">
+
+          <%= f.submit class: "btn btn-success" %>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <% end %>
+     </div>
     </div>
-    <%= f.submit class: "btn btn-success" %>
-    <%= link_to "Cancel", :back, {:class=>"btn btn-danger"} %>
-  <% end %>
-  <hr/>
+  </div>
 </div>
-
-<script>
-
-</script>
