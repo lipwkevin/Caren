@@ -1,6 +1,14 @@
 class TokensController < ApplicationController
 
   def show
+    key = params[:key]
+    token = Token.find_by(key:key)
+    if token.nil?
+      render :token_error
+    elsif token.event==("PASSWORD")
+      session[:user_id] = token.target
+      render :template => 'users/reset_password'
+    end
 
   end
 
