@@ -5,13 +5,19 @@ class TokensController < ApplicationController
   end
 
   def update_password
-    
+
   end
   def forget_password
+    key = nil
+    loop do
+      key = SecureRandom.hex(32)
+      break unless Token.exists?(key: key)
+    end
+
     Token.create(
       event:params[:event],
       target:params[:id],
-      token:SecureRandom.hex(8)
+      key:key
     )
   end
 end
