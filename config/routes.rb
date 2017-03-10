@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   post 'user/edit' => 'users#update'
   get 'user/edit/password' => 'users#edit_password', as: :user_password
   post 'user/edit/password' => 'users#update_password'
-  post 'user/reset/' => 'users#reset_password', as: :reset_password
+  get 'user/reset/' => 'users#reset_password', as: :reset_password
+  post 'user/reset/' => 'users#reset_password_respond'
 
   resources :events, only: [:create,:new,:destroy,:edit,:update]
   get 'events/check/:id' => 'events#check_event', as: :check_event
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
 
   get 'token' => 'tokens#show', as: :token
   get 'token/forget_password' => 'tokens#forget_password', as: :forget_psasword
+  post 'token/forget_password' => 'tokens#update_password'
 
 
   resources :schedules,except:[:show], shallow:true do

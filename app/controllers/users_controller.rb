@@ -49,7 +49,11 @@ class UsersController < ApplicationController
   end
 
   def reset_password
+
+  end
+
+  def reset_password_respond
     current_user.update(password:params[:user][:password_new],password_confirmation:params[:user][:password_new_confirmation])
-    redirect_to :root, notice: 'Password Reset'
+    # redirect_to :root, notice: 'Password Reset'
   end
 end
