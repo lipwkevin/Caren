@@ -7,7 +7,7 @@ class TokensController < ApplicationController
       render :token_error
     elsif token.event==("PASSWORD")
       session[:user_id] = token.target
-      render :template => 'users/reset_password'
+      render :template => 'users/reset_password', :locals => {key:key}
     end
 
   end

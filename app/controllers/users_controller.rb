@@ -53,7 +53,14 @@ class UsersController < ApplicationController
   end
 
   def reset_password_respond
-    current_user.update(password:params[:user][:password_new],password_confirmation:params[:user][:password_new_confirmation])
-    # redirect_to :root, notice: 'Password Reset'
+    # byebug
+    token = Token.find_by(key:params[:key])
+    user = User.find(token.target)
+    if user.email == params[:user][:email]
+      user.update(password:params[:user][:password_new],password_confirmation:params[:user][:password_new_confirmation])
+      token.destroy
+    else
+      render "reset_password_fail"
+    end
   end
 end
