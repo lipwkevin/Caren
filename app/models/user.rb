@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
 
-  has_many :schedules, dependent: :nullify
-  has_many :events, dependent: :nullify
+  has_many :schedules, dependent: :destroy
+  has_many :events, dependent: :destroy
 
   def name
     return "#{first_name} #{last_name}"

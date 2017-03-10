@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :users, only: [:create, :new]
+  delete 'user'=> 'users#destroy', as: :user_delete
   get 'user/' => 'users#show', as: :user_show
   get 'user/edit' => 'users#edit', as: :user_edit
   post 'user/edit' => 'users#update'

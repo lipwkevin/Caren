@@ -12,10 +12,12 @@
   Change Password
 </button>
 <hr>
-<p /> Delete account
-
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#account-warning">
+  Delete Account
+</button>
 
 <!-- Button trigger modal -->
 
 <%= render "update_password" %>
 <%= render "edit" %>
+<%= render 'account_warning' %>

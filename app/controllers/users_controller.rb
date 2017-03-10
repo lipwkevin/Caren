@@ -22,6 +22,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    current_user.destroy
+    session[:user_id] = nil
+    redirect_to root_path, alert: "Account deleted",status:303
   end
 
   def edit
