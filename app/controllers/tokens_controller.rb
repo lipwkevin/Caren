@@ -4,20 +4,28 @@ class TokensController < ApplicationController
 
   end
 
-  def update_password
+  def forget_password_respond
+    user = (User.find_by_uid_and_email(params[:uid],params[:email]))
+    unless user.nil?
+      key = nil
+      loop do
+        key = SecureRandom.hex(8)
+        break unless Token.exists?(key: key)
+      end
 
-  end
-  def forget_password
-    key = nil
-    loop do
-      key = SecureRandom.hex(32)
-      break unless Token.exists?(key: key)
+      Token.create(
+        event:"PASSWORD",
+        target:user.id,
+        key:key
+      )
+      @link = "#{ENV["DOMAIN"]}/token/#{key}"
+      render "forget_password_success"
+    else
+      render "forget_password_fail"
     end
 
-    Token.create(
-      event:params[:event],
-      target:params[:id],
-      key:key
-    )
+  end
+
+  def forget_password
   end
 end

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   get 'token' => 'tokens#show', as: :token
   get 'token/forget_password' => 'tokens#forget_password', as: :forget_psasword
-  post 'token/forget_password' => 'tokens#update_password'
+  post 'token/forget_password' => 'tokens#forget_password_respond'
 
 
   resources :schedules,except:[:show], shallow:true do
