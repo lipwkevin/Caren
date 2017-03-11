@@ -22,7 +22,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find params[:id]
     if @event.update params.require(:event).permit([:name,:date,:time,:category,:remarks])
-      flash[:notice] = 'Question updated'
+      flash[:notice] = 'Calendar updated'
       redirect_to calendar_show_path
     else
       flash.now[:alert] = 'Please see errors below!'

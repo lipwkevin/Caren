@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :events, only: [:create,:new,:destroy,:edit,:update]
   get 'events/check/:id' => 'events#check_event', as: :check_event
+  # patch 'events/:id(.:format)' => "events#update"
 
   resources :sessions, only: [:create, :new] do
     delete :destroy, on: :collection

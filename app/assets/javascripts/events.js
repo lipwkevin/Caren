@@ -16,7 +16,12 @@ $(document).on("focus", "[data-behaviour~='datepicker']",function(e){
 
 $(function(){
   setCheck();
-  console.log($DOMAIN);
+  // console.log($DOMAIN);
+  $(document).on("click","#edit-modal .btn-success",function(){
+    debugger
+    $(this).parent().siblings(".modal-body").children("form").trigger("submit.rails");
+    console.log("wow");
+  });
 })
 function setCheck(){
   $(".table").on("change",".checkbox",function(){

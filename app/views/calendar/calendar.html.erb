@@ -26,4 +26,7 @@
   </div>
 </div>
 
-<%= render "/events/form",{date:cookies[:date]}%>
+<%= render "/events/form",{date:cookies[:date],event:Event.new,task:'New Task',modal_name:"my-Modal"}%>
+
+<div id = "edit-event">
+</div>
