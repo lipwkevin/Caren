@@ -18,6 +18,10 @@ Rails.application.routes.draw do
     delete :destroy, on: :collection
   end
 
+  get 'auth/'  => 'callbacks#redirect', as: :sign_in_with_google
+  get 'auth/callback' => 'callbacks#google', as: :callback
+
+
   get 'token/:key' => 'tokens#show', as: :token
   get 'forget_password' => 'tokens#forget_password', as: :forget_psasword
   post 'forget_password' => 'tokens#forget_password_respond'

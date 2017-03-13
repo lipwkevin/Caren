@@ -4,6 +4,8 @@
 <p />User ID: <%= @user.uid %>
 <p />User Email: <%= @user.email %>
 <hr>
+<%= link_to  "Sign In With Google",sign_in_with_google_path,  class:"btn btn-primary"%>
+<hr>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changeInfo">
   Update Info
 </button>

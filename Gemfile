@@ -40,10 +40,11 @@ gem 'friendly_id'
 gem 'simple_form'
 gem 'rails_12factor', group: :production
 # gem 'bootstrap-datepicker-rails'
-gem 'google-api-client', '~> 0.9', require: 'google/apis/calendar_v3'
 gem 'momentjs-rails'
 gem 'faker'
 
+gem 'google-api-client', :require => 'google/api_client'
+gem "omniauth-google-oauth2"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
