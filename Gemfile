@@ -33,7 +33,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'font-awesome-rails'
 gem 'chosen-rails'
-gem 'awesome_print', :require => 'ap'
 gem 'rack-cors', '~> 0.3.1'
 gem 'cancancan'
 gem 'active_model_serializers', '~> 0.10.0'
@@ -41,10 +40,8 @@ gem 'friendly_id'
 gem 'simple_form'
 gem 'rails_12factor', group: :production
 # gem 'bootstrap-datepicker-rails'
-
-gem 'fullcalendar-rails'
+gem 'google-api-client', '~> 0.9', require: 'google/apis/calendar_v3'
 gem 'momentjs-rails'
-
 gem 'faker'
 
 
