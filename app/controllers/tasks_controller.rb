@@ -1,4 +1,7 @@
 class TasksController < ApplicationController
+
+  before_action :authenticate_user
+  
   def create
     task_params = params.require(:task).permit(:name,:day,:time,:category,:remark)
     @schedule = Schedule.find params[:schedule_id]

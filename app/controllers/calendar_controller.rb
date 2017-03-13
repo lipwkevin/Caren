@@ -1,5 +1,7 @@
 class CalendarController < ApplicationController
 
+  before_action :authenticate_user
+  
   def enter_calendar
     cookies[:date] = Date.today
   end
