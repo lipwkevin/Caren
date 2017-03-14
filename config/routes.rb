@@ -27,8 +27,8 @@ Rails.application.routes.draw do
   post 'forget_password' => 'tokens#forget_password_respond'
 
 
+  resources :tasks, only: [:create,:destroy,:edit,:update]
   resources :schedules,except:[:show], shallow:true do
-    resources :tasks, only: [:create,:destroy,:edit]
   end
   root 'welcome#home'
   get 'about' => 'welcome#about', as: :about

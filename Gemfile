@@ -43,7 +43,7 @@ gem 'rails_12factor', group: :production
 gem 'momentjs-rails'
 gem 'faker'
 
-gem 'google-api-client', :require => 'google/api_client'
+gem 'google-api-client'
 gem "omniauth-google-oauth2"
 
 group :development, :test do

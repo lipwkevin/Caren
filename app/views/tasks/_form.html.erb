@@ -1,20 +1,16 @@
 <!-- Modal -->
-<div class="modal fade" id="my-Modal" tabindex="-1" role="dialog" aria-labelledby="my-Model-Label" aria-hidden="true">
+<div class="modal fade" id="<%= modal_name %>" tabindex="-1" role="dialog" aria-labelledby="my-Model-Label" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <span class="modal-title" id="my-Modal-Label">New Task</span>
+        <span class="modal-title" id="my-Modal-Label"><%= title %></span>
         <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <%= @task.errors.full_messages.join(', ') %>
-          <%= form_for [@schedule, @task] do |f| %>
-          <%# adding the `remote: true` option makes the form submit with jQuery
-              using the jquery_ujs library inlucded in the manifest file by
-              default and it will prevent default submission for the form as well
-              so it's going to use preventDefault() under the hood %>
+          <%= form_for task do |f| %>
             <div class="form-group">
               <%= f.label :name %>
               <%= f.text_field :name , class: "form-control" %>

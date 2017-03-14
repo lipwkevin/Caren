@@ -5,7 +5,9 @@
   <td /> <%= task.remark %>
   <td /> <%= task.category %>
   <td>
-    <span class="glyphicon glyphicon-pencil"></span>
+    <%= link_to edit_task_path(task.id),remote:true do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+    <% end %>
   </td>
   <td>
     <%= link_to task_path(task),
