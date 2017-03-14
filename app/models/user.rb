@@ -11,4 +11,11 @@ class User < ApplicationRecord
   def get_schedule(date)
     return events.where(date:date.to_date).order(:time)
   end
+
+  def get_schedule_with_filter(date,filters)
+    return events.where("category IN (?)",filters).where(date:date.to_date).order(:time)
+  end
+
+
+
 end

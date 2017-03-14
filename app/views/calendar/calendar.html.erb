@@ -10,16 +10,16 @@
     </div>
     <br>
     <div>
-      <%=button_to 'Execute Schedule',run_schedule_path,class:"btn btn-default",method:"get"%>
+      <%=link_to 'Execute Schedule',run_schedule_path,class:"btn btn-primary",method:"get"%>
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#my-Modal">
       Add
+      </button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filter">
+      Filter
       </button>
     </div>
   </div>
   <div class='schedule container'>
-    <!-- <div class='schedule-date'> -->
-      <!-- <span> Date: <p class='current-date'> <%= Date.today.strftime("%m/%d/%Y") %></p></span> -->
-    <!-- </div> -->
     <div class='schedule-detail'>
       <%= render 'schedule', {events:@events,date:@date} %>
     </div>
@@ -28,5 +28,6 @@
 
 <%= render "/events/form",{date:cookies[:date],event:Event.new,task:'New Task',modal_name:"my-Modal"}%>
 
+<%= render "filter_modal" %>
 <div id = "edit-event">
 </div>

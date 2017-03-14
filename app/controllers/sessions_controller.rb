@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by_uid params[:uid]
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
+      cookies[:filters] = Category.pluck(:name)
       redirect_to root_path, notice: 'Welcome'
     else
       flash.now[:alert] = 'Fail to log in, please try again'

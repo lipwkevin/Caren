@@ -36,6 +36,6 @@ Rails.application.routes.draw do
   # get 'calendar/' => 'calendar#calendar', as: :calendar_show
   get 'calendar/' => 'calendar#calendar', as: :calendar_show
   get 'calendar/run_schedule' => 'events#run_schedule', as: :run_schedule
-
+  post 'calendar/filtered' => 'calendar#filter', as: :calendar_filter
 
 end
