@@ -1,4 +1,4 @@
-<tr class='event-<%= event.id %>'>
+<tr class='event-<%= event.id %> <%= event.get_strike %>' >
   <td class="med-<%= event.get_color %>"/> <%= event.time.strftime("%I:%M %p") %>
   <td /> <%= event.name %>
   <td /> <%= event.remarks %>

@@ -22,4 +22,8 @@ class Event < ApplicationRecord
       return 'night'
     end
   end
+
+  def get_strike
+    return (completed)? "strikeout" : ""
+  end
 end

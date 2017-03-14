@@ -31,6 +31,7 @@ function setCheck(){
         url: $DOMAIN+"/events/check/"+id,
         success: function(data){
           $('#event-'+data.id).prop('checked',data.completed)
+          $('#event-'+data.id).parents('tr').toggleClass('strikeout')
         },
         error: function(response){
           console.log("WARNING")
