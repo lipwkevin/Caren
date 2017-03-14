@@ -2,21 +2,23 @@
   <div class='date-info'>
     <div  id='calendar'>
     </div>
-    <div class="input-group date" data-provide="datepicker">
-      <input type="text" class="form-control datepicker" value="<%= @date %>">
-      <div class="input-group-addon">
-          <span class="glyphicon glyphicon-th"></span>
+    <div class=container>
+      <div class="input-group date col-sm-8-offset-4" data-provide="datepicker">
+        <input type="text" class="form-control datepicker" value="<%= @date %>">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-th"></span>
+        </div>
       </div>
-    </div>
-    <br>
-    <div>
-      <%=link_to 'Execute Schedule',run_schedule_path,class:"btn btn-primary",method:"get"%>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#my-Modal">
-      Add
-      </button>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filter">
-      Filter
-      </button>
+      <br>
+      <div class='col-sm-8-offset-4'>
+        <%=link_to 'Execute Schedule',run_schedule_path,class:"btn btn-primary",method:"get"%>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#my-Modal">
+          Add
+        </button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filter">
+          Filter
+        </button>
+      </div>
     </div>
   </div>
   <div class='schedule container'>
