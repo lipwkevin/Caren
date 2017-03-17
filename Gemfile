@@ -43,8 +43,8 @@ gem 'rails_12factor', group: :production
 gem 'momentjs-rails'
 gem 'faker'
 
-gem 'google-api-client'
 gem "omniauth-google-oauth2"
+gem 'google-api-client', '0.9.1', require: ['google/apis/calendar_v3', 'google/apis/plus_v1']
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   get 'auth/'  => 'callbacks#redirect', as: :sign_in_with_google
   get 'auth/callback' => 'callbacks#google', as: :callback
+  get 'auth/redirect'  => 'callbacks#redirect'
 
 
   get 'token/:key' => 'tokens#show', as: :token
