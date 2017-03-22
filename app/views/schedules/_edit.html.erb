@@ -9,7 +9,7 @@
         </button>
       </div>
       <div class="modal-body">
-          <%= form_for @schedule do |f| %>
+          <%= form_for @schedule,remote:true do |f| %>
             <div class="form-group">
               <%= f.label :duration %>
               <%= f.number_field :duration , class: "form-control" %>
