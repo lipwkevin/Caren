@@ -38,8 +38,8 @@ class TasksController < ApplicationController
     end
   end
   def destroy
-    task = Task.find params[:id]
-      task.destroy
-      redirect_to schedule_show_path, notice: 'task deleted!' ,status: 303
+    @task = Task.find params[:id]
+    @task.destroy
+    flash.now[:alert]  = 'task deleted!'
   end
 end

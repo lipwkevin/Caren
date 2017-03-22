@@ -33,10 +33,10 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    event = Event.find params[:id]
-    if event.user==current_user
-      event.destroy
-      redirect_to calendar_show_path, notice: 'Event deleted!' ,status: 303
+    @event = Event.find params[:id]
+    if @event.user==current_user
+      @event.destroy
+      flash.now[:alert]  = 'task deleted!'
     else
       redirect_to root_path, alert: 'access denied'
     end

@@ -1,4 +1,4 @@
-<tr class='task-<%= task.id %>'>
+<tr id='task-<%= task.id %>'>
   <td /> <%= task.name %>
   <td /> Day <%= task.day %>
   <td class="med-<%= task.get_color %>"/> <%= task.time.strftime("%I:%M%p") %>
@@ -11,6 +11,7 @@
   </td>
   <td>
     <%= link_to task_path(task),
+                remote:true,
                 method: :delete,
                 data: { confirm: 'are you sure?' },
                 class: "pull-right" do %>

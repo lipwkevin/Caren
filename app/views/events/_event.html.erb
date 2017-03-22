@@ -1,4 +1,4 @@
-<tr class='event-<%= event.id %> <%= event.get_strike %>' >
+<tr id='event-tr-<%= event.id %>' class = '<%= event.get_strike %>' >
   <td class="med-<%= event.get_color %>" /> <%= event.time.strftime("%I:%M %p") %>
   <td /> <%= event.name %>
   <td /> <%= event.remarks %>
@@ -11,6 +11,7 @@
   </td>
   <td>
     <%= link_to event_path(event),
+                remote:true,
                 method: :delete,
                 data: { confirm: 'are you sure?' },
                 class: "pull-right" do %>
