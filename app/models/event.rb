@@ -10,6 +10,11 @@ class Event < ApplicationRecord
       remarks:remarks,
       user:user
       })
+      return({
+        date:day+offset.to_i,
+        time:time,
+        name:name
+        })
   end
 
   def get_color

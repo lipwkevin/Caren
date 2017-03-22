@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   before_action :authenticate_user
-  
+
   def new
     @event = Event.new
   end
@@ -45,8 +45,9 @@ class EventsController < ApplicationController
   def run_schedule
     events = current_user.schedules.first.tasks
     date = cookies[:date].to_date
+    event_list = [];
     events.each do |event|
-      Event.addEvent(date,event.day,event.time,event.name,event.category,event.remark,current_user)
+      event_list.push(Event.addEvent(date,event.day,event.time,event.name,event.category,event.remark,current_user))
     end
     redirect_to calendar_show_path, notice: 'Schedule Added'
   end

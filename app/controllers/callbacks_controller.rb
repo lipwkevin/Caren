@@ -1,6 +1,8 @@
 require 'google/apis/calendar_v3'
 
 class CallbacksController < ApplicationController
+  before_action :authenticate_user
+  
   def google
 
     if current_user.provider.nil?
@@ -41,10 +43,11 @@ class CallbacksController < ApplicationController
     #   }
     # })
     # calendar.insert_event('primary', event)
-    entry = Google::Apis::CalendarV3::CalendarListEntry.new(
-     id: 'My Calendar Med'
-    )
-    calendar.insert_calendar_list(entry)
+    # entry = Google::Apis::CalendarV3::CalendarListEntry.new(
+    #  id: 'My Calendar Med'
+    # )
+    # byebug
+    # calendar.insert_calendar_list(entry)
     redirect_to root_path
   end
 
