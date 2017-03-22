@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     user_params = params.require(:user).permit([:first_name,:last_name, :email])
     @user = current_user
     if @user.update user_params
-      redirect_to(:user_show)
+      redirect_to(:user_show,notice:'Account updated!')
     else
       flash.now[:alert] = 'Please see errors below!'
       render :edit
