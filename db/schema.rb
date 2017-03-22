@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316234126) do
+ActiveRecord::Schema.define(version: 20170322213407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,34 +23,34 @@ ActiveRecord::Schema.define(version: 20170316234126) do
 
   create_table "events", force: :cascade do |t|
     t.boolean  "completed",  default: false
-    t.time     "time"
+    t.time     "time",       default: '2000-01-01 07:00:00'
     t.date     "date"
     t.string   "name"
     t.string   "category"
     t.integer  "user_id"
     t.text     "remarks"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
   create_table "schedules", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "duration"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "duration",   default: 7
     t.index ["user_id"], name: "index_schedules_on_user_id", using: :btree
   end
 
   create_table "tasks", force: :cascade do |t|
     t.integer  "day"
-    t.time     "time"
+    t.time     "time",        default: '2000-01-01 07:00:00'
     t.string   "name"
     t.string   "category"
     t.text     "remark"
     t.integer  "schedule_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.index ["schedule_id"], name: "index_tasks_on_schedule_id", using: :btree
   end
 
@@ -63,13 +63,13 @@ ActiveRecord::Schema.define(version: 20170316234126) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "first_name",      default: "Anonymous"
+    t.string   "last_name",       default: "User"
     t.string   "email"
     t.string   "password_digest"
     t.string   "uid"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "provider"
     t.string   "token"
     t.string   "calendar_email"

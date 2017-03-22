@@ -17,7 +17,7 @@
               <%= f.label :day %>
               <%= f.select :day, current_user.get_duration ,{:selected=>0}, class: "form-control" %>
               <%= f.label :time %>
-              <%= f.time_field :time, class: "form-control  time-picker"  %>
+              <%= f.time_field :time,class: "form-control  bootstrap-timepicker timepicker"%>
               <%= f.label :category %>
               <%= f.collection_select(
               :category, Category.all, :name, :name, {},
