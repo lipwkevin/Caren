@@ -6,6 +6,7 @@
           <li class='form-error'><%= error %></li>
         </ul>
     <% end %>
+
     <%= form_for @user , :url => users_path, :method => :post do |f| %>
       <div class="form-group">
         <%= f.label :uid,"User ID" %>
@@ -36,5 +37,9 @@
         <%= link_to "Cancel", :back, {:class=>"btn btn-danger"} %>
       </div>
     <% end %>
+    <h4>By signing up, you agreed that all information you entered will
+      be stored on Heroku Database and all connection has encrypted
+      through SSL (provided by Heroku),the developers are not respondible
+      for any information leak</h4>
   </div>
 </div>
