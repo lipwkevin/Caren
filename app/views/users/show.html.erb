@@ -4,8 +4,11 @@
 <p />User ID: <%= @user.uid %>
 <p />User Email: <%= @user.email %>
 <hr>
-<%# link_to  "Sign In With Google",sign_in_with_google_path,  class:"btn btn-primary"%>
-<%= link_to  "Sign In With Google",'#',  class:"btn btn-primary"%>
+<% if current_user.provider.nil? %>
+  <%= link_to  "Sign In With Google","#{ENV["DOMAIN"]}/auth/google",  class:"btn btn-primary"%>
+<%else %>
+  <span class='btn btn-success'>Already Signed in with Google</span>
+<% end %>
 <br>
 <br>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changeInfo">

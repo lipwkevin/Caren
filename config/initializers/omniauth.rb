@@ -6,6 +6,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
          approval_prompt: 'force',
          access_type:"offline",
          scope: 'userinfo.email,calendar'
-
      }
 end
