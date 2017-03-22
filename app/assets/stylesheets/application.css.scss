@@ -47,6 +47,7 @@ body{
   li.navbar-item:hover,li.navbar-item >a:focus {
     background-color: #999999;
   }
+
 }
 #return-to-top {
     position: fixed;
@@ -94,11 +95,12 @@ body{
 }
 
 .top-layer{
-  z-index: 99
+  z-index: 99;
 }
 
 .close{
   margin-bottom: 0px;
+  color:red;
 }
 
 .form-error{
@@ -111,6 +113,9 @@ body{
   padding-right: 20px;
 }
 
+.logo{
+  color:lightblue !important;
+}
 footer{
   font-size: 10px;
 }
