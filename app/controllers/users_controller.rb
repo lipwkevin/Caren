@@ -38,7 +38,8 @@ class UsersController < ApplicationController
     user_params = params.require(:user).permit([:first_name,:last_name, :email])
     @user = current_user
     if @user.update user_params
-      redirect_to(:user_show,notice:'Account updated!')
+      flash.now[:notice]='Account updated!'
+      render "/layouts/display_flash.js.erb"
     else
       flash.now[:alert] = 'Please see errors below!'
       render :edit
@@ -48,10 +49,11 @@ class UsersController < ApplicationController
   def update_password
     if current_user.authenticate(params[:user][:password_old])
       current_user.update(password:params[:user][:password_new],password_confirmation:params[:user][:password_new_confirmation])
-      redirect_to :user_show, notice: 'Password Changed'
+      flash.now[:notice]='Password Updated!'
     else
-      redirect_to :user_show, alert:'Wrong Password'
+      flash.now[:alert]='Wrong Password!'
     end
+    render "/layouts/display_flash.js.erb"
   end
 
   def reset_password
