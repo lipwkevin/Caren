@@ -2,7 +2,7 @@ require 'google/apis/calendar_v3'
 
 class CallbacksController < ApplicationController
   before_action :authenticate_user
-  
+
   def google
 
     if current_user.provider.nil?
@@ -49,6 +49,10 @@ class CallbacksController < ApplicationController
     # byebug
     # calendar.insert_calendar_list(entry)
     redirect_to root_path
+  end
+
+  def failure
+    redirect_to user_show_path, alert:"Error"
   end
 
 end
