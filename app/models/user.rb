@@ -16,6 +16,11 @@ class User < ApplicationRecord
     return events.where("category IN (?)",filters).where(date:date.to_date).order(:time)
   end
 
+  def get_duration
+    ["Everyday"]+(0..(schedules.first.duration)).to_a
+  end
 
-
+  def generate_tasks(name,time,category,remark)
+    return schedules.first.generate_tasks(name,time,category,remark)
+  end
 end
