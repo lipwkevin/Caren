@@ -1,7 +1,11 @@
 <h1> My Scheule </h1>
 
 <h3> Schedule Details </h3>
-<p />Delete
+<p /> Duration: <%= @schedule.duration %>
+<br>
+<button type="button" class="btn-sm btn-primary" data-toggle="modal" data-target="#update-schedule">
+  Update
+</button>
 <hr>
 <div class='row-fluid tasks'>
   <table id='userList' class = 'table table-bordered table-hover col-12 col-sm-4-offset-2'>
@@ -23,7 +27,7 @@
   NEW
 </button>
   <%= render '/tasks/form',{title:"New Task",task:Task.new,modal_name:"new-modal"} %>
+  <%= render 'edit' %>
 </div>
-
 <div id = "edit-task">
 </div>

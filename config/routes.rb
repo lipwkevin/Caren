@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get 'auth/'  => 'callbacks#redirect', as: :sign_in_with_google
   get 'auth/callback' => 'callbacks#google', as: :callback
   get 'auth/redirect'  => 'callbacks#redirect'
-  
+
 
   get 'token/:key' => 'tokens#show', as: :token
   get 'forget_password' => 'tokens#forget_password', as: :forget_psasword
@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   root 'welcome#home'
   get 'about' => 'welcome#about', as: :about
   get 'schedule/' => 'schedules#show', as: :schedule_show
+  post 'schedule/update' => 'schedules#update', as: :schedule_update
   # get 'calendar/' => 'calendar#calendar', as: :calendar_show
   get 'calendar/' => 'calendar#calendar', as: :calendar_show
   get 'calendar/run_schedule' => 'events#run_schedule', as: :run_schedule
