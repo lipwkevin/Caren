@@ -3,6 +3,7 @@ class Schedule < ApplicationRecord
 
   has_many :tasks, dependent: :destroy
 
+  validates :duration, presence: true
 
   def generate_tasks(name,time,category,remark)
     (1..duration).each do |day|

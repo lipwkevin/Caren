@@ -2,6 +2,11 @@ class Task < ApplicationRecord
    attr_accessor :everyday
   belongs_to :schedule
 
+  validates :name, presence: true
+  validates :day, presence: true
+  validates :time, presence: true
+  validates :category, presence: true
+
   def get_color
     t = time.hour
     if (MORNING_START..NOON_START).cover? t

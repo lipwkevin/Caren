@@ -1,6 +1,11 @@
 class Event < ApplicationRecord
   belongs_to :user
 
+  validates :name, presence: true
+  validates :date, presence: true
+  validates :time, presence: true
+  validates :category, presence: true
+
   def self.addEvent(day,offset,time,name,category,remarks,user)
     Event.create({
       date:day+offset.to_i,
