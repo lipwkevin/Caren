@@ -1,0 +1,6 @@
+console.log("failed");
+console.log("<%= @user.errors.full_messages.join(', ').html_safe() %>")
+$("#changeInfo .error-message").html("")
+<% @user.errors.full_messages.each do|message| %>
+  $("#changeInfo .error-message").append("<li><%=message.html_safe() %></li>")
+<% end %>

@@ -5,7 +5,7 @@
     </div>
     <div class=container>
       <div class="input-group date col-sm-8-offset-4" data-provide="datepicker">
-        <input type="text" class="form-control datepicker" value="<%= @date %>">
+        <input type="text" class="form-control datepicker" value="<%= @date %>" readonly="true">
         <div class="input-group-addon">
             <span class="glyphicon glyphicon-th"></span>
         </div>
@@ -13,7 +13,7 @@
       <br>
       <div class='col-sm-8-offset-4'>
         <%=link_to 'Execute Schedule',run_schedule_path,class:"btn btn-primary",method:"get"%>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#my-Modal">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new-modal">
           Add
         </button>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filter">
@@ -30,7 +30,7 @@
   </div>
 </div>
 
-<%= render "/events/form",{date:cookies[:date],event:Event.new,task:'New Task',modal_name:"my-Modal"}%>
+<%= render "/events/form",{date:cookies[:date],event:Event.new,task:'New Task',modal_name:"new-modal"}%>
 
 <%= render "filter_modal" %>
 <div id = "edit-event">

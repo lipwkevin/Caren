@@ -42,7 +42,7 @@ class UsersController < ApplicationController
       render "/layouts/display_flash.js.erb"
     else
       flash.now[:alert] = 'Please see errors below!'
-      render :edit
+      render :update_failed
     end
   end
 

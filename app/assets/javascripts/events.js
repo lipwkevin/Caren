@@ -7,13 +7,6 @@ $(document).on("focus", "[data-behaviour~='datepicker']",function(e){
   });
 });
 
-// $(document).on("focus", "[data-behaviour~='timepicker']",function(e){
-//   $(this).datepicker({
-//     format: "LT",
-//     autoclose: true
-//     })
-// });
-
 $(function(){
   setCheck();
   // console.log($DOMAIN);

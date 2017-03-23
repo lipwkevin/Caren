@@ -1,0 +1,4 @@
+$("#<%= @target %> .error-message").html("")
+<% @task.errors.full_messages.each do|message| %>
+  $("#<%= @target %> .error-message").append("<li><%=message.html_safe() %></li>")
+<% end %>

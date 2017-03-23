@@ -15,7 +15,6 @@ $(function(){
   $('.datepicker').on('change',function(){
     var date = $(this).val();
     document.cookie = "date="+date;
-    // debugger
     location.reload();
     // window.location = location.href += "?date="+date;
   })

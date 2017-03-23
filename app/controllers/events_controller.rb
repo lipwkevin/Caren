@@ -17,7 +17,8 @@ class EventsController < ApplicationController
       name:@event.name}])
       redirect_to calendar_show_path, notice: 'Event Added'
     else
-      render 'schedules/show'
+      @target = "new-modal"
+      render "form_fail.js.erb"
     end
   end
 
@@ -31,8 +32,8 @@ class EventsController < ApplicationController
       flash[:notice] = 'Calendar updated'
       redirect_to calendar_show_path
     else
-      flash.now[:alert] = 'Please see errors below!'
-      render :edit
+      @target = "edit-modal"
+      render "form_fail.js.erb"
     end
   end
 

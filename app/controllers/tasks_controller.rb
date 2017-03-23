@@ -11,15 +11,15 @@ class TasksController < ApplicationController
       if @task.save
         redirect_to schedule_show_path, notice: 'Task Added'
       else
-        flash[:alert] = "Error"
-        render 'schedules/show'
+        @target = "new-modal"
+        render "form_fail.js.erb"
       end
     else
       if current_user.generate_tasks(params[:task][:name],params[:task][:time],params[:task][:category],params[:task][:remark])
         redirect_to schedule_show_path, notice: 'Tasks Added'
       else
-        flash[:alert] = "Error"
-        redirect_to schedule_show_path, alert: 'Failed to add every day tasks'
+        flash[:alert] = 'Failed to add every day tasks'
+        render "/layouts/display_flash.js.erb"
       end
     end
   end
@@ -33,8 +33,8 @@ class TasksController < ApplicationController
     if @task.update params.require(:task).permit([:name,:day,:time,:category,:remark])
       redirect_to schedule_show_path, notice: 'Schedule updated'
     else
-      flash.now[:alert] = 'Please see errors below!'
-      # render :edit
+      @target = "edit-modal"
+      render "form_fail.js.erb"
     end
   end
   def destroy

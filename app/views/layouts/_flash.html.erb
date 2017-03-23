@@ -2,7 +2,6 @@
   <div
     class="alert alert-<%= notice ? 'success' : 'danger'%> alert-dismissable"
     role="alert">
-    <%= notice || alert %>
     <button
       type="button"
       class="close"
@@ -10,5 +9,6 @@
       aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
+    <%= notice || alert %>
   </div>
 <% end %>
