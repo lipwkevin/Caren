@@ -11,7 +11,10 @@ class EventsController < ApplicationController
     @event = Event.new event_params
     @event.user = current_user
     if @event.save
-      Event.save_to_google(current_user.token,[@event])
+      Event.save_to_google(current_user.token,[{date:@event.date,
+      time:@event.time,
+      remarks:@event.remarks,
+      name:@event.name}])
       redirect_to calendar_show_path, notice: 'Event Added'
     else
       render 'schedules/show'
@@ -50,6 +53,7 @@ class EventsController < ApplicationController
     events.each do |event|
       event_list.push(Event.addEvent(date,event.day,event.time,event.name,event.category,event.remark,current_user))
     end
+    Event.save_to_google(current_user.token,event_list)
     redirect_to calendar_show_path, notice: 'Schedule Added'
   end
 

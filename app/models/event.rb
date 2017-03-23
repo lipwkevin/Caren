@@ -13,6 +13,7 @@ class Event < ApplicationRecord
       return({
         date:day+offset.to_i,
         time:time,
+        remarks:remarks,
         name:name
         })
   end
@@ -33,16 +34,15 @@ class Event < ApplicationRecord
     events.each do |event|
 
       gevent = Google::Apis::CalendarV3::Event.new({
-        'summary': event.name,
-        'description': event.remarks,
+        'summary': event[:name],
+        'description': event[:remarks],
         'start':{
-          'date_time': combine_datetime(event.date,event.time),
+          'date_time': combine_datetime(event[:date],event[:time]),
         },
         'end':{
-          'date_time': combine_datetime(event.date,event.time)+1.hour,
+          'date_time': combine_datetime(event[:date],event[:time])+1.hour,
         },
       })
-      byebug
       calendar.insert_event('primary', gevent)
     end
   end
