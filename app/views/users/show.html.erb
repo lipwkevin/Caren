@@ -4,25 +4,25 @@
 <p />User ID: <%= @user.uid %>
 <p />User Email: <%= @user.email %>
 <hr>
-<div class='row'>
+<div class='row btn-group'>
   <div class='btn-group-vertical'>
     <% if current_user.provider.nil? %>
-    <%= link_to  "Sign In With Google","#{ENV["DOMAIN"]}/auth/google",  class:"btn btn-block btn-primary"%>
+    <%= link_to  "Sign In With Google","#{ENV["DOMAIN"]}/auth/google",  class:"btn-lg btn-block btn-primary"%>
     <%else %>
-    <span class='btn btn-success btn-block'>Already Signed in with Google</span>
+    <span class='btn-lg btn-success btn-block'>Already Signed in with Google</span>
     <% end %>
     <br>
     <br>
-    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#changeInfo">
+    <button type="button" class="btn-lg btn-primary btn-block" data-toggle="modal" data-target="#changeInfo">
       Update Info
     </button>
     <br>
     <br>
-    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#changePassword">
+    <button type="button" class="btn-lg btn-primary btn-block" data-toggle="modal" data-target="#changePassword">
       Change Password
     </button>
     <hr>
-    <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#account-warning">
+    <button type="button" class="btn-lg btn-danger btn-block" data-toggle="modal" data-target="#account-warning">
       Delete Account
     </button>
   </div>

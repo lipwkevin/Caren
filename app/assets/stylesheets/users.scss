@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.btn{
-  border-radius: 5px!important;
+.btn-group{
+  margin-top: 10px;
+  .btn{    
+    border-radius: 5px!important;
+  }
 }
