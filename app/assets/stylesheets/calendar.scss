@@ -1,3 +1,14 @@
 // Place all the styles related to the calendar controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.ui-datepicker{
+  width: 60rem!important;
+  // height: 50rem!important;
+  font-size: 2rem!important;
+  // display: inline-block!important;
+  table{
+    max-width:100%;
+    max-height:100%;
+  }
+}

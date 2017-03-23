@@ -12,8 +12,13 @@ tr {
   .med-night{
     background-color: lightyellow;
   }
+  td {
+    vertical-align: middle!important;
+  }
+  .checkbox:hover{
+    z-index: 1;
+  }
 }
-
 
 tr.task-completed{
   // text-decoration:line-through
@@ -24,5 +29,6 @@ tr.strikeout td:before {
   content: " ";
   position: absolute;
   left: 0; top: 50%; width: 100%;
-  border-bottom: 3px solid #000;            
+  border-bottom: 3px solid #000;
+  z-index: 2;
 }

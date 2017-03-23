@@ -3,17 +3,17 @@
 
 <hr>
 <div class='container-fluid'>
-  <div class='row-fluid'>
-    <div class='schedule'>
-      <div class='schedule-detail col-md-4'>
-        <%= render '/calendar/simple_schedule', {events:current_user.get_schedule(Date.yesterday),date:"Yesterday"} %>
-      </div>
-      <div class='schedule-detail col-md-4 col-sm-offset-1'>
-        <%= render '/calendar/simple_schedule', {events:current_user.get_schedule(Date.today),date:"Today"} %>
-      </div>
-      <div class='schedule-detail col-md-4 col-sm-offset-1 '>
-        <%= render '/calendar/simple_schedule', {events:current_user.get_schedule(Date.tomorrow),date:"Tomorrow"} %>
+    <div class='row-fluid align-items-center'>
+      <div class="schedule">
+        <div class='schedule-detail col-lg-4 col-md-12 col-sm-12'>
+          <%= render '/calendar/simple_schedule', {events:current_user.get_schedule(Date.yesterday),date:"Yesterday"} %>
+        </div>
+        <div class='schedule-detail col-lg-4 col-md-12 col-sm-12'>
+          <%= render '/calendar/simple_schedule', {events:current_user.get_schedule(Date.today),date:"Today"} %>
+        </div>
+        <div class='schedule-detail col-lg-4 col-md-12 col-sm-12'>
+          <%= render '/calendar/simple_schedule', {events:current_user.get_schedule(Date.tomorrow),date:"Tomorrow"} %>
+        </div>
       </div>
     </div>
-  </div>
 </div>

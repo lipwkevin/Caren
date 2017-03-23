@@ -2,13 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.schedule-detail{
-  &{
-    // padding: 10%
-  }
+.schedule-full{
+  display: inline-block;
 }
+
+.schedule-detail{
+  min-width: 380px;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+}
+
 
 .schedule{
   justify-content: center;
-  display: flex;
+  // display: flex;
+}
+
+.tasks{
+  margin-left: 10%;
+  margin-right: 10%;
 }
