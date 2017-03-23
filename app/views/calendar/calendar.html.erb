@@ -11,14 +11,20 @@
         </div>
       </div>
       <br>
-      <div class='col-sm-8-offset-4'>
-        <%=link_to 'Execute Schedule',run_schedule_path,class:"btn btn-primary",method:"get"%>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new-modal">
-          Add
-        </button>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filter">
-          Filter
-        </button>
+      <div class=' btn-group-justified btn-group-lg'>
+        <div class="btn-group">
+        <%=link_to 'Execute Schedule',run_schedule_path,class:"btn btn-block btn-primary",method:"get"%>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#new-modal">
+            Add
+          </button>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#filter">
+            Filter
+          </button>
+        </div>
       </div>
     </div>
   </div>
