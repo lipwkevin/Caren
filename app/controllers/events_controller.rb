@@ -11,6 +11,7 @@ class EventsController < ApplicationController
     @event = Event.new event_params
     @event.user = current_user
     if @event.save
+      Event.save_to_google(current_user.token,[@event])
       redirect_to calendar_show_path, notice: 'Event Added'
     else
       render 'schedules/show'
