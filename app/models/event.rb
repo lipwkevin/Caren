@@ -43,9 +43,11 @@ class Event < ApplicationRecord
         'description': event[:remarks],
         'start':{
           'date_time': combine_datetime(event[:date],event[:time]),
+          'time_zone': ENV["TIME_ZONE"]
         },
         'end':{
           'date_time': combine_datetime(event[:date],event[:time])+1.hour,
+          'time_zone': ENV["TIME_ZONE"]
         },
       })
       calendar.insert_event('primary', gevent)
@@ -69,6 +71,8 @@ class Event < ApplicationRecord
 
 
   def self.combine_datetime(date,time)
-    datetime = date.to_datetime.change(hour:time.hour,min:time.min,sec:time.sec,offset:time.strftime("%Z"))
+    datetime = time.change(day:date.day,month:date.month,year:date.year)
+    # byebug
+    return datetime.to_datetime
   end
 end

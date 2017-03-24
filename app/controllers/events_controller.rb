@@ -15,7 +15,11 @@ class EventsController < ApplicationController
       time:@event.time,
       remarks:@event.remarks,
       name:@event.name}])
-      redirect_to calendar_show_path, notice: 'Event Added'
+      # redirect_to calendar_show_path, notice: 'Event Added'
+      flash[:notice]= 'Event Added'
+      respond_to do |format|
+        format.js {render inline: "location.reload();" }
+      end
     else
       @target = "new-modal"
       render "form_fail.js.erb"
