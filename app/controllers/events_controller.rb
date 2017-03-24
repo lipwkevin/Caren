@@ -11,12 +11,10 @@ class EventsController < ApplicationController
     @event = Event.new event_params
     @event.user = current_user
     if @event.save
-      unless current_user.provider.nil?
-        Event.save_to_google(current_user.token,[{date:@event.date,
-        time:@event.time,
-        remarks:@event.remarks,
-        name:@event.name}])
-      end
+      Event.save_to_google(current_user.token,[{date:@event.date,
+      time:@event.time,
+      remarks:@event.remarks,
+      name:@event.name}])
       # redirect_to calendar_show_path, notice: 'Event Added'
       flash[:notice]= 'Event Added'
       respond_to do |format|

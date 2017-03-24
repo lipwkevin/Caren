@@ -35,23 +35,26 @@ class Event < ApplicationRecord
       client.fetch_access_token!
       calendar = Google::Apis::CalendarV3::CalendarService.new
       calendar.authorization = client
-    end
-    events.each do |event|
 
-      gevent = Google::Apis::CalendarV3::Event.new({
-        'summary': event[:name],
-        'description': event[:remarks],
-        'start':{
-          'date_time': combine_datetime(event[:date],event[:time]),
-          'time_zone': ENV["TIME_ZONE"]
-        },
-        'end':{
-          'date_time': combine_datetime(event[:date],event[:time])+1.hour,
-          'time_zone': ENV["TIME_ZONE"]
-        },
-      })
-      calendar.insert_event('primary', gevent)
+      puts calendar
+      
+      events.each do |event|
+        gevent = Google::Apis::CalendarV3::Event.new({
+          'summary': event[:name],
+          'description': event[:remarks],
+          'start':{
+            'date_time': combine_datetime(event[:date],event[:time]),
+            'time_zone': ENV["TIME_ZONE"]
+          },
+          'end':{
+            'date_time': combine_datetime(event[:date],event[:time])+1.hour,
+            'time_zone': ENV["TIME_ZONE"]
+          },
+          })
+          calendar.insert_event('primary', gevent)
+        end
     end
+
   end
 
   def get_color
