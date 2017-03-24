@@ -36,8 +36,9 @@ class Event < ApplicationRecord
       calendar = Google::Apis::CalendarV3::CalendarService.new
       calendar.authorization = client
 
+      puts "LOG START"
       puts calendar
-      
+      puts "LOG END"
       events.each do |event|
         gevent = Google::Apis::CalendarV3::Event.new({
           'summary': event[:name],
