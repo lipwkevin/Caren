@@ -25,37 +25,34 @@ class Event < ApplicationRecord
 
 
   def self.save_to_google(token,events)
-    unless(token.nil?)
-      client = Signet::OAuth2::Client.new({
-        client_id: ENV["GOOGLE_CLIENT_ID"],
-        client_secret:  ENV["GOOGLE_CLIENT_SECRET"],
-        token_credential_uri: 'https://accounts.google.com/o/oauth2/token',
-        refresh_token: token
-      })
-      client.fetch_access_token!
-      calendar = Google::Apis::CalendarV3::CalendarService.new
-      calendar.authorization = client
+    client = Signet::OAuth2::Client.new({
+      client_id: ENV["GOOGLE_CLIENT_ID"],
+      client_secret:  ENV["GOOGLE_CLIENT_SECRET"],
+      token_credential_uri: 'https://accounts.google.com/o/oauth2/token',
+      refresh_token: token
+    })
+    client.fetch_access_token!
+    calendar = Google::Apis::CalendarV3::CalendarService.new
+    calendar.authorization = client
 
-      puts "LOG START"
-      puts calendar
-      puts "LOG END"
-      events.each do |event|
-        gevent = Google::Apis::CalendarV3::Event.new({
-          'summary': event[:name],
-          'description': event[:remarks],
-          'start':{
-            'date_time': combine_datetime(event[:date],event[:time]),
-            'time_zone': ENV["TIME_ZONE"]
-          },
-          'end':{
-            'date_time': combine_datetime(event[:date],event[:time])+1.hour,
-            'time_zone': ENV["TIME_ZONE"]
-          },
-          })
-          calendar.insert_event('primary', gevent)
-        end
-    end
-
+    puts "LOG START"
+    puts calendar
+    puts "LOG END"
+    events.each do |event|
+      gevent = Google::Apis::CalendarV3::Event.new({
+        'summary': event[:name],
+        'description': event[:remarks],
+        'start':{
+          'date_time': combine_datetime(event[:date],event[:time]),
+          'time_zone': ENV["TIME_ZONE"]
+        },
+        'end':{
+          'date_time': combine_datetime(event[:date],event[:time])+1.hour,
+          'time_zone': ENV["TIME_ZONE"]
+        },
+        })
+        calendar.insert_event('primary', gevent)
+      end
   end
 
   def get_color
