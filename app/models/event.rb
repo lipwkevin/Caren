@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :user
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { minimum: 3 }
   validates :date, presence: true
   validates :time, presence: true
   validates :category, presence: true

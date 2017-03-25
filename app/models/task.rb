@@ -2,7 +2,7 @@ class Task < ApplicationRecord
    attr_accessor :everyday
   belongs_to :schedule
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { minimum: 3 }
   validates :day, presence: true
   validates :time, presence: true
   validates :category, presence: true

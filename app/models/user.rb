@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_secure_password
 
   before_validation :downcase_email
-  before_validation :downcase_uid
+  # before_validation :downcase_uid
 
   has_many :schedules, dependent: :destroy
   has_many :events, dependent: :destroy
@@ -11,7 +11,8 @@ class User < ApplicationRecord
 
   validates :uid, presence: true,
                     uniqueness: { case_sensitive: false,
-                                  message: 'must be unique' }
+                                  message: 'must be unique' },
+                    length: { minimum: 3 }
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -20,7 +21,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false },
                     format: VALID_EMAIL_REGEX
 
-
+  validates :first_name, presence: true
 
 
   def name
