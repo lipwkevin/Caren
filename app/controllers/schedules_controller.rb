@@ -6,11 +6,13 @@ class SchedulesController < ApplicationController
   end
 
   def update
+    @completed=false;
     @schedule = current_user.schedules.first
     if @schedule.update params.require(:schedule).permit([:duration])
       flash.now[:notice] = "Duration Updated"
+      @completed=true;
     else
-      flash.now[:alert] =  "failed to update"
+      flash.now[:alert] =  @schedule.errors.full_messages.join("<br>")
     end
   end
 end

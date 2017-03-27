@@ -1,3 +1,5 @@
 $("#notice_banner").html('<%= j render partial: "layouts/flash" %>');
-$("#schedule-duration").html("<%= @schedule.duration %>");
+if(<%= @completed %>){
+    $("#schedule-duration").html("<%= @schedule.duration %>");
+}
 $("#update-schedule").modal("hide");
