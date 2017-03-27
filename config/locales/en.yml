@@ -23,3 +23,7 @@ en:
   hello: "Hello world"
   date:
     default: "%d/%m/%Y"
+  activerecord:
+    attributes:
+      user:
+        uid: "User ID"

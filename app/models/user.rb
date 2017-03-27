@@ -21,7 +21,13 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false },
                     format: VALID_EMAIL_REGEX
 
+  validates :password, confirmation: true,
+                       presence: true
+
   validates :first_name, presence: true
+
+  # validates :terms_of_service, acceptance: true, message: 'must be check T&A'
+
 
 
   def name
