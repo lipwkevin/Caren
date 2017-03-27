@@ -47,7 +47,10 @@ class UsersController < ApplicationController
   end
 
   def update_password
-    if current_user.authenticate(params[:user][:password_old])
+    # byebug
+    if params[:user][:password_new] != params[:user][:password_new_confirmation]
+      flash.now[:alert]='Password and password confirm does not match'
+    elsif current_user.authenticate(params[:user][:password_old])
       current_user.update(password:params[:user][:password_new],password_confirmation:params[:user][:password_new_confirmation])
       flash.now[:notice]='Password Updated!'
     else
