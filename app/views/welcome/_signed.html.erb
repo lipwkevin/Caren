@@ -5,13 +5,13 @@
 <div class='container-fluid'>
     <div class='row-fluid align-items-center'>
       <div class="schedule">
-        <div class='schedule-detail col-lg-4 col-md-12 col-sm-12'>
+        <div class='schedule-detail col-sm-12 col-md-4  col-lg-4'>
           <%= render '/calendar/simple_schedule', {events:current_user.get_schedule(Date.yesterday),date:"Yesterday"} %>
         </div>
-        <div class='schedule-detail col-lg-4 col-md-12 col-sm-12'>
+        <div class='schedule-detail col-sm-12 col-md-4  col-lg-4'>
           <%= render '/calendar/simple_schedule', {events:current_user.get_schedule(Date.today),date:"Today"} %>
         </div>
-        <div class='schedule-detail col-lg-4 col-md-12 col-sm-12'>
+        <div class='schedule-detail col-sm-12 col-md-4  col-lg-4'>
           <%= render '/calendar/simple_schedule', {events:current_user.get_schedule(Date.tomorrow),date:"Tomorrow"} %>
         </div>
       </div>
