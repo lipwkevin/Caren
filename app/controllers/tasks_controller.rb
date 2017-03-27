@@ -9,7 +9,7 @@ class TasksController < ApplicationController
       @task = Task.new task_params
       @task.schedule = @schedule
       if @task.save
-        redirect_to schedule_show_path, notice: 'Task Added'
+        redirect_to current_page_url, notice: 'Task Added'
       else
         @target = "new-modal"
         render "form_fail.js.erb"
