@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170327215225) do
+ActiveRecord::Schema.define(version: 20170327235502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20170327215225) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.integer  "day"
+    t.integer  "day",         default: 0
     t.time     "time",        default: '2000-01-01 07:00:00'
     t.string   "name"
     t.string   "category"
