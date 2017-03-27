@@ -11,7 +11,6 @@ $(function(){
   setCheck();
   // console.log($DOMAIN);
   $(document).on("click","#edit-modal .btn-success",function(){
-    debugger
     $(this).parent().siblings(".modal-body").children("form").trigger("submit.rails");
     console.log("wow");
   });

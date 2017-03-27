@@ -9,7 +9,8 @@ class TasksController < ApplicationController
       @task = Task.new task_params
       @task.schedule = @schedule
       if @task.save
-        redirect_to current_page_url, notice: 'Task Added'
+        flash[:notice]= 'Schedule Created'
+        render "form_completed.js.erb"
       else
         @target = "new-modal"
         render "form_fail.js.erb"
@@ -31,7 +32,8 @@ class TasksController < ApplicationController
   def update
     @task = Task.find params[:id]
     if @task.update params.require(:task).permit([:name,:day,:time,:category,:remark])
-      redirect_to schedule_show_path, notice: 'Schedule updated'
+      flash[:notice]= 'Schedule updated'
+      render "form_completed.js.erb"
     else
       @target = "edit-modal"
       render "form_fail.js.erb"

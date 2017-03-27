@@ -19,9 +19,7 @@ class EventsController < ApplicationController
       end
       # redirect_to calendar_show_path, notice: 'Event Added'
       flash[:notice]= 'Event Added'
-      respond_to do |format|
-        format.js {render inline: "location.reload();" }
-      end
+      render "form_completed.js.erb"
     else
       @target = "new-modal"
       render "form_fail.js.erb"
@@ -36,7 +34,7 @@ class EventsController < ApplicationController
     @event = Event.find params[:id]
     if @event.update params.require(:event).permit([:name,:date,:time,:category,:remarks])
       flash[:notice] = 'Calendar updated'
-      redirect_to calendar_show_path
+      render "form_completed.js.erb"
     else
       @target = "edit-modal"
       render "form_fail.js.erb"
