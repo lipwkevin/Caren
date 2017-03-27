@@ -3,7 +3,7 @@ class Schedule < ApplicationRecord
 
   has_many :tasks, dependent: :destroy
 
-  validates :duration, presence: true
+  validates :duration, presence: true,:numericality => { :greater_than => 0 }
   # non-negative
 
   def generate_tasks(name,time,category,remark)
