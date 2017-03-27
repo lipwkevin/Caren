@@ -22,7 +22,8 @@ class User < ApplicationRecord
                     format: VALID_EMAIL_REGEX
 
   validates :password, confirmation: true,
-                       presence: true
+                       presence: true,
+                       length: { minimum: 6 }
 
   validates :first_name, presence: true
 
