@@ -13,19 +13,19 @@
     <nav class="navbar navbar-inverse ">
     <div class="container-fluid">
       <div class="navbar-header">
+        <a class="navbar-brand logo" rel="home" href="<%= root_path %>" title="Caren: Caring for People">
+          Caren
+        </a>
         <button
           type="button"
           class="pull-left navbar-toggle collapsed"
           data-toggle="collapse"
-          data-target="#gmptool-navbar">
+          data-target="#caren-navbar">
           <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
         </button>
-        <a class="navbar-brand logo" rel="home" href="<%= root_path %>" title="Buy Sell Rent Everyting">
-          Caren
-        </a>
       </div>
 
-        <div class="navbar-collapse collapse" id="gmptool-navbar">
+        <div class="navbar-collapse collapse" id="caren-navbar">
           <ul class="nav navbar-nav">
             <li class='navbar-item'><%= link_to 'Home',root_path %></li>
             <% if user_signed_in? %>
