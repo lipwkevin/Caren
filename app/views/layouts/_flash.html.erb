@@ -11,4 +11,7 @@
     </button>
     <%= notice || alert %>
   </div>
+  <script>
+  setTimeout(function() { $(".alert").fadeTo(1000, 0).slideUp(1000); }, 5000);
+  </script>
 <% end %>
