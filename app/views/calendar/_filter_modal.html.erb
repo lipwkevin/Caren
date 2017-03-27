@@ -11,15 +11,19 @@
       <div class="modal-body">
         <%= form_tag calendar_filter_path,method: :post  do |f|  %>
           <div class="form-group">
-            <% Category.all.each do |category| %>
-              <%= label_tag category.name %>
-              <%= check_box_tag 'filters[]', category.name,cookies[:filters].include?(category.name) %>
-            <% end %>
+            <ul class='lists'>
+              <% Category.all.each do |category| %>
+                <li>
+                <%= label_tag category.name %>
+                <%= check_box_tag 'filters[]', category.name,cookies[:filters].include?(category.name) %>
+                </li>
+              <% end %>
+            </ul>
           </div>
       </div>
       <div class="modal-footer">
           <%= submit_tag "Submit",class: "btn btn-primary" %>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           <% end %>
      </div>
     </div>
