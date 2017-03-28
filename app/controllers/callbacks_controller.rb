@@ -5,17 +5,19 @@ class CallbacksController < ApplicationController
 
   def google
 
-    if current_user.provider.nil?
+    # if current_user.provider.nil? || current_user.token.nil?
       auth = request.env["omniauth.auth"]
       # need this token to work with google services
       # token = auth["credentials"]["token"]
       refresh_token = auth["credentials"]["refresh_token"]
       # expires_at = auth["credentials"]["expires_at"]
       gmail = auth["info"]["email"]
-      current_user.update(provider:auth[:provider],token:refresh_token,calendar_email:gmail)
-    end
-
-    redirect_to user_show_path
+      # current_user.update(provider:auth[:provider],
+                            # token:refresh_token,
+                            # calendar_email:gmail)
+    # end
+    render :json => auth.to_json
+    # redirect_to user_show_path
   end
 
   # def redirect
