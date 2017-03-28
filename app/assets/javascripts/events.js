@@ -10,6 +10,12 @@ $(document).on("focus", "[data-behaviour~='datepicker']",function(e){
 $(function(){
   setCheck();
   // console.log($DOMAIN);
+  var csrf_token = '<%= token_value %>';
+  $("body").bind("ajaxSend", function(elm, xhr, s){
+     if (s.type == "POST") {
+        xhr.setRequestHeader('X-CSRF-Token', csrf_token);
+     }
+  });
   $(document).on("click","#edit-modal .btn-success",function(){
     $(this).parent().siblings(".modal-body").children("form").trigger("submit.rails");
     console.log("wow");
