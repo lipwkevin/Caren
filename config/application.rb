@@ -24,8 +24,9 @@ module MyCalendar
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins "#{ENV['DOMAIN']}"
-        resource '*', headers: :any, methods: [:get]
+        origins ENV['DOMAIN'],ENV['DOMAIN'].gsub("https","http")
+        resource '*',
+          headers: :any, methods: [:get]
       end
     end
   end
