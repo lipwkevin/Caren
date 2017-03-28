@@ -13,20 +13,15 @@ class CallbacksController < ApplicationController
                             token:refresh_token,
                             calendar_email:gmail)
     end
-    # render :json => auth.to_json
     set_calendar()
     redirect_to user_show_path
   end
 
-  def redirect
-
-    # byebug
-    # redirect_to user_show_path
-  end
-
-  def failure
-    # redirect_to user_show_path, alert:"Error"
-  end
+  # def redirect
+  # end
+  #
+  # def failure
+  # end
 
   def signout_google
     token = current_user.token

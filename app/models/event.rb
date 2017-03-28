@@ -83,7 +83,6 @@ class Event < ApplicationRecord
 
   def self.combine_datetime(date,time)
     datetime = time.change(day:date.day,month:date.month,year:date.year)
-    # byebug
     return datetime.to_datetime
   end
 end
