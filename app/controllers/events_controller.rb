@@ -58,7 +58,9 @@ class EventsController < ApplicationController
     events.each do |event|
       event_list.push(Event.addEvent(date,event.day,event.time,event.name,event.category,event.remark,current_user))
     end
-    Event.save_to_google(current_user.token,event_list)
+    if(current_user.provider && current_user.token)
+      Event.save_to_google(current_user.token,event_list)
+    end
     redirect_to calendar_show_path, notice: 'Schedule Added'
   end
 
