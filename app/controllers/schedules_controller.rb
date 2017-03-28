@@ -19,7 +19,7 @@ class SchedulesController < ApplicationController
     end
   end
 
-
+  private
   def removeOutOfBoundTask
     tasks = @schedule.tasks
     tasks.each do |task|
