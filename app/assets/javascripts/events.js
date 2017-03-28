@@ -21,7 +21,6 @@ function setCheck(){
     $.ajax({
         type: "GET",
         url: $DOMAIN+"/events/check/"+id,
-        dataType: 'jsonp',
         success: function(data){
           $('#event-'+data.id).prop('checked',data.completed)
           $('#event-'+data.id).parents('tr').toggleClass('strikeout')
