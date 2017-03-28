@@ -3,8 +3,8 @@ Rails.application.config.middleware.use OmniAuth::Builder do
      {
          :name => "google",
          :callback_path => '/auth/callback',
-         approval_prompt: 'force',
          access_type:"offline",
+         approval_prompt: 'force',
          scope: 'userinfo.email,calendar'
      }
 end

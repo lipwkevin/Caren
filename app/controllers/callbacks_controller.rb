@@ -4,23 +4,20 @@ class CallbacksController < ApplicationController
   before_action :authenticate_user
 
   def google
-
-    # if current_user.provider.nil? || current_user.token.nil?
+    if current_user.provider.nil? || current_user.token.nil?
       auth = request.env["omniauth.auth"]
-      # need this token to work with google services
-      # token = auth["credentials"]["token"]
+      session[:token] = auth["credentials"]["token"]
+      expires_at = auth["credentials"]["expires_at"]
       refresh_token = auth["credentials"]["refresh_token"]
-      # expires_at = auth["credentials"]["expires_at"]
       gmail = auth["info"]["email"]
-      # current_user.update(provider:auth[:provider],
-                            # token:refresh_token,
-                            # calendar_email:gmail)
-    # end
-    render :json => auth.to_json
-    # redirect_to user_show_path
+      current_user.update(provider:auth[:provider],
+                            token:refresh_token,
+                            calendar_email:gmail)
+    end
+    redirect_to user_show_path
   end
 
-  # def redirect
+  def redirect
   #   client = Signet::OAuth2::Client.new({
   #     client_id: ENV["GOOGLE_CLIENT_ID"],
   #     client_secret:  ENV["GOOGLE_CLIENT_SECRET"],
@@ -32,10 +29,20 @@ class CallbacksController < ApplicationController
   #   calendar.authorization = client
   #
   #   redirect_to root_path
-  # end
+  end
 
   def failure
-    redirect_to user_show_path, alert:"Error"
+    # redirect_to user_show_path, alert:"Error"
+  end
+
+  def signout_google
+    token = current_user.token
+    uri = URI('https://accounts.google.com/o/oauth2/revoke')
+    params = { :token => token }
+    uri.query = URI.encode_www_form(params)
+    response = Net::HTTP.get(uri)
+    current_user.update(provider:nil,token:nil)
+    redirect_to user_show_path, alert: "Signed Out From Google"
   end
 
 end

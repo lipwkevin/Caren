@@ -21,7 +21,8 @@ Rails.application.routes.draw do
   get 'auth/'  => 'callbacks#redirect', as: :sign_in_with_google
   get 'auth/callback' => 'callbacks#google', as: :callback
   # get 'auth/redirect'  => 'callbacks#redirect'
-  get 'auth/failure' => 'callback#failure'
+  get 'auth/failure' => 'callbacks#failure'
+  get 'auth/signout' => 'callbacks#signout_google', as: :google_signout
 
   get 'token/:key' => 'tokens#show', as: :token
   get 'forget_password' => 'tokens#forget_password', as: :forget_psasword
