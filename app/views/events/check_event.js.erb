@@ -1,0 +1,2 @@
+$('#event-'+<%= @event.id %>).prop('checked',<%= @event.completed %>)
+$('#event-'+<%= @event.id %>).parents('tr').toggleClass('strikeout')

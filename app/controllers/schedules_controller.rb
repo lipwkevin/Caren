@@ -9,10 +9,23 @@ class SchedulesController < ApplicationController
     @completed=false;
     @schedule = current_user.schedules.first
     if @schedule.update params.require(:schedule).permit([:duration])
-      flash.now[:notice] = "Duration Updated"
-      @completed=true;
+      removeOutOfBoundTask()
+      flash[:notice] = "Duration Updated"
+      respond_to do |format|
+        format.js {render inline: "location.reload();" }
+      end
     else
       flash.now[:alert] =  @schedule.errors.full_messages.join("<br>")
+    end
+  end
+
+
+  def removeOutOfBoundTask
+    tasks = @schedule.tasks
+    tasks.each do |task|
+      if(task.day > @schedule.duration)
+        task.destroy
+      end
     end
   end
 end

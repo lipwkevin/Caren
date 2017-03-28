@@ -24,8 +24,7 @@ function setCheck(){
         crossDomain: true,
         dataType: "JSONP",
         success: function(data){
-          $('#event-'+data.id).prop('checked',data.completed)
-          $('#event-'+data.id).parents('tr').toggleClass('strikeout')
+
         },
         error: function(response){
           console.log("WARNING")

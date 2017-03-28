@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   before_action :authenticate_user
-  
+
   def new
     @event = Event.new
   end
@@ -67,6 +67,6 @@ class EventsController < ApplicationController
   def check_event
     event = Event.find params[:id]
     event.toggle!(:completed)
-    render :json => {completed:event.completed,id:event.id}
+    # render :json => {completed:event.completed,id:event.id}
   end
 end
