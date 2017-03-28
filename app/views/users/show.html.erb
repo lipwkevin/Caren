@@ -4,9 +4,13 @@
 <p />User ID: <%= @user.uid %>
 <p />User Email: <%= @user.email %>
 <p />Scheulde Duration : <%= @user.schedules.first.duration %>
+<p />p : <%= @user.provider %>
+<p />token : <%= @user.token %>
 <hr>
 <div class='row btn-group'>
   <div class='btn-group-vertical btn-group-lg'>
+    <%= current_user.provider.nil?%>
+    <%= current_user.token.nil?  %>
     <% if current_user.provider.nil? || current_user.token.nil? %>
     <%= link_to  "Sign In With Google","#{ENV["DOMAIN"]}/auth/google",  class:"btn btn-block btn-primary"%>
     <%else %>

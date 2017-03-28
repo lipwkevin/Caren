@@ -6,8 +6,8 @@ class CallbacksController < ApplicationController
   def google
     if current_user.provider.nil? || current_user.token.nil?
       auth = request.env["omniauth.auth"]
-      session[:token] = auth["credentials"]["token"]
-      expires_at = auth["credentials"]["expires_at"]
+      # session[:token] = auth["credentials"]["token"]
+      # expires_at = auth["credentials"]["expires_at"]
       refresh_token = auth["credentials"]["refresh_token"]
       gmail = auth["info"]["email"]
       current_user.update(provider:auth[:provider],
