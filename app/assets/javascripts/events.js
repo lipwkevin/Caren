@@ -19,8 +19,10 @@ function setCheck(){
   $(".table").on("change",".checkbox",function(){
     var id = $(this).attr("check-id");
     $.ajax({
-        type: "GET",
         url: $DOMAIN+"/events/check/"+id,
+        type: "GET",
+        crossDomain: true,
+        dataType: "JSONP",
         success: function(data){
           $('#event-'+data.id).prop('checked',data.completed)
           $('#event-'+data.id).parents('tr').toggleClass('strikeout')
