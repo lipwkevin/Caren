@@ -4,6 +4,7 @@ class CallbacksController < ApplicationController
   before_action :authenticate_user
 
   def google
+
     if current_user.provider.nil? || current_user.token.nil?
       auth = request.env["omniauth.auth"]
       # session[:token] = auth["credentials"]["token"]
@@ -14,7 +15,8 @@ class CallbacksController < ApplicationController
                             token:refresh_token,
                             calendar_email:gmail)
     end
-    redirect_to user_show_path
+    render :json => auth.to_json
+    # redirect_to user_show_path
   end
 
   def redirect
