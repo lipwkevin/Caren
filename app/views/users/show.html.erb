@@ -4,6 +4,9 @@
 <p />User ID: <%= @user.uid %>
 <p />User Email: <%= @user.email %>
 <p />Scheulde Duration : <%= @user.schedules.first.duration %>
+<% unless current_user.provider.nil? || current_user.token.nil? %>
+  <p /> Google Account: <%= @user.calendar_email %>
+<% end %>
 <hr>
 <div class='row btn-group'>
   <div class='btn-group-vertical btn-group-lg'>
