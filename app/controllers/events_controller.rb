@@ -68,5 +68,10 @@ class EventsController < ApplicationController
     event = Event.find params[:id]
     event.toggle!(:completed)
     # render :json => {completed:event.completed,id:event.id}
+    respond_to do |format|
+      format.html { render json: {event: event}}
+      format.json { render json: {event: event}}
+
+     end
   end
 end
