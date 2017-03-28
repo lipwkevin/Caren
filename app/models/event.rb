@@ -50,9 +50,19 @@ class Event < ApplicationRecord
           'date_time': combine_datetime(event[:date],event[:time])+1.hour,
           'time_zone': ENV["TIME_ZONE"]
         },
-        })
-        calendar.insert_event('primary', gevent)
-      end
+        "reminders":{
+          'use_default': 'false'
+       },
+        'source':{
+          title:"Caren",
+          url:ENV["DOMAIN"],
+        },
+        'visibility': "private",
+        'guests_can_invite_others': 'false',
+        'guests_can_see_other_guests': 'false',
+      })
+      calendar.insert_event('primary', gevent)
+    end
   end
 
   def get_color
