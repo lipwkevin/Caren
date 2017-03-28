@@ -67,11 +67,6 @@ class EventsController < ApplicationController
   def check_event
     event = Event.find params[:id]
     event.toggle!(:completed)
-    # render :json => {completed:event.completed,id:event.id}
-    respond_to do |format|
-      format.html { render json: {event: event}}
-      format.json { render json: {event: event}}
-
-     end
+    render :json => {completed:event.completed,id:event.id}
   end
 end
