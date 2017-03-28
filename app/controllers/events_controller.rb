@@ -15,7 +15,7 @@ class EventsController < ApplicationController
         Event.save_to_google(current_user.token,[{date:@event.date,
         time:@event.time,
         remarks:@event.remarks,
-        name:@event.name}])
+        name:@event.name}],current_user.calID)
       end
       # redirect_to calendar_show_path, notice: 'Event Added'
       flash[:notice]= 'Event Added'

@@ -24,7 +24,7 @@ class Event < ApplicationRecord
   end
 
 
-  def self.save_to_google(token,events)
+  def self.save_to_google(token,events,calID)
     client = Signet::OAuth2::Client.new({
       client_id: ENV["GOOGLE_CLIENT_ID"],
       client_secret:  ENV["GOOGLE_CLIENT_SECRET"],
@@ -61,7 +61,7 @@ class Event < ApplicationRecord
         'guests_can_invite_others': 'false',
         'guests_can_see_other_guests': 'false',
       })
-      calendar.insert_event('primary', gevent)
+      calendar.insert_event(calID, gevent)
     end
   end
 
