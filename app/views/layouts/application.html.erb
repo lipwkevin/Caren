@@ -26,7 +26,7 @@
       </div>
 
         <div class="navbar-collapse collapse" id="caren-navbar">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav justify-content-center">
             <li class='navbar-item'><%= link_to 'Home',root_path %></li>
             <% if user_signed_in? %>
               <li class='navbar-item calendar-menu'><%= link_to 'Calendar',calendar_show_path %></li>
