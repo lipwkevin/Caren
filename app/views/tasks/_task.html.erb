@@ -1,7 +1,7 @@
 <tr id='task-<%= task.id %>'>
-  <td /> <%= task.name %>
-  <td /> Day <%= task.day %>
-  <td class="med-<%= task.get_color %>"/> <%= task.time.strftime("%I:%M%p") %>
+  <td class='day-col'/> Day <%= task.day %>
+  <td class="med-<%= task.get_color %> time-col"/> <%= task.time.strftime("%I:%M%p") %>
+    <td /> <%= task.name %>
   <td /> <%= task.remark %>
   <td /> <%= task.category %>
   <td>
