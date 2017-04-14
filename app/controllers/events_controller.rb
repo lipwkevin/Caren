@@ -59,7 +59,7 @@ class EventsController < ApplicationController
       event_list.push(Event.addEvent(date,event.day,event.time,event.name,event.category,event.remark,current_user))
     end
     unless (current_user.provider.nil? || current_user.token.nil?)
-      Event.save_to_google(current_user.token,event_list)
+      Event.save_to_google(current_user.token,event_list,current_user.calID)
     end
     redirect_to calendar_show_path, notice: 'Schedule Added'
   end
