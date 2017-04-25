@@ -12,6 +12,7 @@ $(function(){
   // $('.datepicker').datepicker(
 
   // );
+  mergecell('time-col');
   $('.datepicker').on('change',function(){
     var date = $(this).val();
     document.cookie = "date="+date;
