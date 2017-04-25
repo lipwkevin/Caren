@@ -2,7 +2,7 @@ $(document).on("focus", ".datepicker",function(e){
   // debugger
   var date = $(this).val();
   $(this).datepicker({
-    dateFormat: "dd/mm/yy",
+    dateFormat: "mm/dd/yy",
     autoclose: true,
     setDate: date
   });
