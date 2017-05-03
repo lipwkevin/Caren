@@ -14,5 +14,8 @@ class DiariesController < ApplicationController
   end
 
   def destroy
+    @diary = Diary.find params[:id]
+    @diary.destroy
+    flash.now[:alert]  = 'task deleted!'
   end
 end
