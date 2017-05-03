@@ -17,7 +17,7 @@ class CalendarController < ApplicationController
   end
 
   def calendar_week
-
+    @date = cookies[:date]
   end
 
   def filter
