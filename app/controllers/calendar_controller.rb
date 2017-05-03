@@ -16,6 +16,10 @@ class CalendarController < ApplicationController
     @event = Event.new
   end
 
+  def calendar_week
+
+  end
+
   def filter
     cookies[:filters] = params[:filters]
     redirect_to calendar_show_path

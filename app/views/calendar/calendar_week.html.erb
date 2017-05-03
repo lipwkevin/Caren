@@ -31,7 +31,28 @@
   <hr>
   <div class='schedule-full'>
     <div class='schedule-detail'>
-      <%= render 'schedule', {events:@events,date:@date} %>
+      <table class = 'table table-bordered table-hover'>
+        <tr>
+          <th />
+          <th /> Mon
+          <th /> Tue
+          <th /> Wed
+          <th /> Thu
+          <th /> Fri
+          <th /> Sat
+          <th /> Sun
+        </tr>
+        <tr>
+          <td> Med 1
+          <td> <input type="checkbox">
+          <td>
+          <td> <input type="checkbox">
+          <td> <input type="checkbox">
+          <td>
+          <td>
+          <td> <input type="checkbox">
+        </tr>
+      </table>
     </div>
   </div>
 </div>

@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   get 'schedule/' => 'schedules#show', as: :schedule_show
   post 'schedule/update' => 'schedules#update', as: :schedule_update
   # get 'calendar/' => 'calendar#calendar', as: :calendar_show
+  get 'calendarWeekly' => 'calendar#calendar_week', as: :calendar_week_show
   get 'calendar/' => 'calendar#calendar', as: :calendar_show
   get 'calendar/run_schedule' => 'events#run_schedule', as: :run_schedule
   post 'calendar/filtered' => 'calendar#filter', as: :calendar_filter
