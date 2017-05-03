@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :schedules, dependent: :destroy
   has_many :events, dependent: :destroy
+  has_many :diaries, dependent: :destroy
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
@@ -43,12 +44,15 @@ class User < ApplicationRecord
     return events.where("category IN (?)",filters).where(date:date.to_date).order(:time)
   end
 
+  def get_Diaries(date)
+    return diaries.where(day:date.to_date)
+  end
   def get_duration
     ["Everyday"]+(0..(schedules.first.duration)).to_a
   end
 
-  def generate_tasks(name,time,category,remark)
-    return schedules.first.generate_tasks(name,time,category,remark)
+  def generate_tasks(name,time,category,remark,priority)
+    return schedules.first.generate_tasks(name,time,category,remark,priority)
   end
 
   private

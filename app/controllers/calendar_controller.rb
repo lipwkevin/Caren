@@ -8,10 +8,11 @@ class CalendarController < ApplicationController
 
   def calendar
     cookies[:date] = params[:date] unless (params[:date].nil? || params[:date]=="")
-    cookies[:date] = Date.today if (cookies[:date].nil?)
+    cookies[:date] = Date.today # if (cookies[:date].nil?)
     cookies[:filters] = Category.pluck(:name) if cookies[:filters].nil?
     @date = cookies[:date]
     @events = current_user.get_schedule_with_filter(@date,cookies[:filters].split("&"))
+    @diaries = current_user.get_Diaries(@date)
     @event = Event.new
   end
 

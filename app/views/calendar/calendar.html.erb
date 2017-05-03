@@ -34,6 +34,12 @@
       <%= render 'schedule', {events:@events,date:@date} %>
     </div>
   </div>
+  <hr>
+  <div class="diaries">
+    <%= render '/diaries/show',{diaries:@diaries} %>
+    <%= render "/diaries/form",{date:cookies[:date]}%>
+  </div>
+  <hr>
 </div>
 
 <%= render "/events/form",{date:cookies[:date],event:Event.new,task:'New Task',modal_name:"new-modal"}%>
@@ -42,4 +48,4 @@
 <div id = "edit-event">
 </div>
 
-<script>mergecell('time-col');</script>
+<!-- <script>mergecell('time-col');</script> -->

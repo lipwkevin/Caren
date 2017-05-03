@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    event_params = params.require(:event).permit(:name,:date,:time,:category,:remarks)
+    event_params = params.require(:event).permit(:name,:date,:time,:category,:remarks,:priority)
     @event = Event.new event_params
     @event.user = current_user
     if @event.save
@@ -32,7 +32,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find params[:id]
-    if @event.update params.require(:event).permit([:name,:date,:time,:category,:remarks])
+    if @event.update params.require(:event).permit([:name,:date,:time,:category,:remarks,:priority])
       flash[:notice] = 'Calendar updated'
       render "form_completed.js.erb"
     else

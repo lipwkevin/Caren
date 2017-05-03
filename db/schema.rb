@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170328232209) do
+ActiveRecord::Schema.define(version: 20170502230322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20170328232209) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "diaries", force: :cascade do |t|
+    t.date     "day"
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_diaries_on_user_id", using: :btree
   end
 
   create_table "events", force: :cascade do |t|
@@ -31,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170328232209) do
     t.text     "remarks"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
+    t.boolean  "priority",   default: false
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
@@ -51,6 +61,7 @@ ActiveRecord::Schema.define(version: 20170328232209) do
     t.integer  "schedule_id"
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
+    t.boolean  "priority",    default: false
     t.index ["schedule_id"], name: "index_tasks_on_schedule_id", using: :btree
   end
 
@@ -76,6 +87,7 @@ ActiveRecord::Schema.define(version: 20170328232209) do
     t.string   "calID"
   end
 
+  add_foreign_key "diaries", "users"
   add_foreign_key "events", "users"
   add_foreign_key "schedules", "users"
   add_foreign_key "tasks", "schedules"

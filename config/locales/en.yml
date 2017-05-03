@@ -22,7 +22,11 @@
 en:
   hello: "Hello world"
   date:
-    default: "%d/%m/%Y"
+    formats:
+      default: "%m/%d/%Y"
+  time:
+    formats:
+      default: "%m/%d/%Y"
   activerecord:
     attributes:
       user:

@@ -1,0 +1,18 @@
+<div class="diary">
+  <strong>
+    <span>Created
+      <%= diary.created_at.strftime("on %d/%m/%y at %H:%M:%S %p %Z%z") %>
+    </span>
+    <%= link_to diary_path(diary),
+                remote:true,
+                method: :delete,
+                data: { confirm: 'are you sure?' },
+                class: "pull-right" do %>
+      <span class="glyphicon glyphicon-trash remove-icon"></span>
+      <% end  %>
+  </strong>
+  <p>
+    <%= diary.content %>
+  </p>
+  <hr>
+</div>

@@ -15,6 +15,9 @@
           <div class="form-group">
             <%= f.label :name,"Name*" %>
             <%= f.text_field :name , class: "form-control" %>
+            <%= f.label :priority, class: "checkbox" do%>
+              <%= f.check_box :priority%>Important
+            <% end %>
             <%= f.label :date %>
             <%= f.text_field :date, {class: "form-control",id:"datepicker","data-behaviour":"datepicker",value:(date)} %>
             <%= f.label :time %>

@@ -1,6 +1,6 @@
 $(function(){
-  mergecell('day-col');
-  mergecell('time-col');
+  // mergecell('day-col');
+  // mergecell('time-col');
 });
 
 

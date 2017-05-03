@@ -1,0 +1,8 @@
+<div class="diary-form">
+  <%= form_tag diaries_path do |f|  %>
+    <div class="form-group">
+      <%= text_area_tag :content, nil, class: "form-control" %>
+    </div>
+    <%= submit_tag 'Create Diary', class: "btn btn-success" %>
+  <% end %>
+</div>

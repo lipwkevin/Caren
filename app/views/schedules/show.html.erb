@@ -18,7 +18,7 @@
       <th /> Edit
       <th /> Remove
     </tr>
-    <% @schedule.tasks.order(:day,:time).each do |task| %>
+    <% @schedule.tasks.order(day: :asc,priority: :desc,time: :asc).each do |task| %>
       <%= render('/tasks/task',{task:task}) %>
     <% end %>
   </table>

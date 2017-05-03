@@ -4,7 +4,7 @@ class TasksController < ApplicationController
 
   def create
     if params[:task][:day]!="Everyday"
-      task_params = params.require(:task).permit(:name,:day,:time,:category,:remark)
+      task_params = params.require(:task).permit(:name,:day,:time,:category,:remark,:priority)
       @schedule = current_user.schedules.first
       @task = Task.new task_params
       @task.schedule = @schedule
@@ -16,7 +16,7 @@ class TasksController < ApplicationController
         render "form_fail.js.erb"
       end
     else
-      if current_user.generate_tasks(params[:task][:name],params[:task][:time],params[:task][:category],params[:task][:remark])
+      if current_user.generate_tasks(params[:task][:name],params[:task][:time],params[:task][:category],params[:task][:remark],params[:task][:priority])
         redirect_to schedule_show_path, notice: 'Tasks Added'
       else
         flash[:alert] = 'Failed to add every day tasks'
@@ -31,7 +31,7 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find params[:id]
-    if @task.update params.require(:task).permit([:name,:day,:time,:category,:remark])
+    if @task.update params.require(:task).permit([:name,:day,:time,:category,:remark,:priority])
       flash[:notice]= 'Schedule updated'
       render "form_completed.js.erb"
     else

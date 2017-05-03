@@ -1,5 +1,4 @@
 $(document).on("focus", ".datepicker",function(e){
-  // debugger
   var date = $(this).val();
   $(this).datepicker({
     dateFormat: "mm/dd/yy",
