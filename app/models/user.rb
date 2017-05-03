@@ -44,6 +44,9 @@ class User < ApplicationRecord
     return events.where("category IN (?)",filters).where(date:date.to_date).order(:time)
   end
 
+  def get_week_schedule(startDate,endDate)
+    return events.where(:date => startDate..endDate)
+  end
   def get_Diaries(date)
     return diaries.where(day:date.to_date)
   end
