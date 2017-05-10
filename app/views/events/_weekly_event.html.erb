@@ -1,5 +1,10 @@
-<tr class='event-<%= event.id %> <%= event.get_strike %> event-row' >
-  <td class="med-<%= event.get_color %>"/> <%= event.time.strftime("%I:%M %p") %>
-  <td /> <%= event.name %>
-  <td /> <%= event.remarks %>
+<tr>
+  <td> <%= key %>
+  <td> <% if array.include?("Monday")%><input type="checkbox"><% end %>
+  <td> <% if array.include?("Tuesday")%><input type="checkbox"><% end %>
+  <td> <% if array.include?("Wednesday")%><input type="checkbox"><% end %>
+  <td> <% if array.include?("Thursday")%><input type="checkbox"><% end %>
+  <td> <% if array.include?("Friday")%><input type="checkbox"><% end %>
+  <td> <% if array.include?("Saturday")%><input type="checkbox"><% end %>
+  <td> <% if array.include?("Sunday")%><input type="checkbox"><% end %>
 </tr>

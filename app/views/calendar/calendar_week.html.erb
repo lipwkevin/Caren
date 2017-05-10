@@ -13,8 +13,9 @@
       <br>
       <p /> weekstart : <%= @weekStart %>
       <p /> weekend : <%= @weekEnd %>
-      <% @events.each do |event| %>
-        <p /><%= event.name %>
+      <% @events.each do |key,array| %>
+        <p /><%= key %>
+        <p /><%= array%>
       <% end %>
       <hr>
       WIP, not done yet
@@ -29,16 +30,9 @@
           <th /> Sat
           <th /> Sun
         </tr>
-        <tr>
-          <td> Med 1
-          <td> <input type="checkbox">
-          <td>
-          <td> <input type="checkbox">
-          <td> <input type="checkbox">
-          <td>
-          <td>
-          <td> <input type="checkbox">
-        </tr>
+        <% @events.each do |key,array| %>
+          <%= render('/events/weekly_event',{key:key,array:array}) %>
+        <% end %>
       </table>
     </div>
   </div>

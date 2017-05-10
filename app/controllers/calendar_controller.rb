@@ -10,7 +10,7 @@ class CalendarController < ApplicationController
     cookies[:date] = params[:date] unless (params[:date].nil? || params[:date]=="")
     cookies[:date] = Date.today if (cookies[:date].nil?)
     cookies[:filters] = Category.pluck(:name) if cookies[:filters].nil?
-    @date = cookies[:date]
+    @date = Date.strptime(cookies[:date],"%m/%d/%Y")
     @events = current_user.get_schedule_with_filter(@date,cookies[:filters].split("&"))
     @diaries = current_user.get_Diaries(@date)
     @event = Event.new
@@ -22,7 +22,11 @@ class CalendarController < ApplicationController
     @date = Date.strptime(cookies[:date],"%m/%d/%Y")
     @weekStart = @date.at_beginning_of_week
     @weekEnd = @date.at_end_of_week
-    @events = current_user.get_week_schedule(@weekStart,@weekEnd)
+    @events = Hash.new{|hash, key| hash[key] = Array.new;}
+    @results = current_user.get_week_schedule(@weekStart,@weekEnd)
+    @results.each do |result|
+      @events[result.name].push(result.date.strftime("%A"))
+    end
   end
 
   def filter

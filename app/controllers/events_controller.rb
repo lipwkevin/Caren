@@ -53,7 +53,7 @@ class EventsController < ApplicationController
 
   def run_schedule
     events = current_user.schedules.first.tasks
-    date = cookies[:date].to_date
+    date = Date.strptime(cookies[:date],"%m/%d/%Y")
     event_list = [];
     events.each do |event|
       event_list.push(Event.addEvent(date,event.day,event.time,event.name,event.category,event.remark,current_user))
