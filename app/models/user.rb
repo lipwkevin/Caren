@@ -37,11 +37,11 @@ class User < ApplicationRecord
   end
 
   def get_schedule(date)
-    return events.where(date:date.to_date).order(:time)
+    return events.where(date:date.to_date).order(priority: :desc,time: :desc)
   end
 
   def get_schedule_with_filter(date,filters)
-    return events.where("category IN (?)",filters).where(date:date.to_date).order(:time)
+    return events.where("category IN (?)",filters).where(date:date.to_date).order(priority: :desc,time: :asc)
   end
 
   def get_week_schedule(startDate,endDate)

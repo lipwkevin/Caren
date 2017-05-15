@@ -7,9 +7,10 @@ class EventsController < ApplicationController
   end
 
   def create
-    event_params = params.require(:event).permit(:name,:date,:time,:category,:remarks,:priority)
+    event_params = params.require(:event).permit(:name,:time,:category,:remarks,:priority)
     @event = Event.new event_params
     @event.user = current_user
+    @event.date = (Date.strptime(params[:event][:date],"%m/%d/%Y"))
     if @event.save
       unless current_user.provider.nil? || current_user.token.nil?
         Event.save_to_google(current_user.token,[{date:@event.date,
