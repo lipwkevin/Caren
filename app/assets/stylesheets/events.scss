@@ -13,7 +13,7 @@ tr {
     background-color: lightyellow;
   }
   .priority{
-    background-color: grey;
+    background-color: red;
   }
   td {
     vertical-align: middle!important;
@@ -28,7 +28,8 @@ tr.task-completed{
 }
 table           { border-collapse:collapse }
 tr.strikeout td { position:relative        }
-tr.strikeout td:not(.time-col):before {
+// tr.strikeout td:not(.time-col):before {
+tr.strikeout td:before {
   content: " ";
   position: absolute;
   left: 0; top: 50%; width: 100%;

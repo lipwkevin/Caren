@@ -23,14 +23,14 @@ class CalendarController < ApplicationController
     @weekStart = @date.at_beginning_of_week
     @weekEnd = @date.at_end_of_week
     @events = {}
-    @events[:priority] = Hash.new{|hash, key| hash[key] = Array.new}
-    @events[:regular] = Hash.new{|hash, key| hash[key] = Array.new}
+    @events[:priority] = Hash.new{|hash, key| hash[key] = {}}
+    @events[:regular] = Hash.new{|hash, key| hash[key] = {}}
     @results = current_user.get_week_schedule(@weekStart,@weekEnd)
     @results.each do |result|
       if result.priority?
-        @events[:priority][result.name].push(result.date.strftime("%A"))
+        @events[:priority][result.name][result.date.strftime("%A")] = {completed:result.completed,id:result.id}
       else
-        @events[:regular][result.name].push(result.date.strftime("%A"))
+        @events[:regular][result.name][result.date.strftime("%A")] = {completed:result.completed,id:result.id}
       end
     end
   end
