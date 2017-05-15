@@ -13,12 +13,7 @@
       <br>
       <p /> weekstart : <%= @weekStart %>
       <p /> weekend : <%= @weekEnd %>
-      <% @events.each do |key,array| %>
-        <p /><%= key %>
-        <p /><%= array%>
-      <% end %>
       <hr>
-      WIP, not done yet
       <table class = 'table table-bordered table-hover'>
         <tr>
           <th />
@@ -30,8 +25,11 @@
           <th /> Sat
           <th /> Sun
         </tr>
-        <% @events.each do |key,array| %>
-          <%= render('/events/weekly_event',{key:key,array:array}) %>
+        <% @events[:priority].each do |key,array| %>
+          <%= render('/events/weekly_event',{key:key,array:array,priority:true}) %>
+        <% end %>
+        <% @events[:regular].each do |key,array| %>
+          <%= render('/events/weekly_event',{key:key,array:array,priority:false}) %>
         <% end %>
       </table>
     </div>

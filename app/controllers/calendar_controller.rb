@@ -22,10 +22,16 @@ class CalendarController < ApplicationController
     @date = Date.strptime(cookies[:date],"%m/%d/%Y")
     @weekStart = @date.at_beginning_of_week
     @weekEnd = @date.at_end_of_week
-    @events = Hash.new{|hash, key| hash[key] = Array.new;}
+    @events = {}
+    @events[:priority] = Hash.new{|hash, key| hash[key] = Array.new}
+    @events[:regular] = Hash.new{|hash, key| hash[key] = Array.new}
     @results = current_user.get_week_schedule(@weekStart,@weekEnd)
     @results.each do |result|
-      @events[result.name].push(result.date.strftime("%A"))
+      if result.priority?
+        @events[:priority][result.name].push(result.date.strftime("%A"))
+      else
+        @events[:regular][result.name].push(result.date.strftime("%A"))
+      end
     end
   end
 

@@ -22,9 +22,9 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false },
                     format: VALID_EMAIL_REGEX
 
-  # validates :password, confirmation: true,
-                      #  presence: true,
-                      #  length: { minimum: 6 }
+  validates :password, confirmation: true,
+                       presence: true,
+                       length: { minimum: 3 }
 
   validates :first_name, presence: true
 
@@ -45,7 +45,7 @@ class User < ApplicationRecord
   end
 
   def get_week_schedule(startDate,endDate)
-    return events.where(:date => startDate..endDate)
+    return events.where(:date => startDate..endDate).order(:priority)
   end
   def get_Diaries(date)
     return diaries.where(day:date.to_date)
