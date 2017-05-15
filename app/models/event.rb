@@ -6,14 +6,15 @@ class Event < ApplicationRecord
   validates :time, presence: true
   validates :category, presence: true
 
-  def self.addEvent(day,offset,time,name,category,remarks,user)
+  def self.addEvent(day,offset,time,name,category,remarks,user,priority)
     Event.create({
       date:day+offset.to_i,
       time:time,
       name:name,
       category:category,
       remarks:remarks,
-      user:user
+      user:user,
+      priority:priority
       })
       return({
         date:day+offset.to_i,

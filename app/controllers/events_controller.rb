@@ -57,7 +57,7 @@ class EventsController < ApplicationController
     date = Date.strptime(cookies[:date],"%m/%d/%Y")
     event_list = [];
     events.each do |event|
-      event_list.push(Event.addEvent(date,event.day,event.time,event.name,event.category,event.remark,current_user))
+      event_list.push(Event.addEvent(date,event.day,event.time,event.name,event.category,event.remark,current_user,event.priority))
     end
     unless (current_user.provider.nil? || current_user.token.nil?)
       Event.save_to_google(current_user.token,event_list,current_user.calID)

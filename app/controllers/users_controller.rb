@@ -47,7 +47,6 @@ class UsersController < ApplicationController
   end
 
   def update_password
-    # byebug
     if params[:user][:password_new] != params[:user][:password_new_confirmation]
       flash.now[:alert]='Password and password confirm does not match'
     elsif current_user.authenticate(params[:user][:password_old])
@@ -64,7 +63,6 @@ class UsersController < ApplicationController
   end
 
   def reset_password_respond
-    # byebug
     token = Token.find_by(key:params[:key])
     user = User.find(token.target)
     if user.email == params[:user][:email]
