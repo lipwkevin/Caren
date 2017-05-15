@@ -35,6 +35,10 @@ class CalendarController < ApplicationController
     end
   end
 
+  def calendar_month
+
+  end
+
   def filter
     cookies[:filters] = params[:filters]
     redirect_to calendar_show_path
