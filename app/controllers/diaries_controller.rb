@@ -5,7 +5,7 @@ class DiariesController < ApplicationController
     diary = Diary.new
     diary.content = diary_params
     diary.user = current_user
-    diary.day = date
+    diary.day = Date.strptime(date,"%m/%d/%Y")
     if diary.save
      redirect_to calendar_show_path, notice: 'Diary added'
     else
