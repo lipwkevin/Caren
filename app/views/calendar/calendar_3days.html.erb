@@ -1,0 +1,48 @@
+<div class=' btn-group-justified btn-group-lg redirect-buttons'>
+  <div class="btn-group">
+    <%= link_to 'Daily',calendar_show_path,class:"btn btn-block btn-primary",method:"get"%>
+  </div>
+  <div class="btn-group">
+    <%= link_to '3 Days',calendar_3days_show_path,class:"btn btn-block btn-success",method:"get"%>
+  </div>
+  <div class="btn-group">
+    <%= link_to 'Weekly',calendar_week_show_path,class:"btn btn-block btn-primary",method:"get"%>
+  </div>
+  <div class="btn-group">
+    <%= link_to 'Monthly',calendar_month_show_path,class:"btn btn-block btn-primary",method:"get"%>
+  </div>
+</div>
+<br>
+<div class='date-info'>
+  <div class=container>
+    <div class="input-group date col-sm-8-offset-4" data-provide="datepicker">
+      <input type="text" class="form-control datepicker" value="<%= @date %>" readonly="true">
+      <div class="input-group-addon">
+          <span class="glyphicon glyphicon-th"></span>
+      </div>
+    </div>
+    <br>
+  </div>
+</div>
+<hr>
+<div class='container-fluid'>
+    <div class='row-fluid align-items-center'>
+      <div class="schedule">
+        <div class='schedule-detail col-sm-12 col-md-4  col-lg-4'>
+          <%= render '/calendar/simple_schedule',
+            {events:current_user.get_schedule(@date.yesterday),
+            date:"Schedule for #{@date.yesterday}"} %>
+        </div>
+        <div class='schedule-detail col-sm-12 col-md-4  col-lg-4'>
+          <%= render '/calendar/simple_schedule',
+            {events:current_user.get_schedule(@date),
+             date:"Schedule for #{@date}"} %>
+        </div>
+        <div class='schedule-detail col-sm-12 col-md-4  col-lg-4'>
+          <%= render '/calendar/simple_schedule',
+            {events:current_user.get_schedule(@date.tomorrow),
+            date:"Schedule for #{@date.tomorrow}"} %>
+        </div>
+      </div>
+    </div>
+</div>

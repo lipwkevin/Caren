@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   # get 'calendar/' => 'calendar#calendar', as: :calendar_show
   get 'calendarWeekly' => 'calendar#calendar_week', as: :calendar_week_show
   get 'calendarMothly' => 'calendar#calendar_month', as: :calendar_month_show
+  get 'calendar3Days' => 'calendar#calendar_3days', as: :calendar_3days_show
   get 'calendar/' => 'calendar#calendar', as: :calendar_show
   get 'calendar/run_schedule' => 'events#run_schedule', as: :run_schedule
   post 'calendar/filtered' => 'calendar#filter', as: :calendar_filter

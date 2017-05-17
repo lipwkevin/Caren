@@ -1,4 +1,19 @@
 <div class='calendar'>
+  <div class=' btn-group-justified btn-group-lg redirect-buttons'>
+    <div class="btn-group">
+      <%= link_to 'Daily',calendar_show_path,class:"btn btn-block btn-primary",method:"get"%>
+    </div>
+    <div class="btn-group">
+      <%= link_to '3 Days',calendar_3days_show_path,class:"btn btn-block btn-primary",method:"get"%>
+    </div>
+    <div class="btn-group">
+      <%= link_to 'Weekly',calendar_week_show_path,class:"btn btn-block btn-success",method:"get"%>
+    </div>
+    <div class="btn-group">
+      <%= link_to 'Monthly',calendar_month_show_path,class:"btn btn-block btn-primary",method:"get"%>
+    </div>
+  </div>
+  <br>
   <div class='schedule-full'>
     <div class='schedule-detail'>
       <h2> Week of <%= @date %> </h2>

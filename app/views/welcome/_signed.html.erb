@@ -2,20 +2,21 @@
 <p><%= "Current time is #{Date.today}" %></p>
 
 <hr>
+
+<!-- <script> mergecell('time-col'); </script> -->
+
+<h2> Things to do today </h2>
+
 <div class='container-fluid'>
     <div class='row-fluid align-items-center'>
       <div class="schedule">
+        <% Category.all.each do |category| %>
         <div class='schedule-detail col-sm-12 col-md-4  col-lg-4'>
-          <%= render '/calendar/simple_schedule', {events:current_user.get_schedule(Date.yesterday),date:"Yesterday"} %>
+          <%= render '/calendar/simple_schedule',
+          {events:current_user.get_schedule_with_filter(Date.today,category.name),
+            date:category.name} %>
         </div>
-        <div class='schedule-detail col-sm-12 col-md-4  col-lg-4'>
-          <%= render '/calendar/simple_schedule', {events:current_user.get_schedule(Date.today),date:"Today"} %>
-        </div>
-        <div class='schedule-detail col-sm-12 col-md-4  col-lg-4'>
-          <%= render '/calendar/simple_schedule', {events:current_user.get_schedule(Date.tomorrow),date:"Tomorrow"} %>
-        </div>
+        <% end %>
       </div>
     </div>
 </div>
-
-<!-- <script> mergecell('time-col'); </script> -->

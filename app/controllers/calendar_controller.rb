@@ -39,6 +39,12 @@ class CalendarController < ApplicationController
 
   end
 
+  def calendar_3days
+    cookies[:date] = params[:date] unless (params[:date].nil? || params[:date]=="")
+    cookies[:date] = Date.today if (cookies[:date].nil?)
+    @date = Date.strptime(cookies[:date],"%m/%d/%Y")
+  end
+
   def filter
     cookies[:filters] = params[:filters]
     redirect_to calendar_show_path
