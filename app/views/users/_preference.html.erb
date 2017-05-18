@@ -1,0 +1,27 @@
+<!-- Modal -->
+<div class="modal fade" id="preference" tabindex="-1" role="dialog" aria-labelledby="preference" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Preference
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for current_user , :url => user_preference_path,:method => :post,remote:true do |f| %>
+        <% formlist = ["Daily","3-Days","Weekly","Monthly"] %>
+          <div class="form-group">
+            <%= f.label :preference," Default Calendar Display" %>
+            <%= f.select :preference, formlist.map { |value| [ value, value ] },{}, class: "form-control" %>
+          </div>
+        </div>
+        <!--  -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= submit_tag 'Submit', class: "btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

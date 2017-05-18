@@ -2,6 +2,12 @@ class CalendarController < ApplicationController
 
   before_action :authenticate_user
 
+  def show
+    # redirect_to calendar_show_path
+    # redirect_to calendar_3days_show_path
+    # redirect_to calendar_week_show_path
+    redirect_to calendar_month_show_path
+  end
   def enter_calendar
     cookies[:date] = Date.today
   end

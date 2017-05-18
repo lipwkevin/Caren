@@ -50,8 +50,13 @@ class UsersController < ApplicationController
     if params[:user][:password_new] != params[:user][:password_new_confirmation]
       flash.now[:alert]='Password and password confirm does not match'
     elsif current_user.authenticate(params[:user][:password_old])
-      current_user.update(password:params[:user][:password_new],password_confirmation:params[:user][:password_new_confirmation])
-      flash.now[:notice]='Password Updated!'
+      current_user.password = params[:user][:password_new]
+      current_user.password_confirmation =params[:user][:password_new_confirmation]
+      if current_user.save
+        flash.now[:notice]='Password Updated!'
+      else
+        flash.now[:alert]=current_user.errors.full_messages.join(",")
+      end
     else
       flash.now[:alert]='Wrong Password!'
     end
@@ -59,7 +64,19 @@ class UsersController < ApplicationController
   end
 
   def reset_password
+  end
 
+  def set_preference
+    user_params = params.require(:user).permit([:preference])
+    @user = current_user
+    if @user.update user_params
+      flash.now[:notice]='Account updated!'
+      render "/layouts/display_flash.js.erb"
+    else
+      byebug
+      flash.now[:alert] = 'Please see errors below!'
+      render :update_failed
+    end
   end
 
   def reset_password_respond

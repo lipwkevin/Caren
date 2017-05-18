@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'user/edit/password' => 'users#edit_password', as: :user_password
   post 'user/edit/password' => 'users#update_password'
   post 'user/reset/' => 'users#reset_password_respond', as: :reset_password
+  post 'user/preference/' => 'users#set_preference', as: :user_preference
 
   resources :events, only: [:create,:new,:destroy,:edit,:update]
   get 'events/check/:id' => 'events#check_event', as: :check_event
@@ -37,11 +38,12 @@ Rails.application.routes.draw do
   get 'about' => 'welcome#about', as: :about
   get 'schedule/' => 'schedules#show', as: :schedule_show
   post 'schedule/update' => 'schedules#update', as: :schedule_update
-  # get 'calendar/' => 'calendar#calendar', as: :calendar_show
-  get 'calendarWeekly' => 'calendar#calendar_week', as: :calendar_week_show
-  get 'calendarMothly' => 'calendar#calendar_month', as: :calendar_month_show
-  get 'calendar3Days' => 'calendar#calendar_3days', as: :calendar_3days_show
-  get 'calendar/' => 'calendar#calendar', as: :calendar_show
+
+  get 'calendar/' => 'calendar#show', as: :calendar
+  get 'calendar/Daily' => 'calendar#calendar', as: :calendar_show
+  get 'calendar/Weekly' => 'calendar#calendar_week', as: :calendar_week_show
+  get 'calendar/Mothly' => 'calendar#calendar_month', as: :calendar_month_show
+  get 'calendar/3Days' => 'calendar#calendar_3days', as: :calendar_3days_show
   get 'calendar/run_schedule' => 'events#run_schedule', as: :run_schedule
   post 'calendar/filtered' => 'calendar#filter', as: :calendar_filter
 

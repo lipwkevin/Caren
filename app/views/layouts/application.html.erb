@@ -29,7 +29,7 @@
           <ul class="nav navbar-nav justify-content-center">
             <li class='navbar-item'><%= link_to 'Home',root_path %></li>
             <% if user_signed_in? %>
-              <li class="dropdown">
+              <!-- <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Calendar
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -38,7 +38,8 @@
                   <li class='navbar-item calendar-menu'><%= link_to 'Weekly',calendar_week_show_path %></li>
                   <li class='navbar-item calendar-menu'><%= link_to 'Monthly',calendar_month_show_path %></li>
                 </ul>
-              </li>
+              </li> -->
+              <li class='navbar-item'><%= link_to 'Calendar',calendar_path	 %></li>
               <li class='navbar-item'><%= link_to 'Schedule',schedule_show_path	 %></li>
               <li class='navbar-item'><%= link_to 'Account Info', user_show_path %></li>
             <% end %>

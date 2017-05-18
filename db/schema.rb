@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502230322) do
+ActiveRecord::Schema.define(version: 20170517215243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20170502230322) do
     t.string   "token"
     t.string   "calendar_email"
     t.string   "calID"
+    t.string   "preference",      default: "Daily"
   end
 
   add_foreign_key "diaries", "users"

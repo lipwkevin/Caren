@@ -23,8 +23,11 @@ class User < ApplicationRecord
                     format: VALID_EMAIL_REGEX
 
   validates :password, confirmation: true,
-                       presence: true,
-                       length: { minimum: 3 }
+                       length: { minimum: 6 },
+                       on: :create
+  validates :password, confirmation: true,
+                       length: { minimum: 6 },
+                       on: :update, if: :password_digest_changed?
 
   validates :first_name, presence: true
 
