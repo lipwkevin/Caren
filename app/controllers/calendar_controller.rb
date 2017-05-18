@@ -3,10 +3,18 @@ class CalendarController < ApplicationController
   before_action :authenticate_user
 
   def show
-    # redirect_to calendar_show_path
-    # redirect_to calendar_3days_show_path
-    # redirect_to calendar_week_show_path
-    redirect_to calendar_month_show_path
+    case current_user.preference
+    when "Daily"
+      redirect_to calendar_show_path
+    when "3-Days"
+      redirect_to calendar_3days_show_path
+    when "Weekly"
+      redirect_to calendar_week_show_path
+    when "Monthly"
+      redirect_to calendar_month_show_path
+    else
+      redirect_to root_path, alert:'Invalid action'
+    end
   end
   def enter_calendar
     cookies[:date] = Date.today
