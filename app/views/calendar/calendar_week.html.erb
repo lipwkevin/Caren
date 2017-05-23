@@ -41,6 +41,7 @@
           <th /> Sun
         </tr>
         <% @events[:priority].each do |key,array| %>
+        <% byebug %>
           <%= render('/events/weekly_event',{key:key,array:array,priority:true}) %>
         <% end %>
         <% @events[:regular].each do |key,array| %>

@@ -42,8 +42,10 @@ class CalendarController < ApplicationController
     @results = current_user.get_week_schedule(@weekStart,@weekEnd)
     @results.each do |result|
       if result.priority?
+        @events[:priority][result.name][:category]= result.category
         @events[:priority][result.name][result.date.strftime("%A")] = {completed:result.completed,id:result.id}
       else
+        @events[:regular][result.name][:category]= result.category
         @events[:regular][result.name][result.date.strftime("%A")] = {completed:result.completed,id:result.id}
       end
     end
