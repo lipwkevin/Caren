@@ -37,7 +37,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-              <li><p class="navbar-text">User: <%= current_user.uid %></p></li>
+              <li><p class="navbar-text">User: <%= current_user.name %></p></li>
               <li class='navbar-item'>
                 <%= link_to 'Sign out',
                   sessions_path,
