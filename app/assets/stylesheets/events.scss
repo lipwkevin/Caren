@@ -12,6 +12,9 @@
   color: yellow;
 }
 tr {
+  td{
+    font-family: Arial;
+  }
   .med-morning{
     background-color: lightgreen;
   }
@@ -22,7 +25,8 @@ tr {
     background-color: lightyellow;
   }
   .priority{
-    background-color: #6d6e71;
+    // background-color: #6d6e71;
+    background-color: lightgrey;
   }
   td {
     vertical-align: middle!important;
