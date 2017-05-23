@@ -8,29 +8,29 @@
     <% end %>
     <br>
     <%= form_for @user , :url => users_path, :method => :post do |f| %>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <%= f.label :uid,"User ID*" %>
         <%= f.text_field :uid, class: "form-control" %>
-      </div>
+      </div> -->
       <div class="form-group">
         <%= f.label :first_name %>
-        <%= f.text_field :first_name, class: "form-control" %>
+        <%= f.text_field :first_name, {class: "form-control",onclick: 'this.select();'} %>
       </div>
       <div class="form-group">
       <%= f.label :last_name %>
-        <%= f.text_field :last_name , class: "form-control"%>
+        <%= f.text_field :last_name , {class: "form-control",onclick: 'this.select();'}%>
       </div>
       <div class="form-group">
         <%= f.label :email,"Email*" %>
-        <%= f.text_field :email, class: "form-control" %>
+        <%= f.text_field :email, {class: "form-control",onclick: 'this.select();'} %>
       </div>
       <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password, class: "form-control" %>
+        <%= f.label :password,"Password *" %>
+        <%= f.password_field :password, {class: "form-control",onclick: 'this.select();'} %>
       </div>
       <div class="form-group">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: "form-control" %>
+        <%= f.label :password_confirmation,"Password Confirmation*" %>
+        <%= f.password_field :password_confirmation, {class: "form-control",onclick: 'this.select();'} %>
       </div>
       <div class="form-group">
         <%= link_to "Cancel", root_path, {:class=>"btn btn-danger"} %>

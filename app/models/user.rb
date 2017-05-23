@@ -10,10 +10,10 @@ class User < ApplicationRecord
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
-  validates :uid, presence: true,
-                    uniqueness: { case_sensitive: false,
-                                  message: 'must be unique' },
-                    length: { minimum: 3 }
+  # validates :uid, presence: true,
+  #                   uniqueness: { case_sensitive: false,
+  #                                 message: 'must be unique' },
+  #                   length: { minimum: 3 }
 
   validates :first_name, presence: true
   validates :last_name, presence: true
