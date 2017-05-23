@@ -6,7 +6,7 @@
 <!-- <script> mergecell('time-col'); </script> -->
 
 <h2> Things to do today </h2>
-
+<ul id='todo'></ul>
 <div class='container-fluid'>
     <div class='row-fluid align-items-center'>
       <div class="schedule">
@@ -15,6 +15,8 @@
           <% event = current_user.get_schedule_with_filter(Date.today,category.name) %>
           <% if !event.empty? %>
             <%= render '/calendar/simple_schedule',{events:event,date:category.name} %>
+          <% else %>
+            <script>$("#todo").append("<li> No <%= category.name %> for Today! </li>")</script>
           <% end %>
         </div>
         <% end %>

@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.Medicine{
+  color: red;
+}
+.Appointment{
+  color: blue;
+}
+.Infusion{
+  color: yellow;
+}
 tr {
   .med-morning{
     background-color: lightgreen;
@@ -13,7 +22,7 @@ tr {
     background-color: lightyellow;
   }
   .priority{
-    background-color: red;
+    background-color: #6d6e71;
   }
   td {
     vertical-align: middle!important;

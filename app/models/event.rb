@@ -81,6 +81,9 @@ class Event < ApplicationRecord
     return (completed)? "strikeout" : ""
   end
 
+  def get_category
+    return self.category
+  end
 
   def self.combine_datetime(date,time)
     datetime = time.change(day:date.day,month:date.month,year:date.year)
