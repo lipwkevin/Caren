@@ -3,11 +3,14 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_uid params[:uid]
+    user = User.find_by_email params[:email]
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       cookies[:filters] = Category.pluck(:name)
       redirect_to root_path, notice: 'Welcome'
+    elsif user.nil?
+      flash.now[:alert] = 'User not found'
+      render :new
     else
       flash.now[:alert] = 'Fail to log in, please try again'
       render :new
