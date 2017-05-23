@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       cookies[:filters] = Category.pluck(:name)
+      cookies[:date] = {value: Date.today.strftime('%m/%d/%Y'), path: '/calendar'}
       redirect_to root_path, notice: 'Welcome'
     elsif user.nil?
       flash.now[:alert] = 'User not found'
