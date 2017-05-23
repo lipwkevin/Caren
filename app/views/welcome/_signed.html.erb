@@ -1,11 +1,9 @@
-<h1><%= "Welcome #{current_user.name}" %></h1>
-<p><%= "Current time is #{Date.today}" %></p>
+<h3><%= "#{Date.today.strftime("%A, %B %d, %Y")}" %></h3>
 
 <hr>
 
 <!-- <script> mergecell('time-col'); </script> -->
 
-<h2> Things to do today </h2>
 <ul id='todo'></ul>
 <div class='container-fluid'>
     <div class='row-fluid align-items-center'>

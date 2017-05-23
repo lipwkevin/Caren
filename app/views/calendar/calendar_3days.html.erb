@@ -31,17 +31,17 @@
         <div class='schedule-detail col-sm-12 col-md-4  col-lg-4'>
           <%= render '/calendar/simple_schedule',
             {events:current_user.get_schedule(@date.yesterday),
-            date:"Schedule for #{@date.yesterday}"} %>
+            date:@date.yesterday.strftime("%A, %B %d, %Y")} %>
         </div>
         <div class='schedule-detail col-sm-12 col-md-4  col-lg-4'>
           <%= render '/calendar/simple_schedule',
             {events:current_user.get_schedule(@date),
-             date:"Schedule for #{@date}"} %>
+             date:@date.strftime("%A, %B %d, %Y")} %>
         </div>
         <div class='schedule-detail col-sm-12 col-md-4  col-lg-4'>
           <%= render '/calendar/simple_schedule',
             {events:current_user.get_schedule(@date.tomorrow),
-            date:"Schedule for #{@date.tomorrow}"} %>
+            date:@date.tomorrow.strftime("%A, %B %d, %Y")} %>
         </div>
       </div>
     </div>
