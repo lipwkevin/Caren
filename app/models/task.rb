@@ -17,4 +17,8 @@ class Task < ApplicationRecord
       return 'night'
     end
   end
+
+  def get_category
+    return self.category
+  end
 end
