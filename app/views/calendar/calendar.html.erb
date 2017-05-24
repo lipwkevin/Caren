@@ -14,10 +14,8 @@
     </div>
   </div>
   <br>
-  <div class='date-info'>
-    <div  id='calendar'>
-    </div>
-    <div class=container>
+  <div class='schedule-full'>
+    <div class='schedule-detail'>
       <div class="input-group date col-sm-8-offset-4" data-provide="datepicker">
         <input type="text" class="form-control datepicker" value="<%= @date %>" readonly="true">
         <div class="input-group-addon">
@@ -25,7 +23,7 @@
         </div>
       </div>
       <br>
-      <div class=' btn-group-justified btn-group-lg'>
+      <div class=' btn-group-justified btn-group-lg redirect-buttons'>
         <div class="btn-group">
         <%=link_to 'Execute Schedule',run_schedule_path,class:"btn btn-block btn-primary",method:"get"%>
         </div>

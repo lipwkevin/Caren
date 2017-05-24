@@ -15,15 +15,15 @@
               <% Category.all.each do |category| %>
                 <li>
                 <%= label_tag category.name %>
-                <%= check_box_tag 'filters[]', category.name,cookies[:filters].include?(category.name) %>
+                <%= check_box_tag 'filters[]', category.name,session[:filters].include?(category.name) %>
                 </li>
               <% end %>
             </ul>
           </div>
       </div>
       <div class="modal-footer">
-          <%= submit_tag "Submit",class: "btn btn-primary" %>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <%= submit_tag "Submit",class: "btn btn-primary" %>
           <% end %>
      </div>
     </div>

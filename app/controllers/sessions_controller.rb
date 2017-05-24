@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
     user = User.find_by_email params[:email]
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      cookies[:filters] = Category.pluck(:name)
+      session[:filters] = Category.pluck(:name)
+      session[:calendar] = nil
       cookies[:date] = {value: Date.today.strftime('%m/%d/%Y'), path: '/calendar'}
       redirect_to root_path, notice: 'Welcome'
     elsif user.nil?
