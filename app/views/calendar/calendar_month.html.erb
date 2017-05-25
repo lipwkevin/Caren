@@ -62,7 +62,9 @@
                       <div class='events'>
                         <% day[:events].each do |event| %>
                           <div class="event-label">
-                            <span class = '<%= event.get_category %>'><%= event.name %></span>
+                            <span class = '<%=event.get_category%> <%= event.priority ? "important" : "" %>'>
+                              <%= event.name %>
+                            </span>
                           </div>
                         <% end %>
                       </div>
