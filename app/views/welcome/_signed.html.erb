@@ -7,7 +7,15 @@
 <ul id='todo'></ul>
 <div class='container-fluid'>
     <div class="schedule row-fluid">
-      <% Category.all.each do |category| %>
+      <% event =  current_user.get_schedule(Date.today)%>
+      <% if !event.empty? %>
+        <div class='schedule-detail'>
+          <%= render '/calendar/simple_schedule',{events:event,date:Date.today} %>
+        </div>
+      <% else %>
+        <script>$("#todo").append("<li> No event for Today! </li>")</script>
+      <% end %>
+      <!-- <% Category.all.each do |category| %>
         <% event = current_user.get_schedule_with_filter(Date.today,category.name) %>
         <% if !event.empty? %>
           <div class='schedule-detail col-sm-12 col-md-4 col-lg-4'>
@@ -16,6 +24,6 @@
         <% else %>
           <script>$("#todo").append("<li> No <%= category.name %> for Today! </li>")</script>
         <% end %>
-      <% end %>
+      <% end %> -->
     </div>
 </div>
