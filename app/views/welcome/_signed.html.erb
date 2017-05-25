@@ -25,3 +25,32 @@
       <% end %> -->
     </div>
 </div>
+
+<div class='2week container-fluid'>
+  <div class="calendar">
+    <table class="table table-striped calendar-table table-bordered">
+      <% @date_range.each_slice(7) do |week| %>
+        <tr>
+          <% week.each do |day| %>
+            <td class="calendar-day">
+              <div>
+                <div class="date-label">
+                  <span><%= day[:date].day %></span>
+                </div>
+                <div class='events'>
+                  <% day[:events].each do |event| %>
+                    <div class="event-label">
+                      <span class = '<%=event.get_category%> <%= event.priority ? "important" : "" %>'>
+                        <%= event.time.strftime("%I:%M %p") %> <%= event.name %>
+                      </span>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
