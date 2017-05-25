@@ -49,3 +49,40 @@ tr.strikeout td:before {
   border-bottom: 3px solid #000;
   z-index: 2;
 }
+
+.calendar-table{
+  th{
+    font-size: medium;
+  }
+  .calendar-day{
+    padding: 0;
+    padding-top:5px;
+    height: 100px !important;
+    min-width: 70px;
+    max-width: 70px;
+    position: relative;
+    overflow: auto;
+    .date-label{
+      padding-bottom: 2px;
+      .false{
+        color: gray;
+        font-weight: normal;
+      }
+      color:black;
+      font-size: x-small;
+      font-weight: bold;
+      text-align: right;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .events{
+      height: 90px !important;
+      overflow-y: auto;
+      overflow-x: hidden;
+      .event-label{
+        font-size: initial;
+      }
+    }
+  }
+}

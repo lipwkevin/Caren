@@ -74,8 +74,6 @@ GEM
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.7.0)
-    faker (1.7.3)
-      i18n (~> 0.5)
     faraday (0.11.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
@@ -231,6 +229,8 @@ GEM
       faraday (~> 0.9)
       jwt (~> 1.5)
       multi_json (~> 1.10)
+    simple_calendar (2.2.5)
+      rails (>= 3.0)
     simple_form (3.4.0)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
@@ -277,7 +277,6 @@ DEPENDENCIES
   cancancan
   chosen-rails
   coffee-rails (~> 4.2)
-  faker
   font-awesome-rails
   friendly_id
   google-api-client (= 0.9.1)
@@ -297,6 +296,7 @@ DEPENDENCIES
   rails-erd
   rails_12factor
   sass-rails (~> 5.0)
+  simple_calendar (~> 2.0)
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)

@@ -41,7 +41,7 @@ gem 'simple_form'
 gem 'rails_12factor', group: :production
 # gem 'bootstrap-datepicker-rails'
 gem 'momentjs-rails'
-gem 'faker'
+gem "simple_calendar", "~> 2.0"
 
 gem "omniauth-google-oauth2"
 gem 'google-api-client', '0.9.1', require: ['google/apis/calendar_v3', 'google/apis/plus_v1']

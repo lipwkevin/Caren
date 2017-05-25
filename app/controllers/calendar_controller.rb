@@ -51,6 +51,16 @@ class CalendarController < ApplicationController
   def calendar_month
     session[:calendar] = "Monthly"
     @date = Date.strptime(cookies[:date],"%m/%d/%Y")
+    startDate = @date.beginning_of_month.beginning_of_week
+    endDate = @date.end_of_month.end_of_week
+    @date_range = []
+    (startDate..endDate).map{|date| @date_range.push({
+      date: date,
+      active: (date.month == @date.month),
+      events: current_user.get_schedule_with_filter(date,session[:filters])
+    })}
+    # events =
+
   end
 
   def calendar_3days
