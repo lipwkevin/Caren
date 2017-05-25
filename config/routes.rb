@@ -45,6 +45,6 @@ Rails.application.routes.draw do
   get 'calendar/Mothly' => 'calendar#calendar_month', as: :calendar_month_show
   get 'calendar/3Days' => 'calendar#calendar_3days', as: :calendar_3days_show
   get 'calendar/run_schedule' => 'events#run_schedule', as: :run_schedule
-  post 'calendar/filtered' => 'calendar#filter', as: :calendar_filter
+  get 'calendar/filtered' => 'calendar#filter', as: :calendar_filter
 
 end

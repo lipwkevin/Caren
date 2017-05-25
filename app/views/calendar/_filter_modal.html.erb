@@ -9,7 +9,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= form_tag calendar_filter_path,method: :post  do |f|  %>
+        <%= form_tag calendar_filter_path,method: :get  do |f|  %>
           <div class="form-group">
             <ul class='lists'>
               <% Category.all.each do |category| %>
