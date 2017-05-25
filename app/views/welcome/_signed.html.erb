@@ -1,7 +1,5 @@
-<h3><%= "#{Date.today.strftime("%A, %B %d, %Y")}" %></h3>
-
-<hr>
-
+<!-- <h3><%= "#{Date.today.strftime("%A, %B %d, %Y")}" %></h3> -->
+<!-- <hr> -->
 <!-- <script> mergecell('time-col'); </script> -->
 
 <ul id='todo'></ul>
@@ -10,7 +8,7 @@
       <% event =  current_user.get_schedule(Date.today)%>
       <% if !event.empty? %>
         <div class='schedule-detail'>
-          <%= render '/calendar/simple_schedule',{events:event,date:Date.today} %>
+          <%= render '/calendar/simple_schedule',{events:event,date:Date.today.strftime("%A, %B %d, %Y")} %>
         </div>
       <% else %>
         <script>$("#todo").append("<li> No event for Today! </li>")</script>
