@@ -29,7 +29,8 @@ Rails.application.routes.draw do
   get 'forget_password' => 'tokens#forget_password', as: :forget_psasword
   post 'forget_password' => 'tokens#forget_password_respond'
 
-
+  get 'info' => 'info#show', as: :info
+  
   resources :tasks, only: [:create,:destroy,:edit,:update]
   resources :schedules,except:[:show], shallow:true do
   end

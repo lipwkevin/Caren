@@ -31,13 +31,14 @@
             <% if user_signed_in? %>
               <li class='navbar-item'><%= link_to 'Calendar',calendar_path	 %></li>
               <li class='navbar-item'><%= link_to 'Schedule',schedule_show_path	 %></li>
-              <li class='navbar-item'><%= link_to 'Settings', user_show_path %></li>
+              <li class='navbar-item'><%= link_to 'Information', info_path %></li>
             <% end %>
             <li class='navbar-item'><%= link_to 'About',about_path %></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <li><p class="navbar-text">User: <%= current_user.name %></p></li>
+              <li class='navbar-item'><%= link_to 'Settings', user_show_path %></li>
               <li class='navbar-item'>
                 <%= link_to 'Sign out',
                   sessions_path,
