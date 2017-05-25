@@ -1,7 +1,7 @@
 class DiariesController < ApplicationController
   def create
     diary_params = params[:content]
-    date = cookies[:date]
+    date = params[:date]
     diary = Diary.new
     diary.content = diary_params
     diary.user = current_user
