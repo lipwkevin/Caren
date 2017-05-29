@@ -73,7 +73,6 @@ class UsersController < ApplicationController
       flash.now[:notice]='Account updated!'
       render "/layouts/display_flash.js.erb"
     else
-      byebug
       flash.now[:alert] = 'Please see errors below!'
       render :update_failed
     end

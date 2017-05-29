@@ -41,6 +41,8 @@
       <!-- <br> -->
       <!-- <p /> weekstart : <%= @weekStart %> -->
       <!-- <p /> weekend : <%= @weekEnd %> -->
+      <br>
+      <%= render '/events/legend' %>
       <hr>
       <table class = 'table table-bordered table-hover'>
         <tr>
@@ -54,7 +56,6 @@
           <th /> Sun
         </tr>
         <% @events[:priority].each do |key,array| %>
-        <% byebug %>
           <%= render('/events/weekly_event',{key:key,array:array,priority:true}) %>
         <% end %>
         <% @events[:regular].each do |key,array| %>

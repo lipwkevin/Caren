@@ -25,8 +25,9 @@
       <% end %> -->
     </div>
 </div>
-
+<hr class='small-line'>
 <div class='2week container-fluid'>
+  <h3> Upcoming Schedule </h3>
   <div class="calendar">
     <table class="table table-striped calendar-table table-bordered">
       <% @date_range.each_slice(7) do |week| %>
@@ -41,7 +42,7 @@
                   <% day[:events].each do |event| %>
                     <div class="event-label">
                       <span class = '<%=event.get_category%> <%= event.priority ? "important" : "" %>'>
-                        <%= event.time.strftime("%I:%M %p") %> <%= event.name %>
+                        <%= event.time.strftime("%I:%M") %> <%= event.name %>
                       </span>
                     </div>
                   <% end %>

@@ -2,6 +2,40 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* basic positioning */
+.legend {
+  display: block;
+  ul{
+    list-style: none;
+    display: inline-flex;
+    padding: 5px;
+    border: 1px solid #000;
+    li {
+      // float: left;
+      margin-right: 10px;
+    }
+    span {
+      border: 1px solid #ccc;
+      float: left;
+      width: 12px;
+      height: 12px;
+      margin: 2px;
+    }
+    .Medicine{
+      background-color: red;
+    }
+    .Appointment{
+      background-color: blue;
+    }
+    .Infusion{
+      background-color: #f7bd00;
+    }
+    .priority{
+      font-weight: bold;
+    }
+  }
+}
+
 .Medicine{
   color: red;
 }
@@ -27,6 +61,7 @@ tr {
   .priority{
     // background-color: #6d6e71;
     background-color: lightgrey;
+    font-weight: bold;
   }
   td {
     vertical-align: middle!important;

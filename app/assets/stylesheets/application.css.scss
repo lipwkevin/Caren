@@ -37,9 +37,20 @@ body{
   }
   // background-color: #9fc2f9;
 }
-
+.date-display{
+  color:white;
+  position: absolute;
+  top:0;
+  right:0;
+  z-index: 99;
+}
 hr{
   border-color: #cecece;
+}
+
+hr.small-line{
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 .footer {
   background-color: #efefef;
