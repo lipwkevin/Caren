@@ -1,10 +1,10 @@
 <h1> My Info: </h1>
 <br>
 <p />User Name: <%= @user.name %>
-<p />User ID: <%= @user.uid %>
+<!-- <p />User ID: <%= @user.uid %> -->
 <p />User Email: <%= @user.email %>
 <p />Default Calendar: <%= @user.preference %> Calendar
-<p />Scheulde Duration : <%= @user.schedules.first.duration %>
+<!-- <p />Scheulde Duration : <%= @user.schedules.first.duration %> -->
 <% unless current_user.provider.nil? || current_user.token.nil? %>
   <p /> Google Account: <%= @user.calendar_email %>
 <% end %>
