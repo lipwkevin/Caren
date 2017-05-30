@@ -3,9 +3,15 @@
 <h3> Schedule Details </h3>
 <p /> Duration: <span id='schedule-duration'><%= @schedule.duration %></span>
 <br>
-<button type="button" class="btn-sm btn-primary" data-toggle="modal" data-target="#update-schedule">
+<button class=" btn btn-sm btn-primary" data-toggle="modal" data-target="#update-schedule">
   Update
 </button>
+<%= link_to 'Clear',
+            schedule_clear_path,
+            remote:true,
+            method: :get,
+            data: { confirm: 'are you sure?' },
+            class:"btn btn-sm btn-primary" %>
 <hr>
 <div class='row-fluid tasks'>
   <table id='userList' class = 'table table-bordered table-hover col-12 col-sm-4-offset-2'>

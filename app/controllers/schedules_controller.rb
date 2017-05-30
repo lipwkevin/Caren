@@ -19,6 +19,14 @@ class SchedulesController < ApplicationController
     end
   end
 
+  def clear
+    schedule = current_user.schedules.first
+    schedule.tasks.destroy_all
+    flash[:alert] = "Schedule Cleared"
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+    end
+  end
   private
   def removeOutOfBoundTask
     tasks = @schedule.tasks

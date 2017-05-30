@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   post 'forget_password' => 'tokens#forget_password_respond'
 
   get 'info' => 'info#show', as: :info
-  
+
   resources :tasks, only: [:create,:destroy,:edit,:update]
   resources :schedules,except:[:show], shallow:true do
   end
@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   get 'about' => 'welcome#about', as: :about
   get 'schedule/' => 'schedules#show', as: :schedule_show
   post 'schedule/update' => 'schedules#update', as: :schedule_update
+  get 'schedule/clear' => 'schedules#clear', as: :schedule_clear
 
   get 'calendar/' => 'calendar#show', as: :calendar
   get 'calendar/Daily' => 'calendar#calendar', as: :calendar_show
