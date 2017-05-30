@@ -17,10 +17,14 @@ class TasksController < ApplicationController
       end
     else
       if current_user.generate_tasks(params[:task][:name],params[:task][:time],params[:task][:category],params[:task][:remark],params[:task][:priority])
-        redirect_to schedule_show_path, notice: 'Tasks Added'
+        # redirect_to schedule_show_path, notice: 'Tasks Added'
+        flash[:notice]= 'Tasks Added'
+        render "form_completed.js.erb"
       else
-        flash[:alert] = 'Failed to add every day tasks'
-        render "/layouts/display_flash.js.erb"
+        # flash[:alert] = 'Failed to add every day tasks'
+        # render "/layouts/display_flash.js.erb"
+        @target = "new-modal"
+        render "form_fail.js.erb"
       end
     end
   end
