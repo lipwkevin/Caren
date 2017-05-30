@@ -29,6 +29,7 @@
 body{
   min-width: 560px;
   .body.container-fluid{
+    padding-top:10px;
     border: 1px solid #000;
     border-radius: 20px;
     min-width: 540px;
@@ -40,7 +41,8 @@ body{
   // background-color: #9fc2f9;
 }
 .date-display{
-  color:black;
+  // color:black;
+  color:white;
   position: absolute;
   top:0;
   right:0;
@@ -59,6 +61,9 @@ hr.small-line{
   text-align: center;
 }
 
+.navbar {
+  margin-bottom: 5px !important;
+}
 .navbar-nav{
   a{
     color: grey;
@@ -139,7 +144,8 @@ hr.small-line{
 }
 
 .logo{
-  color:purple !important;
+  // color:purple !important;
+  color:lightblue !important;
   font-size: 20px;
 }
 footer{
