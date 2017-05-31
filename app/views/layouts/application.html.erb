@@ -9,66 +9,80 @@
   </head>
 
   <body>
-
-    <nav class="navbar navbar-inverse ">
-    <!-- <nav class="navbar  "> -->
-    <div class="container-fluid">
-      <span class='date-display'>Current Date: <%= Date.today.strftime("%A, %B %d, %Y") %> </span>
-      <div class="navbar-header">
-        <a class="navbar-brand logo" rel="home" href="<%= root_path %>" title="Caren: Caring for People">
-          Caren
-        </a>
-        <button
-          type="button"
-          class="pull-left navbar-toggle collapsed"
-          data-toggle="collapse"
-          data-target="#caren-navbar">
-          <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-        </button>
+    <div class="wrapper">
+      <div class="box">
+        <!-- top nav -->
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+          <div class='container'>
+            <span class='date-display'>Current Date: <%= Date.today.strftime("%A, %B %d, %Y") %> </span>
+            <div class="navbar-header pull-left">
+              <a class="navbar-brand logo" rel="home" href="<%= root_path %>" title="Caren: Caring for People">
+                Caren
+              </a>
+            </div>
+            <div class="pull-right">
+              <ul class="nav navbar-nav pull-left">
+                <% if user_signed_in? %>
+                  <li class="navbar-text"><p>User: <%= current_user.name %></p></li>
+                  <li class='navbar-item'><%= link_to 'Settings', user_show_path %></li>
+                  <li class='navbar-item'>
+                    <%= link_to 'Sign out',
+                      sessions_path,
+                      method: :delete
+                      %>
+                    </li>
+                <% else %>
+                  <li><%= link_to 'Sign Up', new_user_path %></li>
+                  <li><%= link_to 'Sign In', new_session_path %></li>
+                <% end %>
+              </ul>
+            </div>
+        </div>
       </div>
-
-        <div class="navbar-collapse collapse" id="caren-navbar">
-          <ul class="nav navbar-nav justify-content-center">
-            <li class='navbar-item'><%= link_to 'Home',root_path %></li>
-            <% if user_signed_in? %>
-              <li class='navbar-item'><%= link_to 'Calendar',calendar_path	 %></li>
-              <li class='navbar-item'><%= link_to 'Schedule',schedule_show_path	 %></li>
-              <li class='navbar-item'><%= link_to 'Information', info_path %></li>
-            <% end %>
-            <li class='navbar-item'><%= link_to 'About',about_path %></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <% if user_signed_in? %>
-              <li><p class="navbar-text">User: <%= current_user.name %></p></li>
-              <li class='navbar-item'><%= link_to 'Settings', user_show_path %></li>
-              <li class='navbar-item'>
-                <%= link_to 'Sign out',
-                  sessions_path,
-                  method: :delete
-                  %>
-                </li>
-            <% else %>
-              <li><%= link_to 'Sign Up', new_user_path %></li>
-              <li><%= link_to 'Sign In', new_session_path %></li>
-            <% end %>
-          </ul>
+        <!-- /top nav -->
+        <div class="row row-offcanvas row-offcanvas-left">
+          <!-- sidebar -->
+          <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
+          	<ul class="nav">
+      			   <li><a href="#" data-toggle="offcanvas" class="visible-xs text-center"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+        	  </ul>
+            <ul class="nav hidden-xs" id="lg-menu">
+              <li class='navbar-item'><%= link_to 'Home',root_path %></li>
+              <% if user_signed_in? %>
+                <li class='navbar-item'><%= link_to 'Calendar',calendar_path	 %></li>
+                <li class='navbar-item'><%= link_to 'Schedule',schedule_show_path	 %></li>
+                <li class='navbar-item'><%= link_to 'Information', info_path %></li>
+              <% end %>
+              <li class='navbar-item'><%= link_to 'About',about_path %></li>
+            </ul>
+            <ul class="list-unstyled hidden-xs" id="sidebar-footer">
+            </ul>
+          	<!-- tiny only nav-->
+            <ul class="nav visible-xs" id="xs-menu">
+              	<!-- <li><a href="#featured" class="text-center"><i class="glyphicon glyphicon-list-alt"></i></a></li>
+                <li><a href="#stories" class="text-center"><i class="glyphicon glyphicon-list"></i></a></li>
+              	<li><a href="#" class="text-center"><i class="glyphicon glyphicon-paperclip"></i></a></li>
+                <li><a href="#" class="text-center"><i class="glyphicon glyphicon-refresh"></i></a></li> -->
+            </ul>
+          </div>
+            <!-- /sidebar -->
+          <div class="column col-sm-10 col-xs-11" id="main">
+              <div class="padding">
+                <div class="full col-sm-9">
+                  <div class="body container-fluid">
+                    <div id='notice_banner'><%= render "/layouts/flash" %></div>
+                    <%= yield %>
+                  </div>
+                </div>
+              </div>
+          </div>
         </div>
       </div>
     </div>
-  </nav>
-
-  <div class="body container-fluid">
-    <div id='notice_banner'><%= render "/layouts/flash" %></div>
-    <%= yield %>
-    <a href="javascript:" id="return-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
-  </div>
-
   </body>
-
   <footer>
     <div class="panel-footer footer navbar-fixed-bottom">
       <span class='foot-span'>Caren: Caring for people</span>
     </div>
   </footer>
-
 </html>

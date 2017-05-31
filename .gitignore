@@ -20,3 +20,4 @@
 
 /config/local_env.yml
 /config/initializers/keys.rb
+/app/views/layouts/application.html_.erb
