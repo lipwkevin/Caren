@@ -31,8 +31,8 @@
                   class:'navbar-item navbar-btn'
                   %>
               <% else %>
-                <div><%= link_to 'Sign Up', new_user_path %></div>
-                <div><%= link_to 'Sign In', new_session_path %></div>
+                <%= link_to 'Sign Up', new_user_path ,class:'navbar-item navbar-btn'%>
+                <%= link_to 'Sign In', new_session_path ,class:'navbar-item navbar-btn'%>
               <% end %>
             </div>
           </div>

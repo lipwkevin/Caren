@@ -9,13 +9,20 @@ class UsersController < ApplicationController
   def create
     user_params = params.require(:user).permit([:uid,:first_name,:last_name, :email,:password,:password_confirmation])
     @user = User.new user_params
-    if @user.save
-      # create a new schedule
-      # to-do
-      Schedule.create(user:@user)
-     session[:user_id] = @user.id
-     redirect_to root_path, notice: 'Thankyou for signing up'
+
+    if(params["terms"])
+      if @user.save
+        # create a new schedule
+        # to-do
+        Schedule.create(user:@user)
+       session[:user_id] = @user.id
+       redirect_to root_path, notice: 'Thankyou for signing up'
+      else
+        byebug
+        render :new
+      end
     else
+      flash.now[:alert]='Please Agree term of user'
       render :new
     end
   end

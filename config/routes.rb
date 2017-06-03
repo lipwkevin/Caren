@@ -37,6 +37,8 @@ Rails.application.routes.draw do
   resources :diaries, only: [:create,:destroy]
   root 'welcome#home'
   get 'about' => 'welcome#about', as: :about
+  get 'terms' => 'welcome#terms', as: :terms
+
   get 'schedule/' => 'schedules#show', as: :schedule_show
   post 'schedule/update' => 'schedules#update', as: :schedule_update
   get 'schedule/clear' => 'schedules#clear', as: :schedule_clear
