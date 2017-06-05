@@ -26,7 +26,9 @@ class TokensController < ApplicationController
         target:user.id,
         key:key
       )
-      @link = "#{ENV["DOMAIN"]}/token/#{key}"
+      link = "#{ENV["DOMAIN"]}/token/#{key}"
+      AppMailer.reset_password(user,link).deliver_now
+      @email = user.email
       render "forget_password_success"
     else
       render "forget_password_fail"
