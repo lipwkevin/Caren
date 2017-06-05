@@ -42,11 +42,18 @@ body{
 }
 .date-display{
   // color:black;
+  font-size: 2rem;
   color:white;
   position: absolute;
   top:0;
-  right:0;
+  left:0;
+  right: 0;
+  text-align: center;
+  // margin-right: 50%;
   z-index: 99;
+}
+.nav-title{
+  font-weight: bolder;
 }
 hr{
   border-color: #cecece;
@@ -75,7 +82,7 @@ hr.small-line{
     background-color: #999999;
   }
   .navbar-item{
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin: 0px;
     padding-left: 15px;
     padding-right: 15px;

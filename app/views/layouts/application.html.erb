@@ -23,7 +23,7 @@
           <div class="navbar-header pull-right">
             <div class='menu-item'>
               <% if user_signed_in? %>
-                <div class="navbar-item navbar-text"> User: <%= current_user.name %></div>
+                <div class="navbar-item navbar-text nav-title"> <%= current_user.name %></div>
                 <%= link_to 'Settings', user_show_path ,class:'navbar-item navbar-btn'%>
                 <%= link_to 'Sign out',
                   sessions_path,
