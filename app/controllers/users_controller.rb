@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_user,except:[:new,:create]
+  before_action :authenticate_user,except:[:new,:create,:reset_password_respond]
 
   def new
     @user = User.new
@@ -70,9 +70,6 @@ class UsersController < ApplicationController
     render "/layouts/display_flash.js.erb"
   end
 
-  def reset_password
-  end
-
   def set_preference
     user_params = params.require(:user).permit([:preference])
     @user = current_user
@@ -88,11 +85,19 @@ class UsersController < ApplicationController
   def reset_password_respond
     token = Token.find_by(key:params[:key])
     user = User.find(token.target)
+    error = [];
     if user.email == params[:user][:email]
-      user.update(password:params[:user][:password_new],password_confirmation:params[:user][:password_new_confirmation])
-      token.destroy
+      if user.update(password:params[:user][:password_new],password_confirmation:params[:user][:password_new_confirmation])
+        token.destroy
+        flash[:notice] = "Password has been reset"
+        render js: "window.location = '#{root_path}'"
+        return
+      else
+        error.append(user.errors.full_messages)
+      end
     else
-      render "reset_password_fail"
+      error.push("Wrong Email")
     end
+    render "reset_password_fail",locals:{errors:error.flatten}
   end
 end

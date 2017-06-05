@@ -6,8 +6,9 @@ class TokensController < ApplicationController
     if token.nil?
       render :token_error
     elsif token.event==("PASSWORD")
-      session[:user_id] = token.target
-      render :template => 'users/reset_password', :locals => {key:key}
+      # session[:user_id] = token.target
+      user = User.find(token.target)
+      render :template => 'users/reset_password', :locals => {key:key,user:user}
     end
 
   end
