@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .schedule-full{
   div{
     margin-left: 2.5%;
@@ -10,16 +9,13 @@
   }
   display: inline;
 }
-
 .btn-group{
   padding-left: 5px;
   padding-right: 5px;
 }
 .ui-datepicker{
   width: 55rem!important;
-  // height: 50rem!important;
   font-size: 2rem!important;
-  // display: inline-block!important;
   table{
     max-width:100%;
     max-height:100%;

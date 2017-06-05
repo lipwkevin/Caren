@@ -21,21 +21,11 @@
       height: 12px;
       margin: 2px;
     }
-    .Medicine{
-      background-color: red;
-    }
-    .Appointment{
-      background-color: blue;
-    }
-    .Infusion{
-      background-color: #f7bd00;
-    }
     .priority{
       font-weight: bold;
     }
   }
 }
-
 .Medicine{
   color: red;
 }
@@ -70,10 +60,6 @@ tr {
     z-index: 1;
   }
 }
-
-tr.task-completed{
-  // text-decoration:line-through
-}
 table           { border-collapse:collapse }
 tr.strikeout td { position:relative        }
 // tr.strikeout td:not(.time-col):before {
@@ -84,7 +70,6 @@ tr.strikeout td:before {
   border-bottom: 3px solid #000;
   z-index: 2;
 }
-
 .calendar-table{
   th{
     font-size: medium;
