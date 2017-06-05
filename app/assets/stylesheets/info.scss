@@ -1,3 +1,20 @@
 // Place all the styles related to the info controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.user-info{
+  align-items: flex-end;
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  div{
+    // width: 50%;
+  }
+  .title{
+    font-weight: bold;
+  }
+  .content{
+    padding-left: 10px;
+  }
+}

@@ -15,8 +15,9 @@ class UsersController < ApplicationController
         # create a new schedule
         # to-do
         Schedule.create(user:@user)
-       session[:user_id] = @user.id
-       redirect_to root_path, notice: 'Thankyou for signing up'
+        Setting.create(user:@user)
+        session[:user_id] = @user.id
+        redirect_to root_path, notice: 'Thankyou for signing up'
       else
         byebug
         render :new

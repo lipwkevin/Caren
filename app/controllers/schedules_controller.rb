@@ -9,6 +9,7 @@ class SchedulesController < ApplicationController
     @completed=false;
     @schedule = current_user.schedules.first
     if @schedule.update params.require(:schedule).permit([:duration])
+      current_user.settings.update(duration: params[:schedule]["duration"])
       removeOutOfBoundTask()
       flash[:notice] = "Duration Updated"
       respond_to do |format|

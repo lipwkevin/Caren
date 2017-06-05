@@ -1,4 +1,7 @@
 class DiariesController < ApplicationController
+
+  before_action :authenticate_user
+
   def create
     diary_params = params[:content]
     date = params[:date]

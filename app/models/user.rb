@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :schedules, dependent: :destroy
   has_many :events, dependent: :destroy
   has_many :diaries, dependent: :destroy
+  has_many :settings, dependent: :destroy
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 

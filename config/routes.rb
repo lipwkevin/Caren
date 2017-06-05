@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   post 'forget_password' => 'tokens#forget_password_respond'
 
   get 'info' => 'info#show', as: :info
+  post 'info/update' => 'info#update', as: :info_update
 
   resources :tasks, only: [:create,:destroy,:edit,:update]
   resources :schedules,except:[:show], shallow:true do
