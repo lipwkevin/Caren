@@ -42,15 +42,15 @@
 <div class='container-fluid'>
     <div class='row-fluid align-items-center'>
       <div class="schedule">
-        <div class='schedule-detail col-sm-12 col-md-4  col-lg-4'>
+        <div class='schedule-detail col-sm-12 col-md-4'>
           <%= render '/calendar/simple_schedule',
             {events:@yesterday[:events],date:@yesterday[:date]} %>
         </div>
-        <div class='schedule-detail col-sm-12 col-md-4  col-lg-4'>
+        <div class='schedule-detail col-sm-12 col-md-4'>
           <%= render '/calendar/simple_schedule',
             {events:@today[:events],date:@today[:date]} %>
         </div>
-        <div class='schedule-detail col-sm-12 col-md-4  col-lg-4'>
+        <div class='schedule-detail col-sm-12 col-md-4'>
           <%= render '/calendar/simple_schedule',
             {events:@tomorrow[:events],date:@tomorrow[:date]} %>
         </div>
