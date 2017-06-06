@@ -17,7 +17,6 @@ class InfoController < ApplicationController
     @setting = current_user.settings.first
     if @setting.update setting_param
       flash[:notice]='Account updated!'
-      # render "/layouts/display_flash.js.erb"
       render :update_success
     else
       flash.now[:alert] = 'Please see errors below!'

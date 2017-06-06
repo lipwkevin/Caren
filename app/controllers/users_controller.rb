@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :authenticate_user,except:[:new,:create,:reset_password_respond]
+  before_action :authenticate_guess,only:[:new,:create,:reset_password_respond]
 
   def new
     @user = User.new

@@ -9,9 +9,12 @@
     <p class='title'/> Infusion Center:
     <p class='content'/> <%= @setting.infusion_center %>
     <p class='title'/> Infusion Location:
-    <p class='content'/> <%= @setting.address_line_1 %>
-    <p class='content'/> <%= @setting.address_line_2 unless @setting.address_line_2.nil? %>
-    <p class='content'/> <%= @setting.city+","+@setting.province unless @setting.province.nil?&&@setting.city.nil?%>
+    <p class='content'/> <%= "#{@setting.address_line_1}," unless @setting.address_line_1.nil? %>
+    <p class='content'/> <%= "#{@setting.address_line_2}," unless @setting.address_line_2.nil? %>
+    <p class='content'>
+      <span><%= "#{@setting.city},"  unless @setting.city.nil? %></span>
+      <span><%= "#{@setting.province}," unless @setting.province.nil?%> </span>
+    </p>
     <p class='content'/> <%= @setting.postal %>
   </div>
 </div>

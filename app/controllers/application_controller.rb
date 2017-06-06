@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, alert:'Please Log-in and try again' unless user_signed_in?
   end
 
+  def authenticate_guess
+    redirect_to :back, alert:'Invalid action' unless session[:user_id].nil?
+  end
+
   def user_signed_in?
     session[:user_id].present?
   end
