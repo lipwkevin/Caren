@@ -54,7 +54,7 @@
             <% @date_range.each_slice(7) do |week| %>
               <tr>
                 <% week.each do |day| %>
-                  <td class="calendar-day">
+                  <td class="calendar-day <%= day[:date]==@date ? 'date-mark' : '' %>">
                     <div>
                       <div class="date-label">
                         <span class="<%= day[:active] %>"><%= day[:date].day %></span>
