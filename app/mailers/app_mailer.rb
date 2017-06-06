@@ -1,8 +1,5 @@
 class AppMailer < ApplicationMailer
-  default from: 'from@example.com'
-  layout 'mailer'
-
-
+  default from: 'Caren Support'
   def reset_password(user,token)
     @user = user
     @link = token
