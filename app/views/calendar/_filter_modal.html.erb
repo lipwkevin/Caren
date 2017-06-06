@@ -1,24 +1,30 @@
 <!-- Modal -->
 <div class="modal fade" id="filter" tabindex="-1" role="dialog" aria-labelledby="my-Model-Label" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content filter-modal">
       <div class="modal-header">
-        <span class="modal-title" id="my-Modal-Label">Filter</span>
+        <h1>
+        <span class="modal-title" id="my-Modal-Label large">Filter</span>
         <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
+        </h1>
       </div>
       <div class="modal-body">
         <%= form_tag calendar_filter_path,method: :get  do |f|  %>
-          <div class="form-group">
-            <ul class='lists'>
-              <% Category.all.each do |category| %>
-                <li>
-                <%= label_tag category.name %>
-                <%= check_box_tag 'filters[]', category.name,session[:filters].include?(category.name) %>
-                </li>
-              <% end %>
-            </ul>
+          <div class="form-group filter-form">
+            <div>
+              <ul class='lists'>
+                <% Category.all.each do |category| %>
+                  <li class='content'>
+                    <div>
+                      <%= check_box_tag 'filters[]', category.name,session[:filters].include?(category.name) %>
+                      <%= label_tag category.name,category.name ,{class:category.name}%>
+                    </div>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
           </div>
       </div>
       <div class="modal-footer">

@@ -36,7 +36,7 @@
         <%# f.label :password_confirmation,"Password Confirmation*" %>
         <%= check_box_tag 'terms', true, false %>
         <%= label_tag do
-          "Agree #{link_to "Terms and Agreements", terms_path}".html_safe
+          "Agree #{link_to "Terms and Agreements", terms_path} *".html_safe
         end%>
       </div>
       <div class="form-group">
@@ -44,9 +44,5 @@
         <%= f.submit "Sign Up" ,{class:'btn btn-md btn-success'}%>
       </div>
     <% end %>
-    <h4>By signing up, you agreed that all information you entered will
-      be stored on Heroku Database and all connection has encrypted
-      through SSL (provided by Heroku),the developers are not respondible
-      for any information leak</h4>
   </div>
 </div>

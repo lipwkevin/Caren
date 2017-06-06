@@ -14,7 +14,11 @@
   padding-right: 5px;
 }
 .ui-datepicker{
-  width: 55rem!important;
+  width: 17em;
+  // padding: .2em .2em 0;
+  display: none;
+  // width: 55rem!important;
+  width: 66.6%!important;
   font-size: 2rem!important;
   table{
     max-width:100%;
@@ -28,4 +32,25 @@
 
 .date-mark{
   background-color: lightyellow;
+}
+
+.filter-modal{
+  // width: 5
+  h1{
+    margin: 0px;
+  }
+}
+.filter-form{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  ul{
+    display: inline-block;
+  }
+  .content{
+    display: flex;
+    padding:0
+  }
 }
