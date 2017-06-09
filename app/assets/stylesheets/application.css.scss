@@ -97,17 +97,25 @@ hr.small-line{
 .remove-icon,.close-btn{
   color: red;
 }
+
+.top-layer{
+  z-index: 99;
+}
+
 .close{
   margin-bottom: 0px;
   color:red;
 }
+
 .form-error{
   color: red
 }
+
 .redirect-buttons{
   padding-left: 10%;
   padding-right: 10%;
 }
+
 
 footer{
   font-size: 10px;
@@ -153,14 +161,13 @@ th{
    padding-left:0;
    padding-right:0;
 }
-#sidebar{
-  padding-left: 0px;
-  padding-right: 0px;
-}
+#sidebar{}
 #sidebar, #sidebar a{
     color:#ffffff;
     background-color:transparent;
-	  text-shadow:0 0 2px #000000;
+	  // text-shadow:0 0 2px #000000;
+    // padding-left:0px;
+    // padding-right:0px;
     padding-top:20px;
 }
 #sidebar .nav li>a:hover {
@@ -169,6 +176,7 @@ th{
 .col-sm-9.full {
     width: 100%;
 }
+
 /* adjust the contents on smaller devices */
 @media (max-width: 768px) {
   .column .padding {
@@ -178,6 +186,7 @@ th{
 	padding-top:20px;
   }
 }
+
 /*
  * off canvas sidebar
  * --------------------------------------------------
@@ -189,9 +198,11 @@ th{
     -moz-transition: all 0.25s ease-out;
     transition: all 0.25s ease-out;
   }
+
   .row-offcanvas-left.active {
     left: 33%;
   }
+
   .row-offcanvas-left.active .sidebar-offcanvas {
     left: -33%;
     position: absolute;
@@ -199,6 +210,7 @@ th{
     width: 33%;
     margin-left: 5px;
   }
+
   #sidebar, #sidebar a{
     padding-left:3px;
   }
