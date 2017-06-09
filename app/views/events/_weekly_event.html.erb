@@ -6,10 +6,12 @@
   <% week.each do |weekday| %>
   <td>
     <% if array.include?(weekday)%>
-    <input type="checkbox"
+    <!-- <input type="checkbox"
     id="checkbox-<%= (array[weekday][:id]) %>"
+    disabled="true"
     <%= (array[weekday][:completed])?"checked='true'":"" %>
-    >
+    > -->
+    TIME
     <% end %>
   <% end %>
 </tr>

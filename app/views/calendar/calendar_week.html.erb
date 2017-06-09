@@ -65,44 +65,6 @@
     </div>
   </div>
 </div>
-<hr>
-
-<div class='schedule-full'>
-  <div class='schedule-detail'>
-    <div class="calendar">
-        <table class="table table-striped calendar-table table-bordered">
-          <tr>
-            <% @date_range.slice(0, 7).each do |day| %>
-              <th><%= t('date.abbr_day_names')[day[:date].wday] %></th>
-            <% end %>
-          </tr>
-
-          <% @date_range.each_slice(7) do |week| %>
-            <tr>
-              <% week.each do |day| %>
-                <td class="calendar-day <%= day[:date]==@date ? 'date-mark' : '' %>">
-                  <div>
-                    <div class="date-label">
-                      <span class="<%= day[:active] %>"><%= day[:date].day %></span>
-                    </div>
-                    <div class='events'>
-                      <% day[:events].each do |event| %>
-                        <div class="event-label">
-                          <span class = '<%=event.get_category%> <%= event.priority ? "important" : "" %>'>
-                            <%= event.name %>
-                          </span>
-                        </div>
-                      <% end %>
-                    </div>
-                  </div>
-                </td>
-              <% end %>
-            </tr>
-          <% end %>
-        </table>
-    </div>
-  </div>
-</div>
 
 <%= render "/events/form",{date:cookies[:date],event:Event.new,task:'New Task',modal_name:"new-modal"}%>
 

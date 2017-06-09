@@ -1,5 +1,6 @@
 <tr class='event-<%= event.id %> <%= event.get_strike %> <%= event.get_category %> event-row' >
-  <td class="med-<%= event.get_color %> time-col"/> <%= event.time.strftime("%I:%M %p") %>
+  <td class="med-<%= event.get_color %> time-col"/>
+  <td class="time-col"/> <%= event.time.strftime("%I:%M %p") %>
   <td class=<%= event.priority ? "priority" : "" %> /> <%= event.name %>
   <td /> <%= event.remarks %>
   <td /> <input id='event-<%= event.id %>'class='checkbox' type="checkbox" check-id="<%= event.id %>" <%= (event.completed)?"checked='true'":"" %>>

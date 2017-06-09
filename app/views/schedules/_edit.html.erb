@@ -11,7 +11,7 @@
       <div class="modal-body">
           <%= form_for @schedule,remote:true do |f| %>
             <div class="form-group">
-              <%= f.label :duration %>
+              <%= f.label :duration,"Cycle Duration (Days)" %>
               <%= f.number_field :duration , class: "form-control",min:1 %>
             </div>
       </div>

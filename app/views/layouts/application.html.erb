@@ -47,9 +47,10 @@
             <ul class="nav hidden-xs" id="lg-menu">
               <li class='navbar-item'><%= link_to 'Home',root_path %></li>
               <% if user_signed_in? %>
-                <li class='navbar-item'><%= link_to 'Calendar',calendar_path	 %></li>
-                <li class='navbar-item'><%= link_to 'Schedule',schedule_show_path	 %></li>
-                <li class='navbar-item'><%= link_to 'Information', info_path %></li>
+                <li class='navbar-item'><%= link_to 'My Calendar',calendar_path	 %></li>
+                <li class='navbar-item'><%= link_to 'My Cycle',schedule_show_path	 %></li>
+                <li class='navbar-item'><%= link_to 'My Diary',root_path	 %></li>
+                <li class='navbar-item'><%= link_to 'My Information', info_path %></li>
               <% end %>
               <li class='navbar-item'><%= link_to 'About',about_path %></li>
             </ul>
