@@ -1,0 +1,44 @@
+<div class="user-info">
+  <p class='title'/> Health Care Personal :
+  <p class='content'/> <%= setting.provider %>
+  <div class="no-show" id="setting-<%= setting.id %>">
+    <p class='title'/> Phone Number :
+    <p class='content'/> <%= setting.phone %>
+    <p class='title'/> Fax :
+    <p class='content'/> <%= setting.fax %>
+    <p class='title'/> Email :
+    <p class='content'/> <%= setting.email %>
+    <p class='title'/> Schedule Duration :
+    <p class='content'/> <%= setting.duration %> Days
+    <p class='title'/> Doctor:
+    <p class='content'/> <%= setting.doctor %>
+    <p class='title'/> Infusion Center:
+    <p class='content'/> <%= setting.infusion_center %>
+    <p class='title'/> Infusion Location:
+    <p class='content'/> <%= "#{setting.address_line_1}," unless setting.address_line_1.empty? %>
+    <p class='content'/> <%= "#{setting.address_line_2}," unless setting.address_line_2.empty? %>
+    <p class='content'>
+      <span><%= "#{setting.city},"  unless setting.city.empty? %></span>
+      <span><%= "#{setting.province}," unless setting.province.empty?%> </span>
+    </p>
+    <p class='content'/> <%= setting.postal %>
+    <p class='title'/> Notes :
+    <p class='content'/> <%= setting.notes %>
+    <br>
+    <hr style="border-color:black">
+    <div class="row">
+      <div class='col-sm-12 col-md-6'>
+        <%= link_to "Setting",info_edit_path(setting),remote:true,class:"btn btn-success" %>
+      </div>
+      <div class='col-sm-12 col-md-6'>
+        <%= link_to info_destroy_path(setting),
+                    remote:true,
+                    method: :delete,
+                    data: { confirm: 'are you sure?' },
+                    class: "btn btn-danger" do %>
+          Delete
+          <% end  %>
+      </div>
+    </div>
+  </div>
+</div>

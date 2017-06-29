@@ -1,0 +1,3 @@
+$("#notice_banner").html('<%= j render partial: "layouts/flash" %>');
+var id = <%= @setting.id %>
+$("#setting-"+id).parent().parent().slideUp(500);

@@ -2,12 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+.modal-header{
+  .title{
+    font-size: 28px;
+  }
+  .close{
+    position: absolute;
+    right: 2%;
+    top: 1%;
+  }
+}
 .user-info{
+  padding-left:10px;
   align-items: flex-end;
-  display: flex;
+  // display: flex;
   justify-content: center;
-  text-align: left;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding:15px;
+  background-color: lightgrey;
+  p{
+    text-align: left;
+  }
+  .no-show{
+    display:none;
+  }
   .title{
     font-weight: bold;
   }

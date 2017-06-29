@@ -30,12 +30,15 @@ Rails.application.routes.draw do
   post 'forget_password' => 'tokens#forget_password_respond'
 
   get 'info' => 'info#show', as: :info
-  post 'info/update' => 'info#update', as: :info_update
+  get 'info/:id' => 'info#edit', as: :info_edit
+  post 'info/update/:id' => 'info#update', as: :info_update
+  post 'info/create' => 'info#create', as: :info_create
+  delete 'info/:id' => 'info#destroy', as: :info_destroy
 
   resources :tasks, only: [:create,:destroy,:edit,:update]
   resources :schedules,except:[:show], shallow:true do
   end
-  resources :diaries, only: [:create,:destroy]
+  resources :diaries, only: [:create,:destroy,:index]
   root 'welcome#home'
   get 'about' => 'welcome#about', as: :about
   get 'terms' => 'welcome#terms', as: :terms

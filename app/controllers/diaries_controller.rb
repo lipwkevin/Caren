@@ -21,6 +21,9 @@ class DiariesController < ApplicationController
     end
   end
 
+  def index
+    @diaries = current_user.diaries
+  end
   def destroy
     @diary = Diary.find params[:id]
     @diary.destroy

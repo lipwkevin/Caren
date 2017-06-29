@@ -49,6 +49,7 @@ hr.small-line{
 
 .navbar {
   margin-bottom: 0px !important;
+  background-color: lightslategray;
   .logo{
     // color:purple !important;
     color:lightblue !important;
@@ -69,6 +70,9 @@ hr.small-line{
     // margin-right: 50%;
     z-index: 99;
   }
+  .navbar-text{
+    color:black;
+  }
   .menu-item{
     height: $menu-height;
     line-height: $menu-height;
@@ -77,9 +81,9 @@ hr.small-line{
     .nav-title{
       font-weight: bolder;
     }
-    color: grey;
     .navbar-btn{
-      color:grey;
+      color: black;
+      // color:grey;
     }
     .navbar-btn:hover,:focus{
       background-color: #999999;

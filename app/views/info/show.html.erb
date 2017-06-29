@@ -1,29 +1,17 @@
 <h1> Information </h1>
 <br>
-<div class='user-info'>
-  <div>
-    <p class='title'/> Scheulde Duration :
-    <p class='content'/> <%= @setting.duration %> Days
-    <p class='title'/> Doctor:
-    <p class='content'/> <%= @setting.doctor %>
-    <p class='title'/> Infusion Center:
-    <p class='content'/> <%= @setting.infusion_center %>
-    <p class='title'/> Infusion Location:
-    <p class='content'/> <%= "#{@setting.address_line_1}," unless @setting.address_line_1.nil? %>
-    <p class='content'/> <%= "#{@setting.address_line_2}," unless @setting.address_line_2.nil? %>
-    <p class='content'>
-      <span><%= "#{@setting.city},"  unless @setting.city.nil? %></span>
-      <span><%= "#{@setting.province}," unless @setting.province.nil?%> </span>
-    </p>
-    <p class='content'/> <%= @setting.postal %>
+<div class="row">
+  <% @settings.each do |setting|  %>
+  <div class='col-sm-12 col-md-4'>
+    <%= render 'setting',{setting:setting} %>
   </div>
+  <% end %>
 </div>
-
 <hr>
 <div class='btn-group'>
   <div class='btn-group-vertical btn-group-lg'>
-    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#setting">
-      Settings
+    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#new">
+      New
     </button>
     <br>
     <br>
@@ -33,4 +21,7 @@
   </div>
 </div>
 
-<%= render 'setting_modal' %>
+<%= render 'setting_modal' ,{setting:Setting.new,url:info_create_path,text:"New Medical Info",modal_id:"new"}%>
+<div id="edit-modal">
+  <%= render 'setting_modal' ,{setting:Setting.new,url:"",text:"Edit Medical Info",modal_id:"edit"}%>
+</div>
