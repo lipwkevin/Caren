@@ -5,3 +5,20 @@
       <%= render('/diaries/diary',{diary:diary}) %>
     <% end %>
 </div>
+
+<div>
+  <div class="diary-form diary-index">
+    <%= form_tag diaries_path do |f|  %>
+      <%= hidden_field_tag :diary, true %>
+      <div class="form-group">
+        <%= label_tag 'date', "Date"%>
+        <%= text_field_tag :date,"",{class: "form-control",id:"datepicker","data-behaviour":"datepicker",placeholder:"Date : "} %>
+      </div>
+      <div class="form-group">
+        <%= text_area_tag :content, nil, {class: "form-control",placeholder:"Your Diary"} %>
+      </div>
+      <%= submit_tag 'Create Diary', class: "btn btn-success" %>
+    <% end %>
+  </div>
+
+</div>

@@ -16,5 +16,13 @@ $(function(){
     document.cookie = "date="+date;
     location.reload();
     // window.location = location.href += "?date="+date;
-  })
+  });
+  $("#switchViewBtn").on('click',function(){
+    $("#calendar-table").toggleClass("hidden");
+    $("#calendar-list").toggleClass("hidden");
+  });
 });
+
+function switchView(){
+  debugger;
+}

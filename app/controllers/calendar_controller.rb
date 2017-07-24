@@ -27,12 +27,33 @@ class CalendarController < ApplicationController
     @event = Event.new
   end
 
+  # def calendar_week
+  #   cookies[:date] = params[:date] unless (params[:date].nil? || params[:date]=="")
+  #   session[:calendar] = "Weekly"
+  #   @date = Date.strptime(cookies[:date],"%m/%d/%Y")
+  #   @weekStart = @date.at_beginning_of_week
+  #   @weekEnd = @date.at_end_of_week
+  #   @events = {}
+  #   @events[:priority] = Hash.new{|hash, key| hash[key] = {}}
+  #   @events[:regular] = Hash.new{|hash, key| hash[key] = {}}
+  #   @results = current_user.get_schedule_with_range(@weekStart,@weekEnd,session[:filters])
+  #   @results.each do |result|
+  #     if result.priority?
+  #       @events[:priority][result.name][:category]= result.category
+  #       @events[:priority][result.name][result.date.strftime("%A")] = {completed:result.completed,id:result.id}
+  #     else
+  #       @events[:regular][result.name][:category]= result.category
+  #       @events[:regular][result.name][result.date.strftime("%A")] = {completed:result.completed,id:result.id}
+  #     end
+  #   end
+  # end
   def calendar_week
+    @preference = current_user.preference_weekly
     cookies[:date] = params[:date] unless (params[:date].nil? || params[:date]=="")
     session[:calendar] = "Weekly"
     @date = Date.strptime(cookies[:date],"%m/%d/%Y")
-    @weekStart = @date.at_beginning_of_week
-    @weekEnd = @date.at_end_of_week
+    weekStart = @date.at_beginning_of_week
+    weekEnd = @date.at_end_of_week
     @events = {}
     @events[:priority] = Hash.new{|hash, key| hash[key] = {}}
     @events[:regular] = Hash.new{|hash, key| hash[key] = {}}
@@ -46,6 +67,12 @@ class CalendarController < ApplicationController
         @events[:regular][result.name][result.date.strftime("%A")] = {completed:result.completed,id:result.id}
       end
     end
+    @date_range = []
+    (weekStart..weekEnd).map{|date| @date_range.push({
+      date: date,
+      active: (date.month == @date.month),
+      events: current_user.get_schedule_with_filter(date,session[:filters])
+    })}
   end
 
   def calendar_month

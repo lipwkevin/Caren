@@ -72,7 +72,7 @@ class UsersController < ApplicationController
   end
 
   def set_preference
-    user_params = params.require(:user).permit([:preference])
+    user_params = params.require(:user).permit([:preference,:preference_weekly])
     @user = current_user
     if @user.update user_params
       flash.now[:notice]='Account updated!'

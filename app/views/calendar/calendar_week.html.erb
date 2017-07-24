@@ -38,30 +38,66 @@
           </button>
         </div>
       </div>
-      <!-- <br> -->
-      <!-- <p /> weekstart : <%= @weekStart %> -->
-      <!-- <p /> weekend : <%= @weekEnd %> -->
       <br>
-      <%= render '/events/legend' %>
+      <div>
+        <%= render '/events/legend' %>
+        <button class="pull-right btn" id="switchViewBtn">Switch View</button>
+      </div>
       <hr>
-      <table class = 'table table-bordered table-hover'>
-        <tr>
-          <th />
-          <th /> Mon
-          <th /> Tue
-          <th /> Wed
-          <th /> Thu
-          <th /> Fri
-          <th /> Sat
-          <th /> Sun
-        </tr>
-        <% @events[:priority].each do |key,array| %>
-          <%= render('/events/weekly_event',{key:key,array:array,priority:true}) %>
-        <% end %>
-        <% @events[:regular].each do |key,array| %>
-          <%= render('/events/weekly_event',{key:key,array:array,priority:false}) %>
-        <% end %>
-      </table>
+      <div class="calendar-week <%= (@preference!="Table" ? "hidden" : "") %>" id="calendar-list">
+        <h3>Table View</h3>
+        <table class = 'table table-bordered table-hover'>
+          <tr>
+            <th />
+            <th /> Mon
+            <th /> Tue
+            <th /> Wed
+            <th /> Thu
+            <th /> Fri
+            <th /> Sat
+            <th /> Sun
+          </tr>
+          <% @events[:priority].each do |key,array| %>
+            <%= render('/events/weekly_event',{key:key,array:array,priority:true}) %>
+          <% end %>
+          <% @events[:regular].each do |key,array| %>
+            <%= render('/events/weekly_event',{key:key,array:array,priority:false}) %>
+          <% end %>
+        </table>
+      </div>
+      <div class="calendar <%= (@preference=="Table" ? "hidden" : "") %>" id="calendar-table">
+          <h3>Calendar View</h3>
+          <table class="table table-striped calendar-table table-bordered">
+            <tr>
+              <% @date_range.slice(0, 7).each do |day| %>
+                <th><%= t('date.abbr_day_names')[day[:date].wday] %></th>
+              <% end %>
+            </tr>
+
+            <% @date_range.each_slice(7) do |week| %>
+              <tr>
+                <% week.each do |day| %>
+                  <td class="calendar-day <%= day[:date]==@date ? 'date-mark' : '' %>">
+                    <div>
+                      <div class="date-label">
+                        <span class="<%= day[:active] %>"><%= day[:date].day %></span>
+                      </div>
+                      <div class='events'>
+                        <% day[:events].each do |event| %>
+                          <div class="event-label">
+                            <span class = '<%=event.get_category%> <%= event.priority ? "important" : "" %>'>
+                              <%= event.name %>
+                            </span>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                  </td>
+                <% end %>
+              </tr>
+            <% end %>
+          </table>
+      </div>
     </div>
   </div>
 </div>

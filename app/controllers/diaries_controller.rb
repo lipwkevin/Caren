@@ -4,6 +4,7 @@ class DiariesController < ApplicationController
 
   def create
     diary_params = params[:content]
+    byebug
     date = params[:date]
     diary = Diary.new
     diary.content = diary_params
@@ -13,8 +14,11 @@ class DiariesController < ApplicationController
       redirect_to calendar_show_path, alert: 'Diary Cannot Be Empty'
       return
     elsif diary.save
-     redirect_to calendar_show_path, notice: 'Diary added'
-     return
+      if(params[:diary])
+        redirect_to diaries_path, notice: 'Diary added'
+      else
+        redirect_to calendar_show_path, notice: 'Diary added'
+      end
     else
       redirect_to calendar_show_path, alert: 'Unexpected Error'
       return

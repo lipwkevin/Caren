@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   resources :schedules,except:[:show], shallow:true do
   end
   resources :diaries, only: [:create,:destroy,:index]
+  
   root 'welcome#home'
   get 'about' => 'welcome#about', as: :about
   get 'terms' => 'welcome#terms', as: :terms

@@ -11,9 +11,14 @@
       <div class="modal-body">
         <%= form_for current_user , :url => user_preference_path,:method => :post,remote:true do |f| %>
         <% formlist = ["Daily","3-Days","Weekly","Monthly"] %>
+        <% preference_list = ["Table","Calendar"] %>
           <div class="form-group">
             <%= f.label :preference," Default Calendar Display" %>
             <%= f.select :preference, formlist.map { |value| [ value, value ] },{}, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :preference_weekly," Default Display for Weekly View" %>
+            <%= f.select :preference_weekly, preference_list.map { |value| [ value, value ] },{}, class: "form-control" %>
           </div>
         </div>
         <!--  -->
