@@ -9,25 +9,53 @@
         <h2 class="modal-title" id="my-Modal-Label"><%= task %></h2>
         <ul class='error-message form-error'>
         </ul>
+        <button class="pull-right btn" id="toggleRepeatBtn">Repeated Task</button>
       </div>
       <div class="modal-body">
         <%= form_for event,remote:true do |f| %>
           <div class="form-group">
-            <%= f.label :name,"Name*" %>
-            <%= f.text_field :name , class: "form-control" %>
-            <%= f.label :priority, class: "checkbox" do%>
-              <%= f.check_box :priority%>Important
-            <% end %>
-            <%= f.label :date %>
-            <%= f.text_field :date, {class: "form-control",id:"datepicker","data-behaviour":"datepicker",value:(date)} %>
-            <%= f.label :time %>
-            <%= f.time_field :time, {class: "form-control",id:"timepicker","data-behaviour":"timepicker"}  %>
-            <%= f.label :category %>
-            <%= f.collection_select(
-            :category, Category.all, :name, :name, {},
-            class: "form-control") %>
-            <%= f.label :remarks %>
-            <%= f.text_area :remarks, class: "form-control" %>
+            <div class="row">
+              <%= f.label :name,"Name*" %>
+              <%= f.text_field :name , class: "form-control" %>
+            </div>
+            <div id="RepeatForm" class="row hidden">
+              <hr>
+              <div id="repeatSelectionDiv" class="col-sm-6 col-xs-12 col-sm-offset-3">
+                <% repeatOption = ["One Time Event","Daily","Weekly","Monthly"] %>
+                <%= select_tag :repeat, options_for_select(repeatOption.collect{ |u| [u, u] }), {class: "form-control",id:"repeatSelector"} %>
+              </div>
+              <div id="repeatQuantityDiv" class="col-sm-6 col-xs-12 hidden">
+                <div class="form-control">
+                  <span>Repeat for <span>
+                  <%= number_field_tag 'quantity',nil,{class:"repeat-quantity-box", min: 1} %>
+                  <span id="repeatUnitIndex"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <%= f.label :priority, class: "checkbox" do%>
+                <%= f.check_box :priority%>Important
+              <% end %>
+              <%=  %>
+            </div>
+            <div class="row">
+              <%= f.label :date %>
+              <%= f.text_field :date, {class: "form-control",id:"datepicker","data-behaviour":"datepicker",value:(date)} %>
+            </div>
+            <div class="row">
+              <%= f.label :time %>
+              <%= f.time_field :time, {class: "form-control",id:"timepicker","data-behaviour":"timepicker"}  %>
+            </div>
+            <div class="row">
+              <%= f.label :category %>
+              <%= f.collection_select(
+              :category, Category.all, :name, :name, {},
+              class: "form-control") %>
+            </div>
+            <div class="row">
+              <%= f.label :remarks %>
+              <%= f.text_area :remarks, class: "form-control" %>
+            </div>
           </div>
       </div>
       <div class="modal-footer">

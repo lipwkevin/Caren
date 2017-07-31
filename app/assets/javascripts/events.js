@@ -13,6 +13,31 @@ $(function(){
     $(this).parent().siblings(".modal-body").children("form").trigger("submit.rails");
     console.log("wow");
   });
+  $("#toggleRepeatBtn").click(function(){
+    $("#RepeatForm").removeClass("hidden");
+  });
+  $("#repeatSelector").change(function(){
+      var repeatOption = $(this).val();
+      var response = "";
+      $("#repeatQuantityDiv").removeClass("hidden")
+      $("#repeatSelectionDiv").removeClass("col-sm-offset-3")
+      switch(repeatOption){
+        case "Daily":
+          response = "Days";
+          break;
+        case "Weekly":
+          response = "Weeks";
+          break;
+        case "Monthly":
+          response = "Months";
+          break;
+        default:
+        $("#repeatQuantityDiv").addClass("hidden")
+        $("#repeatSelectionDiv").addClass("col-sm-offset-3")
+          break;
+      }
+      $("#repeatUnitIndex").html(response);
+  });
 })
 function setCheck(){
   $(".table").on("change",".checkbox",function(){

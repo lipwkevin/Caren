@@ -9,24 +9,52 @@ class EventsController < ApplicationController
   def create
     event_params = params.require(:event).permit(:name,:time,:category,:remarks,:priority)
     @event = Event.new event_params
-    @event.user = current_user
     @event.date = (Date.strptime(params[:event][:date],"%m/%d/%Y"))
-    if @event.save
-      unless current_user.provider.nil? || current_user.token.nil?
-        Event.save_to_google(current_user.token,[{date:@event.date,
-        time:@event.time,
-        remarks:@event.remarks,
-        name:@event.name}],current_user.calID)
+    if (params["repeat"] == "One Time Event")
+      @event.user = current_user
+      if @event.save
+        unless current_user.provider.nil? || current_user.token.nil?
+          Event.save_to_google(current_user.token,[{date:@event.date,
+          time:@event.time,
+          remarks:@event.remarks,
+          name:@event.name}],current_user.calID)
+        end
+        # redirect_to calendar_show_path, notice: 'Event Added'
+        flash[:notice]= 'Event Added'
+        render "form_completed.js.erb"
+      else
+        @target = "new-modal"
+        render "form_fail.js.erb"
       end
-      # redirect_to calendar_show_path, notice: 'Event Added'
-      flash[:notice]= 'Event Added'
-      render "form_completed.js.erb"
     else
-      @target = "new-modal"
-      render "form_fail.js.erb"
+      quantity = params["quantity"];
+      repeat_option = params["repeat"]
+      case repeat_option
+      when "Daily"
+        puts "Daily"
+      when "Weekly"
+        puts "Weekly"
+      when "Monthly"
+        puts "Monthly"
+      else
+        @target = "new-modal"
+        render "form_fail.js.erb"
+      end
     end
   end
 
+  def repeatCreateEvent(event_params,date,offsetSelector,quantity)
+    offset = nil
+    case offsetSelector
+    when "Daily"
+      offset = quantity.days
+    when "Weekly"
+      offset = quantity.weeks
+    when "Monthly"
+      offset = quantity.months
+    end
+    
+  end
   def edit
     @event = Event.find params[:id]
   end
