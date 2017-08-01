@@ -8,8 +8,9 @@ class EventsController < ApplicationController
 
   def create
     event_params = params.require(:event).permit(:name,:time,:category,:remarks,:priority)
+    date = (Date.strptime(params[:event][:date],"%m/%d/%Y"))
     @event = Event.new event_params
-    @event.date = (Date.strptime(params[:event][:date],"%m/%d/%Y"))
+    @event.date = date
     if (params["repeat"] == "One Time Event")
       @event.user = current_user
       if @event.save
@@ -27,16 +28,14 @@ class EventsController < ApplicationController
         render "form_fail.js.erb"
       end
     else
-      quantity = params["quantity"];
+      quantity = params["quantity"].to_i;
       repeat_option = params["repeat"]
-      case repeat_option
-      when "Daily"
-        puts "Daily"
-      when "Weekly"
-        puts "Weekly"
-      when "Monthly"
-        puts "Monthly"
+      result = repeatCreateEvent(event_params,date,repeat_option,quantity)
+      if result.nil?
+        flash[:notice]= 'Events Added'
+        render "form_completed.js.erb"
       else
+        @event = result
         @target = "new-modal"
         render "form_fail.js.erb"
       end
@@ -47,14 +46,25 @@ class EventsController < ApplicationController
     offset = nil
     case offsetSelector
     when "Daily"
-      offset = quantity.days
+      offset = 1.days
     when "Weekly"
-      offset = quantity.weeks
+      offset = 1.weeks
     when "Monthly"
-      offset = quantity.months
+      offset = 1.months
     end
-    
+    quantity.times do
+      puts date
+      @event = Event.new event_params
+      @event.date = date
+      @event.user = current_user
+      unless @event.save
+        return @event
+      end
+      date+=offset
+    end
+    return nil
   end
+
   def edit
     @event = Event.find params[:id]
   end

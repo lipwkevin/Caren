@@ -49,19 +49,19 @@ hr.small-line{
 
 .navbar {
   margin-bottom: 0px !important;
-  background-color: lightslategray;
+  background-color: lightgrey;
   .logo{
-    // color:purple !important;
-    color:lightblue !important;
+    color:purple !important;
+    // color:lightblue !important;
     font-size: -webkit-xxx-large;
     height: $menu-height;
     display: flex;
     align-items: center
   }
   .date-display{
-    // color:black;
+    color:black;
     font-size: 2rem;
-    color:white;
+    // color:white;
     position: absolute;
     top:0;
     left:0;
@@ -155,7 +155,7 @@ th{
     position: absolute;
     right: 0;
     top: 0;
-    background-color:#444444;
+    // background-color:#444444;
     overflow: hidden;
     min-width: 460px;
 }
@@ -165,17 +165,24 @@ th{
    padding-left:0;
    padding-right:0;
 }
-#sidebar{}
+#sidebar{
+  border-right: 1px solid black;
+}
 #sidebar, #sidebar a{
-    color:#ffffff;
+    color:black;
     background-color:transparent;
 	  // text-shadow:0 0 2px #000000;
     // padding-left:0px;
     // padding-right:0px;
     padding-top:20px;
+    padding-left:0px;
+    padding-right: 0px;
+    .nav li>a{
+      padding-left: 20px;
+    }
 }
 #sidebar .nav li>a:hover {
-    background-color:#393939;
+    background-color:purple;
 }
 .col-sm-9.full {
     width: 100%;
