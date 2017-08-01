@@ -1,6 +1,6 @@
 <tr id='task-<%= task.id %>' class='<%= task.get_category %>'>
   <td class='day-col'/> Day <%= task.day %>
-  <td class='med-<%= task.get_color %>'/> <%= task.get_color %>
+  <td class="med-<%# task.get_color %> time-col" /> <%= image_tag(task.get_Icon, class:"timeIcon") %>
   <td class="time-col" day="<%= task.day %>"/> <%= task.time.strftime("%I:%M%p") %>
   <td class="<%= "priority" if task.priority %>"/> <%= task.name %>
   <td /> <%= task.remark %>

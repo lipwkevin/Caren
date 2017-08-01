@@ -18,6 +18,17 @@ class Task < ApplicationRecord
     end
   end
 
+  def get_Icon
+    t = time.hour
+    if (MORNING_START..NOON_START).cover? t
+      return 'dawn.png'
+    elsif (NOON_START..NIGHT_START).cover? t
+      return 'sun.png'
+    else
+      return 'night.png'
+    end
+  end
+  
   def get_category
     return self.category
   end
