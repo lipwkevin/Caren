@@ -57,7 +57,7 @@ class CalendarController < ApplicationController
     @events = {}
     @events[:priority] = Hash.new{|hash, key| hash[key] = {}}
     @events[:regular] = Hash.new{|hash, key| hash[key] = {}}
-    @results = current_user.get_schedule_with_range(@weekStart,@weekEnd,session[:filters])
+    @results = current_user.get_schedule_with_range(weekStart,weekEnd,session[:filters])
     @results.each do |result|
       if result.priority?
         @events[:priority][result.name][:category]= result.category
