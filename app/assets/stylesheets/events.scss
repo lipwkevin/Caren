@@ -36,7 +36,7 @@
   }
 }
 .Medicine{
-  color: red;
+  background-color: #5cb85c;
 }
 .Appointment{
   color: blue;
@@ -48,15 +48,15 @@ tr {
   td{
     font-family: Arial;
   }
-  .med-morning{
-    background-color: lightgreen;
-  }
-  .med-noon{
-    background-color: lightblue;
-  }
-  .med-night{
-    background-color: lightyellow;
-  }
+  // .med-morning{
+  //   background-color: lightgreen;
+  // }
+  // .med-noon{
+  //   background-color: lightblue;
+  // }
+  // .med-night{
+  //   background-color: lightyellow;
+  // }
   .priority{
     // background-color: #6d6e71;
     background-color: lightgrey;
