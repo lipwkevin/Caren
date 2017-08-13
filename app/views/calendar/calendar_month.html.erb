@@ -39,6 +39,9 @@
     </div>
   </div>
   <%= render '/events/legend' %>
+  <%= link_to  calendar_month_show(date:Date.today.to_s), method:"get" do %>
+    <button class="pull-right btn today-btn" id="todayBtn">Today</button>
+  <% end %>
   <hr>
   <div class='schedule-full'>
     <div class='schedule-detail'>
@@ -55,7 +58,7 @@
               <tr>
                 <% week.each do |day| %>
                   <td class="calendar-day <%= day[:date]==@date ? 'date-mark' : '' %>">
-                    <div>
+                    <div value='<%= day[:date]%>' class="calendar-div-<%= day[:active] %>">
                       <div class="date-label">
                         <span class="<%= day[:active] %>"><%= day[:date].day %></span>
                       </div>

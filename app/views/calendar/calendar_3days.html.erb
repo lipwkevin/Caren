@@ -38,6 +38,9 @@
   </div>
 </div>
 <%= render '/events/legend' %>
+<%= link_to  calendar_3days_show(date:Date.today.to_s), method:"get" do %>
+  <button class="pull-right btn today-btn" id="todayBtn">Today</button>
+<% end %>
 <hr>
 <div class='container-fluid'>
     <div class='row-fluid align-items-center'>

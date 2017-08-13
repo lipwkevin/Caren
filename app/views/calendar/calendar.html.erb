@@ -42,6 +42,9 @@
   </div>
   <hr>
   <%= render '/events/legend' %>
+  <%= link_to  calendar_show_path(date:Date.today.to_s), method:"get" do %>
+    <button class="pull-right btn today-btn" id="todayBtn">Today</button>
+  <% end %>
   <div class='schedule-full'>
     <div class='schedule-detail'>
       <%= render 'schedule', {events:@events,date:@date} %>
