@@ -28,13 +28,13 @@ $menu-height: 80px;
 body{
   min-width: 560px;
     .body.container-fluid{
-      padding-top:10px;
+      padding: 10px 0 40px 0;
+      margin-bottom: 70px;
       border: 1px solid #000;
       border-radius: 20px;
       min-width: 540px;
       min-height: 360px;
       width: auto !important;
-      padding-bottom: 40px;
       text-align: center;
     }
   // background-color: #9fc2f9;
