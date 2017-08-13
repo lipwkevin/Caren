@@ -4,9 +4,9 @@ Date::DATE_FORMATS.merge!(my_date_formats)
 
 ENV[""]
 
-MORNING_START = 6
+MORNING_START = 5
 NOON_START = 12
-NIGHT_START = 20
+NIGHT_START = 18
 
 
 SESSION_TIMEOUT = 30.minutes

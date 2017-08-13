@@ -4,14 +4,17 @@ class DiariesController < ApplicationController
 
   def create
     diary_params = params[:content]
-    byebug
     date = params[:date]
     diary = Diary.new
     diary.content = diary_params
     diary.user = current_user
     diary.day = Date.strptime(date,"%m/%d/%Y")
     if params[:content].empty? || params[:content].nil?
-      redirect_to calendar_show_path, alert: 'Diary Cannot Be Empty'
+      if(params[:diary])
+        redirect_to diaries_path, alert: 'Diary Cannot Be Empty'
+      else
+        redirect_to calendar_show_path, alert: 'Diary Cannot Be Empty'
+      end
       return
     elsif diary.save
       if(params[:diary])

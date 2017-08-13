@@ -20,6 +20,7 @@ $(function(){
   $("#switchViewBtn").on('click',function(){
     $("#calendar-table").toggleClass("hidden");
     $("#calendar-list").toggleClass("hidden");
+    $("#switchViewBtn").html($("#calendar-table").hasClass("hidden")? "Calendar View" : "Table View");
   });
 });
 

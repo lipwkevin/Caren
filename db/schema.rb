@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170724023002) do
+ActiveRecord::Schema.define(version: 20170813013325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,16 +54,14 @@ ActiveRecord::Schema.define(version: 20170724023002) do
 
   create_table "settings", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "duration",        default: 7
-    t.string   "doctor"
-    t.string   "infusion_center"
+    t.integer  "duration",       default: 7
     t.string   "address_line_1"
     t.string   "address_line_2"
     t.string   "city"
     t.string   "province"
     t.string   "postal"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "phone"
     t.string   "fax"
     t.string   "email"
@@ -106,7 +104,7 @@ ActiveRecord::Schema.define(version: 20170724023002) do
     t.string   "calendar_email"
     t.string   "calID"
     t.string   "preference",        default: "Daily"
-    t.string   "preference_weekly", default: "Table"
+    t.string   "preference_weekly", default: "Calendar"
   end
 
   add_foreign_key "diaries", "users"

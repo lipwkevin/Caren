@@ -41,7 +41,7 @@
       <br>
       <div>
         <%= render '/events/legend' %>
-        <button class="pull-right btn" id="switchViewBtn">Switch View</button>
+        <button class="pull-right btn" id="switchViewBtn"><%= (@preference!="Table" ?  "Table View" : "Calendar View") %></button>
       </div>
       <hr>
       <div class="calendar-week <%= (@preference!="Table" ? "hidden" : "") %>" id="calendar-list">

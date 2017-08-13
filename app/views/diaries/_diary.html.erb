@@ -1,8 +1,14 @@
 <div class="diary" id='diary-<%= diary.id %>'>
   <strong>
-    <span>Created
-      <%= diary.created_at.strftime("on %d/%m/%y at %H:%M:%S %p %Z%z") %>
-    </span>
+    <% if diary.day && diary.created_at.to_date != diary.day %>
+      <span>Created
+        <%= diary.day.strftime("for %d/%m/%y through My Diaries") %>
+      </span>
+    <% else %>
+      <span>Created
+        <%= diary.created_at.strftime("on %d/%m/%y at %H:%M:%S %p %Z%z") %>
+      </span>
+    <% end %>
     <%= link_to diary_path(diary),
                 remote:true,
                 method: :delete,
