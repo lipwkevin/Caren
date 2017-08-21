@@ -2,12 +2,18 @@
   <p class='title'/> Health Care Provider :
   <p class='content'/> <%= setting.provider %>
   <div class="no-show" id="setting-<%= setting.id %>">
+    <% unless (!setting.phone || setting.email.empty?) %>
     <p class='title'/> Phone Number :
     <p class='content'/> <%= setting.phone %>
+    <% end %>
+    <% unless (!setting.fax || setting.fax.empty?) %>
     <p class='title'/> Fax :
     <p class='content'/> <%= setting.fax %>
+    <% end %>
+    <% unless (!setting.email || setting.email.empty?) %>
     <p class='title'/> Email :
     <p class='content'/> <%= setting.email %>
+    <% end %>
     <p class='title'/> Address :
     <p class='content'/> <%= "#{setting.address_line_1}," unless (!setting.address_line_1 || setting.address_line_1.empty?) %>
     <p class='content'/> <%= "#{setting.address_line_2}," unless (!setting.address_line_1 || setting.address_line_2.empty?) %>
@@ -16,8 +22,10 @@
       <span><%= "#{setting.province}," unless (!setting.province || setting.province.empty?) %> </span>
     </p>
     <p class='content'/> <%= setting.postal %>
+    <% unless (!setting.notes || setting.notes.empty?) %>
     <p class='title'/> Notes :
     <p class='content'/> <%= setting.notes %>
+    <% end %>
     <br>
     <hr style="border-color:black">
     <div class="row">
