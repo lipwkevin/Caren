@@ -4,11 +4,6 @@ class InfoController < ApplicationController
 
   def show
     @settings = current_user.settings
-    # vvvvv this should be removed on final version
-    if @settings.nil?
-      @settings =[Setting.create(user:current_user)]
-    end
-    # ^^^^^ this should be removed on final version
   end
 
   def create

@@ -9,11 +9,11 @@
     <p class='title'/> Email :
     <p class='content'/> <%= setting.email %>
     <p class='title'/> Address :
-    <p class='content'/> <%= "#{setting.address_line_1}," unless setting.address_line_1.empty? %>
-    <p class='content'/> <%= "#{setting.address_line_2}," unless setting.address_line_2.empty? %>
+    <p class='content'/> <%= "#{setting.address_line_1}," unless (setting.address_line_1 && setting.address_line_1.empty?) %>
+    <p class='content'/> <%= "#{setting.address_line_2}," unless (setting.address_line_1 && setting.address_line_2.empty?) %>
     <p class='content'>
-      <span><%= "#{setting.city},"  unless setting.city.empty? %></span>
-      <span><%= "#{setting.province}," unless setting.province.empty?%> </span>
+      <span><%= "#{setting.city},"  unless (setting.city && setting.city.empty?) %></span>
+      <span><%= "#{setting.province}," unless (setting.province && setting.province.empty?) %> </span>
     </p>
     <p class='content'/> <%= setting.postal %>
     <p class='title'/> Notes :
