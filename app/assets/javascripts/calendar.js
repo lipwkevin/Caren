@@ -13,7 +13,7 @@ $(function(){
   // );
   $('.datepicker').on('change',function(){
     var date = $(this).val();
-    document.cookie = "date="+date;
+    $.cookie('date',date,{path:'/'});
     location.href = location.href.replace(/[\?].*/,'');
     // location.reload();
     // window.location = location.href += "?date="+date;

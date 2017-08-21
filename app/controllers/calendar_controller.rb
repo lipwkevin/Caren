@@ -22,10 +22,6 @@ class CalendarController < ApplicationController
     cookies[:date] = params[:date].gsub("\'", '') unless (params[:date].nil? || params[:date]=="")
     session[:calendar] = "Daily"
     @date = Date.strptime(cookies[:date],"%m/%d/%Y")
-    # @date=cookies[:date].to_date
-    # print cookies[:date].to_date
-    # debugger
-    # print Date.strptime(cookies[:date],"%m/%d/%Y")
     @events = current_user.get_schedule_with_filter(@date,session[:filters])
     @diaries = current_user.get_Diaries(@date)
     @event = Event.new
