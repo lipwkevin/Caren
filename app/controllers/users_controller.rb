@@ -14,9 +14,7 @@ class UsersController < ApplicationController
     if(params["terms"])
       if @user.save
         # create a new schedule
-        # to-do
         Schedule.create(user:@user)
-        Setting.create(user:@user)
         session[:user_id] = @user.id
         redirect_to root_path, notice: 'Thankyou for signing up'
       else
