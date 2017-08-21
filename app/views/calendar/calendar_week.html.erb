@@ -42,7 +42,7 @@
       <div>
         <%= render '/events/legend' %>
         <button class="pull-right btn" id="switchViewBtn"><%= (@preference!="Table" ?  "Table View" : "Calendar View") %></button>
-        <%= link_to  calendar_week_show(date:Date.today.to_s), method:"get" do %>
+        <%= link_to  calendar_week_show_path(date:Date.today.to_s), method:"get" do %>
           <button class="pull-right btn today-btn" id="todayBtn">Today</button>
         <% end %>
       </div>
